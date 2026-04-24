@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "General Sans";
+    --font-body: "DM Sans";
+    --font-mono: monospace;
+    --radius: 1rem;
+
+    --background: 0.98 0.01 0;
+    --foreground: 0.2 0.02 290;
+    --card: 0.99 0.01 0;
+    --card-foreground: 0.18 0.03 285;
+    --popover: 0.99 0 0;
+    --popover-foreground: 0.18 0.03 285;
+
+    --primary: 0.48 0.22 290;
+    --primary-foreground: 0.98 0.01 0;
+
+    --secondary: 0.7 0.18 290;
+    --secondary-foreground: 0.98 0.01 0;
+    --muted: 0.88 0.02 290;
+    --muted-foreground: 0.5 0.02 290;
+
+    --accent: 0.65 0.24 290;
+    --accent-foreground: 0.98 0.01 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.01 0;
+
+    --border: 0.92 0.02 290;
+    --input: 0.94 0.02 290;
+    --ring: 0.48 0.22 290;
+
+    --chart-1: 0.48 0.22 290;
+    --chart-2: 0.65 0.24 290;
+    --chart-3: 0.7 0.18 290;
+    --chart-4: 0.55 0.2 15;
+    --chart-5: 0.6 0.15 35;
+
+    --sidebar: 0.96 0.01 290;
+    --sidebar-foreground: 0.2 0.02 290;
+    --sidebar-primary: 0.48 0.22 290;
+    --sidebar-primary-foreground: 0.98 0.01 0;
+    --sidebar-accent: 0.88 0.02 290;
+    --sidebar-accent-foreground: 0.35 0.15 290;
+    --sidebar-border: 0.92 0.02 290;
+    --sidebar-ring: 0.48 0.22 290;
+  }
+
+  .dark {
+    --background: 0.12 0.01 290;
+    --foreground: 0.94 0.02 290;
+    --card: 0.16 0.02 290;
+    --card-foreground: 0.92 0.03 290;
+    --popover: 0.19 0.02 290;
+    --popover-foreground: 0.92 0.03 290;
+
+    --primary: 0.7 0.25 290;
+    --primary-foreground: 0.12 0.01 290;
+
+    --secondary: 0.55 0.22 290;
+    --secondary-foreground: 0.94 0.02 290;
+    --muted: 0.26 0.02 290;
+    --muted-foreground: 0.6 0.03 290;
+
+    --accent: 0.75 0.28 290;
+    --accent-foreground: 0.12 0.01 290;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.12 0.01 290;
+
+    --border: 0.22 0.02 290;
+    --input: 0.22 0.02 290;
+    --ring: 0.75 0.28 290;
+
+    --chart-1: 0.7 0.25 290;
+    --chart-2: 0.65 0.24 290;
+    --chart-3: 0.75 0.28 290;
+    --chart-4: 0.55 0.2 15;
+    --chart-5: 0.65 0.18 35;
+
+    --sidebar: 0.16 0.02 290;
+    --sidebar-foreground: 0.92 0.03 290;
+    --sidebar-primary: 0.7 0.25 290;
+    --sidebar-primary-foreground: 0.12 0.01 290;
+    --sidebar-accent: 0.26 0.02 290;
+    --sidebar-accent-foreground: 0.85 0.05 290;
+    --sidebar-border: 0.22 0.02 290;
+    --sidebar-ring: 0.75 0.28 290;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .shadow-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .shadow-hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .shadow-subtle {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .card-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .gradient-purple {
+    background: linear-gradient(
+      135deg,
+      oklch(0.48 0.22 290),
+      oklch(0.65 0.24 290)
+    );
+  }
+
+  .gradient-purple-subtle {
+    background: linear-gradient(
+      135deg,
+      oklch(0.48 0.22 290 / 0.08),
+      oklch(0.65 0.24 290 / 0.04)
+    );
+  }
+
+  /* Genre & Language Badges */
+  .badge-genre {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-accent/10 text-accent border border-accent/30 transition-smooth;
+  }
+  .badge-genre:hover {
+    @apply bg-accent/20 border-accent/50;
+  }
+
+  .badge-language {
+    @apply inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold bg-secondary/15 text-secondary border border-secondary/40 transition-smooth;
+  }
+
+  .badge-subtitle {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium bg-primary/15 text-primary border border-primary/30;
+  }
+
+  /* Filter Pill */
+  .filter-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-smooth border;
+  }
+  .filter-pill-active {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+  .filter-pill-inactive {
+    @apply bg-muted text-muted-foreground border-border hover:bg-muted/80;
+  }
+
+  /* Modal Entrance Animation */
+  @keyframes modal-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .modal-enter {
+    animation: modal-fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Public Feed Read-Only State */
+  .feed-public {
+    @apply pointer-events-none opacity-75;
+  }
+  .feed-public-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-0 group-hover:opacity-100 transition-smooth flex items-end justify-center pb-4;
+  }
+
+  /* Content Card Enhancements */
+  .content-card {
+    @apply relative rounded-lg border border-border bg-card p-4 shadow-subtle transition-smooth hover:shadow-card;
+  }
+  .content-card-hover {
+    @apply hover:border-accent/30;
+  }
+  .content-card-hover:hover {
+    background-color: color-mix(in oklch, var(--card) 80%, transparent);
+  }
+
+  /* Onboarding Form */
+  .onboarding-field {
+    @apply flex flex-col gap-2;
+  }
+  .onboarding-label {
+    @apply text-sm font-semibold text-foreground;
+  }
+  .onboarding-input {
+    @apply w-full rounded-md border border-border bg-input px-3 py-2 text-sm transition-smooth placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20;
+  }
+}

@@ -1,0 +1,141 @@
+type WatchlistInput = record {linkId: LinkId;};
+type WatchlistEntryView = 
+ record {
+   addedAt: Timestamp;
+   id: text;
+   linkId: text;
+   owner: text;
+ };
+type Timestamp = int;
+type ProfileView = 
+ record {
+   bio: text;
+   country: opt text;
+   fandom: opt text;
+   joinedAt: Timestamp;
+   preferredLanguage: opt ContentLanguage;
+   "principal": principal;
+   profileCompleted: bool;
+   subtitlePreference: bool;
+   username: text;
+ };
+type PostView = 
+ record {
+   author: principal;
+   content: text;
+   createdAt: Timestamp;
+   flagged: bool;
+   hashtags: vec text;
+   id: PostId;
+   likesCount: nat;
+ };
+type PostId = nat;
+type Platform = 
+ variant {
+   Bato;
+   Lezhin;
+   MangaDex;
+   Netflix;
+   Other: text;
+   SoundCloud;
+   Spotify;
+   Tapas;
+   Tappytoon;
+   Viki;
+   Wattpad;
+   Webtoon;
+   YouTube;
+ };
+type LinkId = nat;
+type Link = 
+ record {
+   addedAt: Timestamp;
+   addedBy: principal;
+   category: Category;
+   contentLanguage: opt ContentLanguage;
+   coverPhotoUrl: opt text;
+   description: text;
+   genre: opt Genre;
+   id: LinkId;
+   mediaUrl: opt text;
+   platform: Platform;
+   title: text;
+   url: text;
+ };
+type Genre = 
+ variant {
+   AU;
+   Action;
+   Ballad;
+   Comedy;
+   Drama;
+   EDM;
+   Fantasy;
+   HipHop;
+   Historical;
+   Mystery;
+   Pop;
+   Rap;
+   RnB;
+   Romance;
+   Thriller;
+ };
+type ContentLanguage = 
+ variant {
+   English;
+   French;
+   Hindi;
+   Korean;
+   Spanish;
+ };
+type CommentId = nat;
+type Comment = 
+ record {
+   author: principal;
+   content: text;
+   createdAt: Timestamp;
+   id: CommentId;
+   postId: PostId;
+ };
+type Category = 
+ variant {
+   BTS_LIVE;
+   BTS_SONGS;
+   FANFICTION;
+   K_DRAMA;
+   MANHWA;
+ };
+service : {
+  addComment: (postId: PostId, content: text) -> (Comment);
+  addLink: (title: text, description: text, url: text, platform: Platform,
+   category: Category, genre: opt Genre, contentLanguage:
+   opt ContentLanguage, coverPhotoUrl: opt text, mediaUrl: opt text) ->
+   (Link);
+  addToWatchlist: (input: WatchlistInput) ->
+   (variant {
+      err: text;
+      ok: WatchlistEntryView;
+    });
+  createPost: (content: text, hashtags: vec text) -> (PostView);
+  deleteLink: (id: LinkId) -> (bool);
+  editLink: (id: LinkId, title: text, description: text, url: text, platform:
+   Platform, category: Category, genre: opt Genre, contentLanguage:
+   opt ContentLanguage, coverPhotoUrl: opt text, mediaUrl: opt text) ->
+   (bool);
+  flagPost: (id: PostId) -> (bool);
+  getComments: (postId: PostId) -> (vec Comment) query;
+  getLinks: (category: opt Category) -> (vec Link) query;
+  getPost: (id: PostId) -> (opt PostView) query;
+  getProfile: (user: principal) -> (opt ProfileView) query;
+  getWatchlist: () -> (vec WatchlistEntryView) query;
+  isInWatchlist: (linkId: text) -> (bool) query;
+  likePost: (postId: PostId) -> (bool);
+  listPosts: () -> (vec PostView) query;
+  removeFromWatchlist: (entryId: text) -> (bool);
+  searchByGenre: (genre: Genre) -> (vec Link) query;
+  searchByLanguage: (language: ContentLanguage) -> (vec Link) query;
+  searchLinks: (keyword: text) -> (vec Link) query;
+  setOnboarding: (country: opt text, fandom: opt text, preferredLanguage:
+   opt ContentLanguage, subtitlePreference: bool) -> ();
+  setProfile: (username: text, bio: text) -> ();
+}

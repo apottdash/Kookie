@@ -1,0 +1,242 @@
+// Version: 3.0.0
+type Category__936342486 =
+  {#BTS_LIVE; #BTS_SONGS; #FANFICTION; #K_DRAMA; #MANHWA};
+type CommentId__821569710 = Nat;
+type Comment__775004821 =
+  {
+    author : Principal;
+    content : Text;
+    createdAt : Timestamp__301639476;
+    id : CommentId__821569710;
+    postId : PostId__861309770
+  };
+type ContentLanguage__835094353 =
+  {#English; #French; #Hindi; #Korean; #Spanish};
+type Data__159895909<T> = {var count : Nat__490723111; elements : [var ?T]};
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Genre__484804619 =
+  {
+    #AU;
+    #Action;
+    #Ballad;
+    #Comedy;
+    #Drama;
+    #EDM;
+    #Fantasy;
+    #HipHop;
+    #Historical;
+    #Mystery;
+    #Pop;
+    #Rap;
+    #RnB;
+    #Romance;
+    #Thriller
+  };
+type Internal__667636161<T> =
+  {children : [var ?Node__92254746<T>]; data : Data__159895909<T>};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__520550824<T> = {data : Data__159895909<T>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type LinkId__61814416 = Nat;
+type Link__625490308 =
+  {
+    addedAt : Timestamp__301639476;
+    addedBy : Principal;
+    category : Category__936342486;
+    contentLanguage : ?ContentLanguage__835094353;
+    coverPhotoUrl : ?Text;
+    description : Text;
+    genre : ?Genre__484804619;
+    id : LinkId__61814416;
+    mediaUrl : ?Text;
+    platform : Platform__1020897877;
+    title : Text;
+    url : Text
+  };
+type List__415060402<T> = List__790383201<T>;
+type List__790383201<T> =
+  {
+    var blockIndex : Nat__490723111;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__490723111
+  };
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type Node__92254746<T> =
+  {#internal : Internal__667636161<T>; #leaf : Leaf__520550824<T>};
+type OldCategory__901310687 =
+  {#BTS_LIVE; #BTS_SONGS; #FANFICTION; #K_DRAMA; #MANHWA};
+type OldContentLanguage__648006065 =
+  {#English; #French; #Hindi; #Korean; #Spanish};
+type OldGenre__689675206 =
+  {
+    #AU;
+    #Action;
+    #Ballad;
+    #Comedy;
+    #Drama;
+    #EDM;
+    #Fantasy;
+    #HipHop;
+    #Historical;
+    #Mystery;
+    #Pop;
+    #Rap;
+    #RnB;
+    #Romance;
+    #Thriller
+  };
+type OldLinkId__5517107 = Nat;
+type OldLink__10014331 =
+  {
+    addedAt : OldTimestamp__27916213;
+    addedBy : Principal;
+    category : OldCategory__901310687;
+    contentLanguage : ?OldContentLanguage__648006065;
+    description : Text;
+    genre : ?OldGenre__689675206;
+    id : OldLinkId__5517107;
+    platform : OldPlatform__7799375;
+    title : Text;
+    url : Text
+  };
+type OldPlatform__7799375 =
+  {
+    #Bato;
+    #Lezhin;
+    #MangaDex;
+    #Netflix;
+    #Other : Text;
+    #SoundCloud;
+    #Spotify;
+    #Tapas;
+    #Tappytoon;
+    #Viki;
+    #Wattpad;
+    #Webtoon;
+    #YouTube
+  };
+type OldTimestamp__27916213 = Int;
+type Platform__1020897877 =
+  {
+    #Bato;
+    #Lezhin;
+    #MangaDex;
+    #Netflix;
+    #Other : Text;
+    #SoundCloud;
+    #Spotify;
+    #Tapas;
+    #Tappytoon;
+    #Viki;
+    #Wattpad;
+    #Webtoon;
+    #YouTube
+  };
+type PostId__861309770 = Nat;
+type Post__639384058 =
+  {
+    author : Principal;
+    var content : Text;
+    createdAt : Timestamp__301639476;
+    var flagged : Bool;
+    hashtags : [Text];
+    id : PostId__861309770;
+    var likesCount : Nat
+  };
+type Profile__137883993 =
+  {
+    var bio : Text;
+    var country : ?Text;
+    var fandom : ?Text;
+    joinedAt : Timestamp__301639476;
+    var preferredLanguage : ?ContentLanguage__835094353;
+    principal : Principal;
+    var profileCompleted : Bool;
+    var subtitlePreference : Bool;
+    var username : Text
+  };
+type Set__532252804<T> = Set__710576254<T>;
+type Set__710576254<T> =
+  {var root : Node__92254746<T>; var size : Nat__490723111};
+type Timestamp__301639476 = Int;
+type WatchlistEntry__177933513 =
+  {
+    addedAt : Timestamp__301639476;
+    id : Nat;
+    linkId : LinkId__61814416;
+    owner : Principal
+  };
+actor ({
+  in admins : Set__532252804<Principal>;
+  in commentCounter : [var Nat];
+  in comments : List__415060402<Comment__775004821>;
+  in likes : Set__532252804<Text>;
+  in linkCounter : [var Nat];
+  in links : List__415060402<OldLink__10014331>;
+  in postCounter : [var Nat];
+  in posts : List__415060402<Post__639384058>;
+  in profiles : Map__605269027<Principal, Profile__137883993>;
+  in seeded : Bool;
+  in watchlistCounter : [var Nat];
+  in watchlistEntries :
+    Map__605269027<Principal, List__415060402<WatchlistEntry__177933513>>;
+  stable watchlistState :
+    {
+      counter : [var Nat];
+      entries :
+        Map__605269027<Principal, List__415060402<WatchlistEntry__177933513>>
+    }
+}, {
+  stable admins :
+    {var root : Node__92254746<Principal>; var size : Nat__490723111};
+  stable commentCounter : [var Nat];
+  stable comments :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Comment__775004821]];
+      var elementIndex : Nat__490723111
+    };
+  stable likes : {var root : Node__92254746<Text>; var size : Nat__490723111};
+  stable linkCounter : [var Nat];
+  stable links :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Link__625490308]];
+      var elementIndex : Nat__490723111
+    };
+  stable postCounter : [var Nat];
+  stable posts :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Post__639384058]];
+      var elementIndex : Nat__490723111
+    };
+  stable profiles :
+    {
+      var root : Node__46230540<Principal, Profile__137883993>;
+      var size : Nat__490723111
+    };
+  stable var seeded : Bool;
+  stable watchlistCounter : [var Nat];
+  stable watchlistEntries :
+    {
+      var root :
+        Node__46230540<Principal, List__415060402<WatchlistEntry__177933513>>;
+      var size : Nat__490723111
+    };
+  stable watchlistState :
+    {
+      counter : [var Nat];
+      entries :
+        Map__605269027<Principal, List__415060402<WatchlistEntry__177933513>>
+    }
+}) ;

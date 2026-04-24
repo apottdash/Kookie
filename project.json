@@ -1,0 +1,28 @@
+{
+  "overview": "ARMY Hub is a BTS fan platform where ARMYs discover and enjoy BTS live shows, songs, K-dramas, manhwas, and fan fiction — all in one place. Features include embedded playback for lives and songs, cover photo cards, multilingual content, a personal watchlist, community feed, and an admin panel for managing content.",
+  "features": [
+    "Cover photo thumbnails on all content cards",
+    "Embedded YouTube player for BTS live shows",
+    "Embedded Spotify, YouTube, and SoundCloud players for BTS songs",
+    "Multilingual manhwas (English, French, Hindi, Korean, Spanish)",
+    "Genre and language filters on all content pages",
+    "Personal watchlist to save and manage links",
+    "Community feed — public browsing, login to post/like/comment",
+    "Onboarding modal collecting country, fandom, language, and subtitle preferences",
+    "Admin panel to add, edit, and delete content",
+    "Fan fiction page with Wattpad and YouTube aggregation"
+  ],
+  "category": "entertainment",
+  "tags": [
+    "bts",
+    "kpop",
+    "army",
+    "fan-platform",
+    "k-drama",
+    "manhwa",
+    "fan-fiction",
+    "music",
+    "community"
+  ],
+  "last_updated": "2026-04-23T06:55:19.524Z"
+}
