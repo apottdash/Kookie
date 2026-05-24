@@ -12,14 +12,14 @@ import Layout from "./components/Layout";
 
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./pages/HomePage"));
-const LinksPage = lazy(() => import("./pages/LinksPage"));
-const SongsPage = lazy(() => import("./pages/SongsPage"));
-const FanFictionPage = lazy(() => import("./pages/FanFictionPage"));
+const BrowseVendorsPage = lazy(() => import("./pages/LinksPage"));
+const VendorProfilePage = lazy(() => import("./pages/FanFictionPage"));
+const DestinationPage = lazy(() => import("./pages/SongsPage"));
 const FeedPage = lazy(() => import("./pages/FeedPage"));
 const PostDetailPage = lazy(() => import("./pages/PostDetailPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const AdminPage = lazy(() => import("./pages/AdminPage"));
-const WatchlistPage = lazy(() => import("./pages/WatchlistPage"));
+const VendorBasketPage = lazy(() => import("./pages/WatchlistPage"));
 
 function PageSkeleton() {
   return (
@@ -34,7 +34,6 @@ function PageSkeleton() {
   );
 }
 
-// Root route with Layout wrapper
 const rootRoute = createRootRoute({
   component: () => (
     <Layout>
@@ -51,28 +50,28 @@ const indexRoute = createRoute({
   component: HomePage,
 });
 
-const linksRoute = createRoute({
+const vendorsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/links",
-  component: LinksPage,
+  path: "/vendors",
+  component: BrowseVendorsPage,
 });
 
-const linksCategoryRoute = createRoute({
+const vendorProfileRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/links/$category",
-  component: LinksPage,
+  path: "/vendors/$vendorId",
+  component: VendorProfilePage,
 });
 
-const songsRoute = createRoute({
+const destinationsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/songs",
-  component: SongsPage,
+  path: "/destinations",
+  component: DestinationPage,
 });
 
-const fanFictionRoute = createRoute({
+const basketRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/fanfiction",
-  component: FanFictionPage,
+  path: "/basket",
+  component: VendorBasketPage,
 });
 
 const feedRoute = createRoute({
@@ -99,23 +98,16 @@ const adminRoute = createRoute({
   component: AdminPage,
 });
 
-const watchlistRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/watchlist",
-  component: WatchlistPage,
-});
-
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  linksRoute,
-  linksCategoryRoute,
-  songsRoute,
-  fanFictionRoute,
+  vendorsRoute,
+  vendorProfileRoute,
+  destinationsRoute,
+  basketRoute,
   feedRoute,
   postDetailRoute,
   profileRoute,
   adminRoute,
-  watchlistRoute,
 ]);
 
 const router = createRouter({ routeTree });

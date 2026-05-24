@@ -1,27 +1,20 @@
 import { cn } from "@/lib/utils";
 import { useAuth } from "../hooks/useAuth";
+import { useBasket } from "../hooks/useBasket";
 
-interface NavItem {
+interface NavItemDef {
   label: string;
   href: string;
   emoji: string;
   authRequired?: boolean;
 }
 
-const navItems: NavItem[] = [
+const navItems: NavItemDef[] = [
   { label: "Home", href: "/", emoji: "🏠" },
-  { label: "BTS Lives", href: "/links/BTS_LIVE", emoji: "🎤" },
-  { label: "BTS Songs", href: "/songs", emoji: "🎵" },
-  { label: "K-Dramas", href: "/links/K_DRAMA", emoji: "🎬" },
-  { label: "Fan Fiction", href: "/fanfiction", emoji: "📝" },
-  { label: "Manhwas", href: "/links/MANHWA", emoji: "📚" },
-  { label: "Feed", href: "/feed", emoji: "💬" },
-  {
-    label: "My Watchlist",
-    href: "/watchlist",
-    emoji: "🔖",
-    authRequired: true,
-  },
+  { label: "Browse Vendors", href: "/vendors", emoji: "🔍" },
+  { label: "Destinations", href: "/destinations", emoji: "🏰" },
+  { label: "Community", href: "/feed", emoji: "💬" },
+  { label: "My Basket", href: "/basket", emoji: "🛒", authRequired: false },
 ];
 
 interface NavigationProps {
@@ -34,6 +27,7 @@ export default function Navigation({
   onNavigate,
 }: NavigationProps) {
   const { isLoggedIn } = useAuth();
+  const { items } = useBasket();
   const currentPath =
     typeof window !== "undefined" ? window.location.pathname : "/";
 
@@ -64,6 +58,11 @@ export default function Navigation({
           >
             <span className="text-base">{item.emoji}</span>
             <span>{item.label}</span>
+            {item.href === "/basket" && items.length > 0 && (
+              <span className="ml-auto bg-primary text-primary-foreground text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold">
+                {items.length}
+              </span>
+            )}
           </a>
         ))}
       </>
@@ -78,7 +77,7 @@ export default function Navigation({
           href={item.href}
           data-ocid={`nav.${item.label.toLowerCase().replace(/[\s]/g, "_")}_link`}
           className={cn(
-            "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-smooth whitespace-nowrap",
+            "relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-smooth whitespace-nowrap",
             isActive(item.href)
               ? "bg-primary/15 text-primary"
               : "text-muted-foreground hover:bg-muted/60 hover:text-foreground",
@@ -86,6 +85,11 @@ export default function Navigation({
         >
           <span>{item.emoji}</span>
           <span>{item.label}</span>
+          {item.href === "/basket" && items.length > 0 && (
+            <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
+              {items.length}
+            </span>
+          )}
         </a>
       ))}
     </>

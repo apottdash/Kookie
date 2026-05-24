@@ -3,17 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
-  Link,
   LogIn,
   LogOut,
   Menu,
   Search,
-  Sparkles,
+  ShoppingBasket,
   User,
   X,
 } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useBasket } from "../hooks/useBasket";
 import Navigation from "./Navigation";
 
 interface HeaderProps {
@@ -22,6 +22,7 @@ interface HeaderProps {
 
 export default function Header({ onSearch }: HeaderProps) {
   const { isLoggedIn, login, logout, principalText } = useAuth();
+  const { items } = useBasket();
   const [searchQuery, setSearchQuery] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -43,11 +44,11 @@ export default function Header({ onSearch }: HeaderProps) {
           className="flex items-center gap-2 shrink-0 group"
           data-ocid="header.logo_link"
         >
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shadow-sm group-hover:shadow-md transition-smooth">
-            <Sparkles className="w-4 h-4 text-primary-foreground" />
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shadow-sm group-hover:shadow-md transition-smooth text-primary-foreground font-display font-bold text-sm">
+            W
           </div>
           <span className="font-display font-bold text-lg text-foreground tracking-tight hidden sm:block">
-            ARMY<span className="text-primary">Hub</span>
+            Wed<span className="text-primary">Bridge</span>
           </span>
         </a>
 
@@ -67,13 +68,27 @@ export default function Header({ onSearch }: HeaderProps) {
           <Search className="absolute left-3 w-4 h-4 text-muted-foreground pointer-events-none" />
           <Input
             type="search"
-            placeholder="Search links, posts…"
+            placeholder="Search vendors, categories…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-9 h-9 bg-muted/50 border-border text-sm rounded-full"
             data-ocid="header.search_input"
           />
         </form>
+
+        {/* Basket icon (desktop) */}
+        <a
+          href="/basket"
+          className="relative hidden sm:flex items-center"
+          data-ocid="header.basket_link"
+        >
+          <ShoppingBasket className="w-5 h-5 text-muted-foreground hover:text-primary transition-smooth" />
+          {items.length > 0 && (
+            <span className="absolute -top-1.5 -right-1.5 bg-primary text-primary-foreground text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
+              {items.length}
+            </span>
+          )}
+        </a>
 
         {/* Auth Button */}
         <div className="flex items-center gap-2 ml-auto md:ml-0 shrink-0">
@@ -108,7 +123,7 @@ export default function Header({ onSearch }: HeaderProps) {
               data-ocid="header.login_button"
             >
               <LogIn className="w-4 h-4" />
-              <span className="hidden sm:inline">Connect</span>
+              <span className="hidden sm:inline">Sign In</span>
             </Button>
           )}
         </div>
@@ -136,11 +151,11 @@ export default function Header({ onSearch }: HeaderProps) {
           >
             <div className="flex flex-col h-full">
               <div className="flex items-center gap-2 p-4 border-b border-border">
-                <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-primary-foreground" />
+                <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display font-bold text-sm">
+                  W
                 </div>
                 <span className="font-display font-bold text-lg">
-                  ARMY<span className="text-primary">Hub</span>
+                  Wed<span className="text-primary">Bridge</span>
                 </span>
               </div>
 
@@ -153,7 +168,7 @@ export default function Header({ onSearch }: HeaderProps) {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     type="search"
-                    placeholder="Search…"
+                    placeholder="Search vendors…"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-9 bg-muted/50"
@@ -199,7 +214,7 @@ export default function Header({ onSearch }: HeaderProps) {
                     data-ocid="header.mobile_login_button"
                   >
                     <LogIn className="w-4 h-4" />
-                    Connect with Internet Identity
+                    Sign In with Internet Identity
                   </Button>
                 )}
               </div>

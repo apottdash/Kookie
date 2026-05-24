@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { X } from "lucide-react";
+import { Heart, X } from "lucide-react";
 import { useState } from "react";
 import { ContentLanguage } from "../backend";
 import { useBackend } from "../hooks/useBackend";
@@ -12,34 +12,32 @@ interface OnboardingModalProps {
   onSkip: () => void;
 }
 
-const FANDOM_OPTIONS: FandomType[] = [
-  "BTS ARMY",
-  "Other ARMY",
-  "K-pop Fan",
+const USER_TYPE_OPTIONS: FandomType[] = [
+  "Couple",
+  "Vendor",
+  "Planner",
   "Other",
 ];
 
 const LANGUAGE_OPTIONS: { label: string; value: ContentLanguage }[] = [
-  { label: "English", value: ContentLanguage.English },
-  { label: "French", value: ContentLanguage.French },
   { label: "Hindi", value: ContentLanguage.Hindi },
-  { label: "Korean", value: ContentLanguage.Korean },
-  { label: "Spanish", value: ContentLanguage.Spanish },
+  { label: "English", value: ContentLanguage.English },
 ];
 
-const COUNTRY_OPTIONS = [
-  "USA",
-  "South Korea",
-  "India",
-  "France",
-  "Mexico",
-  "Brazil",
-  "UK",
-  "Canada",
-  "Australia",
-  "Japan",
-  "Philippines",
-  "Indonesia",
+const CITY_OPTIONS = [
+  "Jaipur",
+  "Delhi / NCR",
+  "Mumbai",
+  "Pune",
+  "Chandigarh",
+  "Lucknow",
+  "Surat",
+  "Ahmedabad",
+  "Hyderabad",
+  "Bengaluru",
+  "Chennai",
+  "Kolkata",
+  "Outside India",
   "Other",
 ];
 
@@ -48,12 +46,12 @@ export default function OnboardingModal({
   onSkip,
 }: OnboardingModalProps) {
   const { actor } = useBackend();
-  const [country, setCountry] = useState("");
-  const [fandom, setFandom] = useState<FandomType>("BTS ARMY");
+  const [city, setCity] = useState("");
+  const [userType, setUserType] = useState<FandomType>("Couple");
   const [preferredLanguage, setPreferredLanguage] = useState<ContentLanguage>(
-    ContentLanguage.English,
+    ContentLanguage.Hindi,
   );
-  const [subtitlePreference, setSubtitlePreference] = useState(false);
+  const [wantsNotifications, setWantsNotifications] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleBackdropKey = (e: React.KeyboardEvent) => {
@@ -66,10 +64,10 @@ export default function OnboardingModal({
     setIsSubmitting(true);
     try {
       await actor.setOnboarding(
-        country || null,
-        fandom || null,
+        city || null,
+        userType || null,
         preferredLanguage,
-        subtitlePreference,
+        wantsNotifications,
       );
       onComplete();
     } catch {
@@ -109,35 +107,35 @@ export default function OnboardingModal({
           >
             <X className="w-4 h-4" />
           </button>
-          <div className="text-3xl mb-2">💜</div>
+          <Heart className="w-8 h-8 text-primary-foreground/90 mx-auto mb-2" />
           <h2
             id="onboarding-title"
             className="text-2xl font-display font-bold text-primary-foreground mb-1"
           >
-            Welcome to ARMY Hub
+            Welcome to WedBridge
           </h2>
           <p className="text-primary-foreground/80 text-sm">
-            Welcome to a digital platform dedicated to BTS fan community, upon
-            the first login.
+            Tell us a little about yourself so we can personalise your
+            experience.
           </p>
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
-          {/* Country */}
+          {/* City */}
           <div className="onboarding-field">
-            <Label htmlFor="country" className="onboarding-label">
-              🌍 Country
+            <Label htmlFor="city" className="onboarding-label">
+              📍 Your City
             </Label>
             <select
-              id="country"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
+              id="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
               className="onboarding-input"
-              data-ocid="onboarding.country_select"
+              data-ocid="onboarding.city_select"
             >
-              <option value="">Select your Country</option>
-              {COUNTRY_OPTIONS.map((c) => (
+              <option value="">Select your city</option>
+              {CITY_OPTIONS.map((c) => (
                 <option key={c} value={c}>
                   {c}
                 </option>
@@ -145,23 +143,23 @@ export default function OnboardingModal({
             </select>
           </div>
 
-          {/* Fandom */}
+          {/* User type */}
           <fieldset className="onboarding-field border-0 p-0 m-0">
-            <legend className="onboarding-label mb-2">💜 Fandom Choice</legend>
+            <legend className="onboarding-label mb-2">💍 I am a…</legend>
             <div className="flex flex-wrap gap-2">
-              {FANDOM_OPTIONS.map((option) => (
+              {USER_TYPE_OPTIONS.map((option) => (
                 <label key={option} className="cursor-pointer">
                   <input
                     type="radio"
-                    name="fandom"
+                    name="userType"
                     value={option}
-                    checked={fandom === option}
-                    onChange={() => setFandom(option)}
+                    checked={userType === option}
+                    onChange={() => setUserType(option)}
                     className="sr-only"
-                    data-ocid={`onboarding.fandom_${option.toLowerCase().replace(/\s/g, "_")}_radio`}
+                    data-ocid={`onboarding.usertype_${option.toLowerCase()}_radio`}
                   />
                   <span
-                    className={`filter-pill select-none ${fandom === option ? "filter-pill-active" : "filter-pill-inactive"}`}
+                    className={`filter-pill select-none ${userType === option ? "filter-pill-active" : "filter-pill-inactive"}`}
                   >
                     {option}
                   </span>
@@ -170,10 +168,10 @@ export default function OnboardingModal({
             </div>
           </fieldset>
 
-          {/* Preferred Language */}
+          {/* Language */}
           <div className="onboarding-field">
             <Label htmlFor="language" className="onboarding-label">
-              🌐 Language Preference
+              🌐 Preferred Language
             </Label>
             <select
               id="language"
@@ -192,24 +190,24 @@ export default function OnboardingModal({
             </select>
           </div>
 
-          {/* Subtitle Preference */}
+          {/* WhatsApp notifications */}
           <div className="onboarding-field">
-            <span className="onboarding-label">📺 Subtitle Toggle</span>
+            <span className="onboarding-label">📱 WhatsApp Updates</span>
             <div className="flex items-center justify-between rounded-lg border border-border bg-muted/30 px-4 py-3">
               <div>
                 <p className="text-sm font-medium text-foreground">
-                  Enable Subtitles
+                  Enable vendor notifications
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Show CC badge on content by default 📄
+                  Get instant WhatsApp alerts when vendors respond
                 </p>
               </div>
               <Switch
-                id="subtitle-preference"
-                checked={subtitlePreference}
-                onCheckedChange={setSubtitlePreference}
-                data-ocid="onboarding.subtitle_switch"
-                aria-label="Enable subtitle preference"
+                id="notifications"
+                checked={wantsNotifications}
+                onCheckedChange={setWantsNotifications}
+                data-ocid="onboarding.notifications_switch"
+                aria-label="Enable WhatsApp notifications"
               />
             </div>
           </div>
@@ -222,7 +220,7 @@ export default function OnboardingModal({
               disabled={isSubmitting}
               data-ocid="onboarding.submit_button"
             >
-              {isSubmitting ? "Saving…" : "Get Started! 💜"}
+              {isSubmitting ? "Saving…" : "Get Started 💍"}
             </Button>
             <button
               type="button"
