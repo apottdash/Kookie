@@ -316,12 +316,12 @@ export default function VendorProfilePage() {
                     {inBasket ? (
                       <>
                         <X className="w-4 h-4" />
-                        Remove from Saved
+                        Remove from Basket
                       </>
                     ) : (
                       <>
                         <ShoppingBasket className="w-4 h-4" />
-                        Save this Vendor
+                        Add to Vendor Basket
                       </>
                     )}
                   </Button>

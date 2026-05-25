@@ -46,7 +46,7 @@ export default function Layout({ children, onSearch }: LayoutProps) {
   const bottomNavItems = [
     { href: "/", emoji: "🏠", label: "Home" },
     { href: "/vendors", emoji: "🔍", label: "Browse" },
-    { href: "/basket", emoji: "🛒", label: "Saved" },
+    { href: "/basket", emoji: "🛒", label: "My Basket" },
     { href: "/pricing", emoji: "💎", label: "Plans" },
     { href: "/feed", emoji: "💬", label: "Community" },
   ];

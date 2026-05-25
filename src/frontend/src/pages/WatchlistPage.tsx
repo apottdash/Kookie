@@ -62,11 +62,11 @@ export default function VendorBasketPage() {
             <ShoppingBasket className="w-9 h-9 text-primary-foreground" />
           </div>
           <h1 className="font-display font-bold text-2xl text-foreground">
-            Your shortlist is empty
+            Your Vendor Basket is empty
           </h1>
           <p className="text-muted-foreground max-w-xs leading-relaxed">
             Save vendors while browsing. Compare them here before sending an
-            exclusive inquiry — vendors can't see your shortlist.
+            exclusive inquiry — vendors can't see your Vendor Basket.
           </p>
           <a href="/vendors">
             <Button
@@ -129,7 +129,8 @@ export default function VendorBasketPage() {
                 Your Vendor Basket
               </h1>
               <p className="text-muted-foreground text-sm mt-1">
-                {items.length} vendor{items.length !== 1 ? "s" : ""} shortlisted
+                {items.length} vendor{items.length !== 1 ? "s" : ""} in your
+                basket
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -309,10 +310,10 @@ export default function VendorBasketPage() {
                     <Lock className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                     <span>
                       <strong className="text-foreground">
-                        Private shortlist —
+                        Private Vendor Basket —
                       </strong>{" "}
-                      vendors cannot see who else you've saved. Your shortlist
-                      is visible only to you, never disclosed to vendors.
+                      vendors cannot see who else you've saved. Your Vendor
+                      Basket is visible only to you, never disclosed to vendors.
                     </span>
                   </div>
 

@@ -178,12 +178,12 @@ export default function VendorCard({
               {inBasket ? (
                 <>
                   <X className="w-3 h-3" />
-                  Saved
+                  In Basket
                 </>
               ) : (
                 <>
                   <ShoppingBasket className="w-3 h-3" />
-                  Save
+                  Add to Basket
                 </>
               )}
             </Button>
