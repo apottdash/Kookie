@@ -46,7 +46,7 @@ const plans = [
   {
     id: "standard",
     name: "Standard",
-    price: 999,
+    price: 1000,
     tagline: "Grow your wedding business",
     color: "border-secondary/40",
     badge: "",
@@ -59,7 +59,7 @@ const plans = [
   {
     id: "premium",
     name: "Premium",
-    price: 2499,
+    price: 2500,
     tagline: "Most popular for serious vendors",
     color: "border-primary ring-2 ring-primary/20",
     badge: "Most Popular",
@@ -72,7 +72,7 @@ const plans = [
   {
     id: "destination",
     name: "Destination Hub",
-    price: 4999,
+    price: 3000,
     tagline: "Reach NRI & destination couples",
     color: "border-accent/40",
     badge: "",
@@ -85,7 +85,7 @@ const plans = [
   {
     id: "agent",
     name: "Agent Managed",
-    price: 8999,
+    price: 2000,
     tagline: "WedBridge runs it all for you",
     color: "border-purple-400/50 bg-purple-50/30 dark:bg-purple-950/10",
     badge: "For Offline Vendors",
