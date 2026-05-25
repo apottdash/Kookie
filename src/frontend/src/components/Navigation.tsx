@@ -13,8 +13,9 @@ const navItems: NavItemDef[] = [
   { label: "Home", href: "/", emoji: "🏠" },
   { label: "Browse Vendors", href: "/vendors", emoji: "🔍" },
   { label: "Destinations", href: "/destinations", emoji: "🏰" },
+  { label: "Plans", href: "/pricing", emoji: "💎" },
   { label: "Community", href: "/feed", emoji: "💬" },
-  { label: "My Basket", href: "/basket", emoji: "🛒", authRequired: false },
+  { label: "My Shortlist", href: "/basket", emoji: "🛒", authRequired: false },
 ];
 
 interface NavigationProps {

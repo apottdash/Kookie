@@ -7,12 +7,14 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   ArrowRight,
   CheckCircle,
+  Lock,
   MessageCircle,
   Plane,
   Search,
   ShoppingBasket,
   Star,
   Trash2,
+  Users,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { toast } from "sonner";
@@ -60,11 +62,11 @@ export default function VendorBasketPage() {
             <ShoppingBasket className="w-9 h-9 text-primary-foreground" />
           </div>
           <h1 className="font-display font-bold text-2xl text-foreground">
-            Your Vendor Basket is empty
+            Your shortlist is empty
           </h1>
           <p className="text-muted-foreground max-w-xs leading-relaxed">
-            Add vendors to your basket while browsing. Compare them here before
-            sending an exclusive inquiry.
+            Save vendors while browsing. Compare them here before sending an
+            exclusive inquiry — vendors can't see your shortlist.
           </p>
           <a href="/vendors">
             <Button
@@ -302,13 +304,38 @@ export default function VendorBasketPage() {
 
                   <Separator />
 
+                  {/* Privacy shield */}
+                  <div className="bg-primary/5 rounded-xl p-3 text-xs text-muted-foreground leading-relaxed flex items-start gap-2">
+                    <Lock className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>
+                      <strong className="text-foreground">
+                        Private shortlist —
+                      </strong>{" "}
+                      vendors cannot see who else you've saved. Your shortlist
+                      is visible only to you, never disclosed to vendors.
+                    </span>
+                  </div>
+
                   <div className="bg-muted/30 rounded-xl p-3 text-xs text-muted-foreground leading-relaxed">
                     💡{" "}
                     <strong className="text-foreground">
                       WedBridge guarantee:
                     </strong>{" "}
-                    Your inquiry goes exclusively to each vendor — no
-                    mass-broadcast. Vendors respond within hours, not days.
+                    Each inquiry goes exclusively to one vendor — no
+                    mass-broadcast. Your contact details are protected until the
+                    deal is confirmed through WedBridge.
+                  </div>
+
+                  {/* Event team teaser */}
+                  <div className="bg-accent/5 border border-accent/20 rounded-xl p-3 text-xs leading-relaxed flex items-start gap-2">
+                    <Users className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">
+                      <strong className="text-foreground">
+                        After booking —
+                      </strong>{" "}
+                      once all deals are confirmed, WedBridge can introduce your
+                      vendors to each other for event-day coordination.
+                    </span>
                   </div>
 
                   <Button

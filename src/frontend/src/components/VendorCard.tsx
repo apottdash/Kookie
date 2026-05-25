@@ -43,6 +43,8 @@ const planColors: Record<string, string> = {
   Standard: "bg-secondary/15 text-secondary border-secondary/30",
   Premium: "bg-primary/15 text-primary border-primary/30",
   "Destination Hub": "bg-accent/15 text-accent border-accent/30",
+  "Agent Managed":
+    "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300",
 };
 
 interface VendorCardProps {
@@ -176,12 +178,12 @@ export default function VendorCard({
               {inBasket ? (
                 <>
                   <X className="w-3 h-3" />
-                  Remove
+                  Saved
                 </>
               ) : (
                 <>
                   <ShoppingBasket className="w-3 h-3" />
-                  Add to Basket
+                  Save
                 </>
               )}
             </Button>

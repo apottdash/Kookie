@@ -52,7 +52,12 @@ export type VendorCategory =
   | "Baraat"
   | "Cake";
 
-export type VendorPlan = "Free" | "Standard" | "Premium" | "Destination Hub";
+export type VendorPlan =
+  | "Free"
+  | "Standard"
+  | "Premium"
+  | "Destination Hub"
+  | "Agent Managed";
 
 export interface Vendor {
   id: number;

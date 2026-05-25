@@ -15,7 +15,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/ramesh-photo/600/400",
     rating: 4.9,
     reviewCount: 147,
-    startingPrice: 45000,
+    startingPrice: 75000,
     description:
       "Award-winning wedding photographer with 14 years experience. Specialises in palace weddings, destination shoots and candid storytelling. Shot 200+ Jaipur weddings across Rambagh, Jai Mahal and Samode Palace.",
     tags: ["Palace Weddings", "Candid", "Drone", "Pre-Wedding", "Destination"],
@@ -34,7 +34,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/priya-photo/600/400",
     rating: 4.8,
     reviewCount: 89,
-    startingPrice: 35000,
+    startingPrice: 55000,
     description:
       "Female-led photography studio known for emotional storytelling and bridal portraits. 8+ years shooting weddings across Rajasthan.",
     tags: ["Bridal Portraits", "Candid", "Female Photographer", "Traditional"],
@@ -73,7 +73,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/cinelove/600/400",
     rating: 4.9,
     reviewCount: 61,
-    startingPrice: 55000,
+    startingPrice: 75000,
     description:
       "Cinematic wedding films that feel like movies. 4K drone + ground footage, same-day edits available. Preferred by Delhi, Mumbai and NRI couples for palace weddings.",
     tags: ["4K Cinematic", "Drone", "Same-Day Edit", "NRI Weddings"],
@@ -93,7 +93,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/royal-blooms/600/400",
     rating: 4.9,
     reviewCount: 203,
-    startingPrice: 75000,
+    startingPrice: 150000,
     description:
       "Jaipur's most sought-after floral decoration studio. Specialises in palace-style marigold and rose setups. Trusted by 5-star venues including Rambagh Palace and Samode Haveli.",
     tags: [
@@ -138,7 +138,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/maharaja-catering/600/400",
     rating: 4.7,
     reviewCount: 118,
-    startingPrice: 800,
+    startingPrice: 950,
     description:
       "Premium wedding catering with authentic Rajasthani and North Indian cuisine. Buffet and sit-down formats. GST-registered with uniformed staff.",
     tags: ["Rajasthani Cuisine", "Veg & Non-Veg", "Live Counters", "Staff"],
@@ -177,7 +177,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/shehnaaz-mehendi/600/400",
     rating: 4.9,
     reviewCount: 231,
-    startingPrice: 5000,
+    startingPrice: 18000,
     description:
       "Award-winning mehendi artist known for intricate bridal designs. Featured in Vogue India Wedding Edition. Available pan-India for destination weddings.",
     tags: [
@@ -201,7 +201,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/pallavi-mehendi/600/400",
     rating: 4.5,
     reviewCount: 67,
-    startingPrice: 2500,
+    startingPrice: 3500,
     description:
       "Experienced mehendi artist for bridal and guest mehendi. Fast application for large groups. Floral and traditional patterns.",
     tags: ["Bridal", "Guest Mehendi", "Quick Apply", "Floral"],
@@ -221,7 +221,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/dj-ritz/600/400",
     rating: 4.8,
     reviewCount: 93,
-    startingPrice: 15000,
+    startingPrice: 25000,
     description:
       "Top wedding DJ for Sangeet and Reception nights. Bollywood, EDM, Bhangra and classical mixes. High-quality JBL sound systems included.",
     tags: ["Bollywood", "EDM", "Bhangra", "Sound System", "MCing"],
@@ -241,7 +241,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/samode-haveli/600/400",
     rating: 4.9,
     reviewCount: 178,
-    startingPrice: 250000,
+    startingPrice: 500000,
     description:
       "Heritage palace venue with rooftop garden and courtyards. Capacity 50–400 guests. In-house catering and decor. Preferred by NRI and Delhi NCR couples.",
     tags: ["Heritage Palace", "Rooftop", "In-House Catering", "NRI Friendly"],
@@ -260,7 +260,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/mansarovar-venue/600/400",
     rating: 4.3,
     reviewCount: 41,
-    startingPrice: 35000,
+    startingPrice: 50000,
     description:
       "Spacious outdoor lawn with banquet hall. Capacity 100–800 guests. Outside caterers allowed. Budget-friendly in Mansarovar.",
     tags: ["Lawn", "Banquet Hall", "Large Capacity", "Budget"],
@@ -280,7 +280,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/nisha-makeup/600/400",
     rating: 4.9,
     reviewCount: 156,
-    startingPrice: 12000,
+    startingPrice: 35000,
     description:
       "Celebrity makeup artist trained in Mumbai. HD airbrush and traditional makeup. Served 500+ brides. Available for destination weddings across India.",
     tags: ["HD Airbrush", "Bridal Lookbook", "Trial Session", "Pan-India"],
@@ -300,7 +300,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/thumka-dance/600/400",
     rating: 4.6,
     reviewCount: 38,
-    startingPrice: 8000,
+    startingPrice: 15000,
     description:
       "Wedding sangeet choreographer for couples, family and bridesmaids. Bollywood, Garba, Giddha and fusion styles. 15-day intensive packages available.",
     tags: ["Sangeet", "Bollywood", "Garba", "Family Packages"],
@@ -320,7 +320,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/dhol-dynasty/600/400",
     rating: 4.7,
     reviewCount: 82,
-    startingPrice: 5000,
+    startingPrice: 12000,
     description:
       "Professional dhol team for baraat processions. Team of 2–6 players. Naiyara, shehnai and brass band combos for traditional entries.",
     tags: ["Baraat", "Naiyara", "Brass Band", "Traditional"],
@@ -340,7 +340,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/lalit-cards/600/400",
     rating: 4.4,
     reviewCount: 29,
-    startingPrice: 3000,
+    startingPrice: 5000,
     description:
       "Custom printed and digital wedding invitations. Rajasthani motifs, watercolour designs and premium foiling. WhatsApp e-invites with RSVP link.",
     tags: ["Printed Cards", "Digital E-Invite", "Foil Printing", "RSVP"],
@@ -360,7 +360,7 @@ export const sampleVendors: Vendor[] = [
     coverPhoto: "https://picsum.photos/seed/pandit-sharma/600/400",
     rating: 4.8,
     reviewCount: 104,
-    startingPrice: 5000,
+    startingPrice: 8000,
     description:
       "Experienced Vedic pandit for all wedding rituals: Muhurat selection, Saptapadi, Kanyadaan, Vidai. Fluent in Sanskrit, Hindi and English. Available for destination weddings.",
     tags: ["Vedic Rituals", "Muhurat", "Multilingual", "Destination"],
@@ -368,6 +368,45 @@ export const sampleVendors: Vendor[] = [
     verified: true,
     whatsappActive: true,
     multiDaySupport: true,
+  },
+  // Agent Managed vendors — onboarded & managed by WedBridge agents
+  {
+    id: 19,
+    name: "Maa Sheetal Caterers",
+    category: "Caterer",
+    city: "Jaipur",
+    isDestinationReady: false,
+    plan: "Agent Managed",
+    coverPhoto: "https://picsum.photos/seed/sheetal-caterers/600/400",
+    rating: 4.6,
+    reviewCount: 38,
+    startingPrice: 600,
+    description:
+      "Family-run catering business with 20 years of experience in traditional Marwari wedding food. Managed on WedBridge by a dedicated WedBridge agent.",
+    tags: ["Marwari Cuisine", "Home Style", "Pure Veg", "Traditional"],
+    languages: ["Hindi", "Marwari"],
+    verified: true,
+    whatsappActive: true,
+    multiDaySupport: true,
+  },
+  {
+    id: 20,
+    name: "Suresh Wedding Clicks",
+    category: "Photographer",
+    city: "Jaipur",
+    isDestinationReady: false,
+    plan: "Agent Managed",
+    coverPhoto: "https://picsum.photos/seed/suresh-clicks/600/400",
+    rating: 4.4,
+    reviewCount: 22,
+    startingPrice: 22000,
+    description:
+      "10 years of wedding photography. Not on social media — WedBridge agent handles all inquiries and booking coordination on Suresh's behalf.",
+    tags: ["Traditional", "Family Photos", "Candid", "Budget"],
+    languages: ["Hindi", "Rajasthani"],
+    verified: true,
+    whatsappActive: true,
+    multiDaySupport: false,
   },
 ];
 
@@ -378,7 +417,7 @@ export const samplePosts: PostView[] = [
     id: BigInt(1),
     author: { toText: () => "couple1", isAnonymous: () => false } as never,
     content:
-      "We found our wedding photographer through WedBridge and couldn't be happier! The Vendor Basket made it so easy to compare 5 photographers side by side before reaching out. Jaipur palace wedding dreams came true 💜 #JaipurWedding",
+      "We found our wedding photographer through WedBridge and couldn't be happier! The shortlist feature made it so easy to compare 5 photographers side by side before reaching out. Jaipur palace wedding dreams came true 💜 #JaipurWedding",
     likesCount: BigInt(47),
     hashtags: ["JaipurWedding", "WedBridge", "WeddingPhotography"],
     createdAt: BigInt(1697000000),
@@ -418,7 +457,7 @@ export const samplePosts: PostView[] = [
     id: BigInt(5),
     author: { toText: () => "couple4", isAnonymous: () => false } as never,
     content:
-      "Planning our wedding from London was a nightmare until we found WedBridge. Everything in one place — venue, catering, mehendi, dhol! The basket feature helped us negotiate and shortlist. Shaadi sorted 🇬🇧❤️🇮🇳",
+      "Planning our wedding from London was a nightmare until we found WedBridge. Everything in one place — venue, catering, mehendi, dhol! The shortlist feature helped us negotiate and compare. Shaadi sorted 🇬🇧❤️🇮🇳",
     likesCount: BigInt(134),
     hashtags: ["NRIWedding", "JaipurWedding", "WedBridge", "ShaadiPlanning"],
     createdAt: BigInt(1697004000),

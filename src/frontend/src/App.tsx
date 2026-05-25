@@ -20,6 +20,7 @@ const PostDetailPage = lazy(() => import("./pages/PostDetailPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const AdminPage = lazy(() => import("./pages/AdminPage"));
 const VendorBasketPage = lazy(() => import("./pages/WatchlistPage"));
+const PricingPage = lazy(() => import("./pages/PricingPage"));
 
 function PageSkeleton() {
   return (
@@ -98,6 +99,12 @@ const adminRoute = createRoute({
   component: AdminPage,
 });
 
+const pricingRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/pricing",
+  component: PricingPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   vendorsRoute,
@@ -108,6 +115,7 @@ const routeTree = rootRoute.addChildren([
   postDetailRoute,
   profileRoute,
   adminRoute,
+  pricingRoute,
 ]);
 
 const router = createRouter({ routeTree });

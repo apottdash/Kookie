@@ -46,8 +46,8 @@ export default function Layout({ children, onSearch }: LayoutProps) {
   const bottomNavItems = [
     { href: "/", emoji: "🏠", label: "Home" },
     { href: "/vendors", emoji: "🔍", label: "Browse" },
-    { href: "/basket", emoji: "🛒", label: "Basket" },
-    { href: "/destinations", emoji: "🏰", label: "Destinations" },
+    { href: "/basket", emoji: "🛒", label: "Saved" },
+    { href: "/pricing", emoji: "💎", label: "Plans" },
     { href: "/feed", emoji: "💬", label: "Community" },
   ];
 
@@ -127,6 +127,7 @@ export default function Layout({ children, onSearch }: LayoutProps) {
               </p>
               <ul className="space-y-1">
                 {[
+                  ["Vendor Plans & Pricing", "/pricing"],
                   ["List Your Services", "/vendors"],
                   ["Community", "/feed"],
                   ["Sign In", "#"],

@@ -7,6 +7,7 @@ import { useParams } from "@tanstack/react-router";
 import {
   ArrowLeft,
   CheckCircle,
+  Lock,
   MessageCircle,
   Plane,
   ShoppingBasket,
@@ -14,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useState } from "react";
 import { toast } from "sonner";
 import VendorCard from "../components/VendorCard";
 import { sampleVendors } from "../data/sampleData";
@@ -50,11 +52,14 @@ const planColors: Record<string, string> = {
   Standard: "bg-secondary/15 text-secondary border-secondary/30",
   Premium: "bg-primary/15 text-primary border-primary/30",
   "Destination Hub": "bg-accent/15 text-accent border-accent/30",
+  "Agent Managed":
+    "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300",
 };
 
 export default function VendorProfilePage() {
   const { vendorId } = useParams({ from: "/vendors/$vendorId" });
   const { addToBasket, removeFromBasket, isInBasket } = useBasket();
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const vendor = sampleVendors.find((v) => v.id === Number(vendorId));
 
@@ -259,9 +264,43 @@ export default function VendorProfilePage() {
 
                   <Separator />
 
+                  {/* Privacy protection notice */}
+                  <div className="flex items-start gap-2 bg-primary/5 rounded-lg p-3 text-xs text-muted-foreground leading-relaxed">
+                    <Lock className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>
+                      Your phone number and personal details are{" "}
+                      <strong className="text-foreground">not shared</strong>{" "}
+                      with this vendor until a deal is confirmed through
+                      WedBridge.
+                    </span>
+                  </div>
+
+                  {/* T&C acknowledgment */}
+                  <label className="flex items-start gap-2 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={agreedToTerms}
+                      onChange={(e) => setAgreedToTerms(e.target.checked)}
+                      className="mt-0.5 accent-primary w-3.5 h-3.5 shrink-0"
+                      data-ocid="vendor_profile.terms_checkbox"
+                    />
+                    <span className="text-xs text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                      I agree to WedBridge{" "}
+                      <a
+                        href="/pricing"
+                        className="text-primary hover:underline"
+                      >
+                        Terms & Conditions
+                      </a>
+                      . I understand that if I arrange payment outside
+                      WedBridge, the 2% platform commission remains due.
+                    </span>
+                  </label>
+
                   <Button
-                    className="w-full bg-primary text-primary-foreground gap-2"
+                    className="w-full bg-primary text-primary-foreground gap-2 disabled:opacity-50"
                     onClick={handleInquiry}
+                    disabled={!agreedToTerms}
                     data-ocid="vendor_profile.contact_button"
                   >
                     <MessageCircle className="w-4 h-4" />
@@ -277,12 +316,12 @@ export default function VendorProfilePage() {
                     {inBasket ? (
                       <>
                         <X className="w-4 h-4" />
-                        Remove from Basket
+                        Remove from Saved
                       </>
                     ) : (
                       <>
                         <ShoppingBasket className="w-4 h-4" />
-                        Add to Vendor Basket
+                        Save this Vendor
                       </>
                     )}
                   </Button>
