@@ -2,11 +2,11 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Plane, Search, X } from "lucide-react";
+import { MapPin, Plane, Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState } from "react";
 import VendorCard from "../components/VendorCard";
-import { sampleVendors } from "../data/sampleData";
+import { useDistinctCities, useVendors } from "../hooks/useVendors";
 import type { VendorCategory } from "../types";
 
 const ALL_CATEGORIES: VendorCategory[] = [
@@ -29,6 +29,7 @@ export default function BrowseVendorsPage() {
   const [activeCategory, setActiveCategory] = useState<VendorCategory | "ALL">(
     "ALL",
   );
+  const [activeCity, setActiveCity] = useState<string | "ALL">("ALL");
   const [destinationOnly, setDestinationOnly] = useState(false);
 
   // Read initial category from URL query param
@@ -39,21 +40,27 @@ export default function BrowseVendorsPage() {
     if (cat && ALL_CATEGORIES.includes(cat)) setActiveCategory(cat);
   }, []);
 
-  const filtered = useMemo(() => {
-    return sampleVendors.filter((v) => {
-      if (activeCategory !== "ALL" && v.category !== activeCategory)
-        return false;
-      if (destinationOnly && !v.isDestinationReady) return false;
-      if (
-        search &&
-        !v.name.toLowerCase().includes(search.toLowerCase()) &&
-        !v.category.toLowerCase().includes(search.toLowerCase()) &&
-        !v.tags.some((t) => t.toLowerCase().includes(search.toLowerCase()))
-      )
-        return false;
-      return true;
-    });
-  }, [search, activeCategory, destinationOnly]);
+  const { vendors, loading } = useVendors({
+    category: activeCategory !== "ALL" ? activeCategory : undefined,
+    city: activeCity !== "ALL" ? activeCity : undefined,
+    isDestinationReady: destinationOnly ? true : undefined,
+    search: search || undefined,
+  });
+
+  const cities = useDistinctCities();
+
+  const hasActiveFilters =
+    activeCategory !== "ALL" ||
+    activeCity !== "ALL" ||
+    destinationOnly ||
+    !!search;
+
+  const clearAllFilters = () => {
+    setSearch("");
+    setActiveCategory("ALL");
+    setActiveCity("ALL");
+    setDestinationOnly(false);
+  };
 
   return (
     <div className="pb-20 md:pb-0">
@@ -61,11 +68,12 @@ export default function BrowseVendorsPage() {
       <section className="bg-gradient-to-b from-primary/8 to-background py-10">
         <div className="container mx-auto px-4">
           <h1 className="font-display font-bold text-3xl text-foreground mb-2">
-            Browse Vendors in Jaipur
+            Browse Wedding Vendors
           </h1>
           <p className="text-muted-foreground text-sm max-w-xl">
-            All verified wedding vendors. Add your favourites to your Vendor
-            Basket and compare before reaching out.
+            {activeCity !== "ALL"
+              ? `Verified wedding vendors in ${activeCity}. Add your favourites to your Vendor Basket and compare before reaching out.`
+              : "All verified wedding vendors across India. Add your favourites to your Vendor Basket and compare before reaching out."}
           </p>
         </div>
       </section>
@@ -84,6 +92,32 @@ export default function BrowseVendorsPage() {
               className="pl-9 h-9 bg-muted/50 text-sm rounded-full"
               data-ocid="browse.search_input"
             />
+          </div>
+
+          {/* City pills */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
+            <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+            <button
+              type="button"
+              onClick={() => setActiveCity("ALL")}
+              className={`filter-pill shrink-0 ${activeCity === "ALL" ? "filter-pill-active" : "filter-pill-inactive"}`}
+              data-ocid="browse.city.all"
+            >
+              All Cities
+            </button>
+            {cities.map((city) => (
+              <button
+                key={city}
+                type="button"
+                onClick={() =>
+                  setActiveCity(activeCity === city ? "ALL" : city)
+                }
+                className={`filter-pill shrink-0 ${activeCity === city ? "filter-pill-active" : "filter-pill-inactive"}`}
+                data-ocid={`browse.city.${city.toLowerCase().replace(/\s/g, "_")}`}
+              >
+                {city}
+              </button>
+            ))}
           </div>
 
           {/* Category pills + destination toggle */}
@@ -127,88 +161,123 @@ export default function BrowseVendorsPage() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm text-muted-foreground">
-              {filtered.length} vendor{filtered.length !== 1 ? "s" : ""} found
-              {activeCategory !== "ALL" && (
-                <span className="ml-1">
-                  in{" "}
-                  <Badge
-                    variant="secondary"
-                    className="text-xs bg-primary/15 text-primary border-primary/20"
-                  >
-                    {activeCategory}
-                    <button
-                      type="button"
-                      onClick={() => setActiveCategory("ALL")}
-                      className="ml-1"
-                      aria-label="Clear category filter"
-                    >
-                      <X className="w-2.5 h-2.5" />
-                    </button>
-                  </Badge>
-                </span>
+              {loading ? (
+                "Loading vendors…"
+              ) : (
+                <>
+                  {vendors.length} vendor{vendors.length !== 1 ? "s" : ""} found
+                  {activeCategory !== "ALL" && (
+                    <span className="ml-1">
+                      in{" "}
+                      <Badge
+                        variant="secondary"
+                        className="text-xs bg-primary/15 text-primary border-primary/20"
+                      >
+                        {activeCategory}
+                        <button
+                          type="button"
+                          onClick={() => setActiveCategory("ALL")}
+                          className="ml-1"
+                          aria-label="Clear category filter"
+                        >
+                          <X className="w-2.5 h-2.5" />
+                        </button>
+                      </Badge>
+                    </span>
+                  )}
+                  {activeCity !== "ALL" && (
+                    <span className="ml-1">
+                      ·{" "}
+                      <Badge
+                        variant="secondary"
+                        className="text-xs bg-accent/15 text-accent border-accent/20"
+                      >
+                        📍 {activeCity}
+                        <button
+                          type="button"
+                          onClick={() => setActiveCity("ALL")}
+                          className="ml-1"
+                          aria-label="Clear city filter"
+                        >
+                          <X className="w-2.5 h-2.5" />
+                        </button>
+                      </Badge>
+                    </span>
+                  )}
+                </>
               )}
             </p>
-            {destinationOnly && (
+            {hasActiveFilters && (
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setDestinationOnly(false)}
+                onClick={clearAllFilters}
                 className="text-xs text-muted-foreground h-7 gap-1"
+                data-ocid="browse.clear_filters"
               >
                 <X className="w-3 h-3" />
-                Clear filters
+                Clear all
               </Button>
             )}
           </div>
 
-          <AnimatePresence mode="popLayout">
-            {filtered.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filtered.map((vendor, i) => (
-                  <motion.div
-                    key={vendor.id}
-                    layout
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ delay: i * 0.05 }}
-                    data-ocid={`browse.vendor_card.${vendor.id}`}
-                  >
-                    <a href={`/vendors/${vendor.id}`}>
-                      <VendorCard vendor={vendor} />
-                    </a>
-                  </motion.div>
-                ))}
-              </div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex flex-col items-center justify-center py-24 gap-4 text-center"
-                data-ocid="browse.empty_state"
-              >
-                <span className="text-5xl">🔍</span>
-                <h3 className="font-display font-semibold text-foreground text-lg">
-                  No vendors found
-                </h3>
-                <p className="text-muted-foreground text-sm max-w-xs">
-                  Try adjusting your filters or search term. More vendors are
-                  onboarding every week.
-                </p>
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setSearch("");
-                    setActiveCategory("ALL");
-                    setDestinationOnly(false);
-                  }}
-                  className="mt-2"
+          {loading ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {(["sk1", "sk2", "sk3", "sk4", "sk5", "sk6"] as const).map(
+                (k) => (
+                  <div
+                    key={k}
+                    className="h-64 rounded-2xl bg-muted/40 animate-pulse"
+                  />
+                ),
+              )}
+            </div>
+          ) : (
+            <AnimatePresence mode="popLayout">
+              {vendors.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {vendors.map((vendor, i) => (
+                    <motion.div
+                      key={vendor.id}
+                      layout
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ delay: Math.min(i * 0.04, 0.4) }}
+                      data-ocid={`browse.vendor_card.${vendor.id}`}
+                    >
+                      <a href={`/vendors/${vendor.id}`}>
+                        <VendorCard vendor={vendor} />
+                      </a>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex flex-col items-center justify-center py-24 gap-4 text-center"
+                  data-ocid="browse.empty_state"
                 >
-                  Clear all filters
-                </Button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                  <span className="text-5xl">🔍</span>
+                  <h3 className="font-display font-semibold text-foreground text-lg">
+                    No vendors found
+                  </h3>
+                  <p className="text-muted-foreground text-sm max-w-xs">
+                    Try adjusting your filters or search term. More vendors are
+                    onboarding every week.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={clearAllFilters}
+                    className="mt-2"
+                  >
+                    Clear all filters
+                  </Button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          )}
         </div>
       </section>
     </div>
