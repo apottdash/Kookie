@@ -1,6 +1,6 @@
 -- =============================================================
 -- WedBridge — Seed Data
--- 143 vendors across 10 Indian cities + 15 community posts
+-- 100 vendors across 10 Indian cities + 15 community posts
 -- =============================================================
 
 TRUNCATE TABLE posts, basket_items, reviews, bookings, inquiries, event_teams, couples, vendors RESTART IDENTITY CASCADE;
