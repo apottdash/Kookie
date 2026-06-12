@@ -3,3 +3,5 @@ dist/
 .dfx/
 .env
 *.local
+*.local
+.env*
