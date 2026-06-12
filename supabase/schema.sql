@@ -46,18 +46,12 @@ CREATE TABLE IF NOT EXISTS vendors (
     created_at          timestamptz     NOT NULL DEFAULT now()
 );
 
-COMMENT ON COLUMN vendors.plan IS
-    'Subscription tier: Free | Standard | Premium | Destination Hub | Agent Managed. Controls listing rank and feature access.';
-COMMENT ON COLUMN vendors.is_destination_ready IS
-    'True when the vendor is willing and logistically equipped to travel for destination weddings outside their home city.';
-COMMENT ON COLUMN vendors.starting_price IS
-    'Base INR price. For Caterer this is per-plate price; for all other categories it is the per-event starting price.';
-COMMENT ON COLUMN vendors.whatsapp_active IS
-    'When true the couple can initiate a WhatsApp chat directly from the listing without a formal inquiry.';
-COMMENT ON COLUMN vendors.multi_day_support IS
-    'Vendor can cover multi-day events: Haldi, Mehendi, Sangeet, and Pheras across multiple days.';
-COMMENT ON COLUMN vendors.verified IS
-    'WedBridge team has verified the vendor''s identity, licences, and portfolio samples.';
+COMMENT ON COLUMN vendors.plan IS 'Subscription tier: Free | Standard | Premium | Destination Hub | Agent Managed. Controls listing rank and feature access.';
+COMMENT ON COLUMN vendors.is_destination_ready IS 'True when the vendor is willing and logistically equipped to travel for destination weddings outside their home city.';
+COMMENT ON COLUMN vendors.starting_price IS 'Base INR price. For Caterer this is per-plate price; for all other categories it is the per-event starting price.';
+COMMENT ON COLUMN vendors.whatsapp_active IS 'When true the couple can initiate a WhatsApp chat directly from the listing without a formal inquiry.';
+COMMENT ON COLUMN vendors.multi_day_support IS 'Vendor can cover multi-day events: Haldi, Mehendi, Sangeet, and Pheras across multiple days.';
+COMMENT ON COLUMN vendors.verified IS 'WedBridge team has verified the vendor''s identity, licences, and portfolio samples.';
 
 -- ===========================================================
 -- TABLE: couples
@@ -77,8 +71,7 @@ CREATE TABLE IF NOT EXISTS couples (
     created_at              timestamptz NOT NULL DEFAULT now()
 );
 
-COMMENT ON COLUMN couples.principal IS
-    'Immutable identifier from the auth provider (Supabase auth.uid or OAuth subject). Used in RLS policies.';
+COMMENT ON COLUMN couples.principal IS 'Immutable identifier from the auth provider (Supabase auth.uid or OAuth subject). Used in RLS policies.';
 COMMENT ON COLUMN couples.budget_min IS 'Lower bound of the couple''s total wedding budget in INR.';
 COMMENT ON COLUMN couples.budget_max IS 'Upper bound of the couple''s total wedding budget in INR.';
 
@@ -96,10 +89,8 @@ CREATE TABLE IF NOT EXISTS basket_items (
     UNIQUE (couple_id, vendor_id)
 );
 
-COMMENT ON COLUMN basket_items.couple_id IS
-    'FK to couples.id. RLS policy enforces auth.uid()::text = couple_id::text so couples only see their own basket.';
-COMMENT ON COLUMN basket_items.notes IS
-    'Free-text notes the couple attaches to a saved vendor, e.g. budget queries, style preferences.';
+COMMENT ON COLUMN basket_items.couple_id IS 'FK to couples.id. RLS policy enforces auth.uid()::text = couple_id::text so couples only see their own basket.';
+COMMENT ON COLUMN basket_items.notes IS 'Free-text notes the couple attaches to a saved vendor, e.g. budget queries, style preferences.';
 
 -- ===========================================================
 -- TABLE: inquiries
@@ -120,12 +111,9 @@ CREATE TABLE IF NOT EXISTS inquiries (
     created_at              timestamptz NOT NULL DEFAULT now()
 );
 
-COMMENT ON COLUMN inquiries.couple_id IS
-    'Identity of the inquiring couple. NEVER exposed to vendors directly — always query via vendor_inquiry_view which applies the contact-release mask.';
-COMMENT ON COLUMN inquiries.couple_contact_released IS
-    'When false, vendor_inquiry_view returns NULL for couple_id. The couple flips this to true to share their profile with the vendor.';
-COMMENT ON COLUMN inquiries.status IS
-    'Lifecycle: pending → responded → confirmed | cancelled.';
+COMMENT ON COLUMN inquiries.couple_id IS 'Identity of the inquiring couple. NEVER exposed to vendors directly — always query via vendor_inquiry_view which applies the contact-release mask.';
+COMMENT ON COLUMN inquiries.couple_contact_released IS 'When false, vendor_inquiry_view returns NULL for couple_id. The couple flips this to true to share their profile with the vendor.';
+COMMENT ON COLUMN inquiries.status IS 'Lifecycle: pending → responded → confirmed | cancelled.';
 
 -- ===========================================================
 -- TABLE: bookings
@@ -144,12 +132,9 @@ CREATE TABLE IF NOT EXISTS bookings (
     created_at          timestamptz NOT NULL DEFAULT now()
 );
 
-COMMENT ON COLUMN bookings.commission_percent IS
-    'WedBridge platform commission rate agreed at time of booking (e.g. 10.00 = 10%).';
-COMMENT ON COLUMN bookings.commission_amount IS
-    'Absolute INR commission = confirmed_price * commission_percent / 100. Stored denormalised for billing queries.';
-COMMENT ON COLUMN bookings.bypassed_platform IS
-    'True when a vendor or couple is detected to have finalised the booking outside WedBridge. Used for trust-and-safety reporting.';
+COMMENT ON COLUMN bookings.commission_percent IS 'WedBridge platform commission rate agreed at time of booking (e.g. 10.00 = 10%).';
+COMMENT ON COLUMN bookings.commission_amount IS 'Absolute INR commission = confirmed_price * commission_percent / 100. Stored denormalised for billing queries.';
+COMMENT ON COLUMN bookings.bypassed_platform IS 'True when a vendor or couple is detected to have finalised the booking outside WedBridge. Used for trust-and-safety reporting.';
 
 -- ===========================================================
 -- TABLE: reviews
@@ -180,8 +165,7 @@ CREATE TABLE IF NOT EXISTS event_teams (
     created_at      timestamptz NOT NULL DEFAULT now()
 );
 
-COMMENT ON COLUMN event_teams.vendor_ids IS
-    'Denormalised array of vendor IDs forming this wedding team. FK integrity is enforced at the application layer for performance.';
+COMMENT ON COLUMN event_teams.vendor_ids IS 'Denormalised array of vendor IDs forming this wedding team. FK integrity is enforced at the application layer for performance.';
 
 -- ===========================================================
 -- TABLE: posts
@@ -198,10 +182,8 @@ CREATE TABLE IF NOT EXISTS posts (
     created_at  bigint
 );
 
-COMMENT ON COLUMN posts.created_at IS
-    'Unix epoch milliseconds. Stored as bigint for compatibility with the mobile feed cursor.';
-COMMENT ON COLUMN posts.flagged IS
-    'Set to true by trust-and-safety when post is under review. Flagged posts are hidden from public feed.';
+COMMENT ON COLUMN posts.created_at IS 'Unix epoch milliseconds. Stored as bigint for compatibility with the mobile feed cursor.';
+COMMENT ON COLUMN posts.flagged IS 'Set to true by trust-and-safety when post is under review. Flagged posts are hidden from public feed.';
 
 -- ===========================================================
 -- INDEXES
@@ -309,5 +291,4 @@ SELECT
     END AS couple_id
 FROM inquiries;
 
-COMMENT ON VIEW vendor_inquiry_view IS
-    'Safe vendor-facing view of inquiries. couple_id is NULL until the couple sets couple_contact_released = true, implementing WedBridge''s privacy-first contact model.';
+COMMENT ON VIEW vendor_inquiry_view IS 'Safe vendor-facing view of inquiries. couple_id is NULL until the couple sets couple_contact_released = true, implementing WedBridge privacy-first contact model.';
