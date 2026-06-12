@@ -17,6 +17,20 @@
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 -- ===========================================================
+-- TEARDOWN — drop everything so this script is safely re-runnable
+-- CASCADE propagates to dependent objects (indexes, policies, FKs)
+-- ===========================================================
+DROP VIEW  IF EXISTS vendor_inquiry_view;
+DROP TABLE IF EXISTS posts         CASCADE;
+DROP TABLE IF EXISTS event_teams   CASCADE;
+DROP TABLE IF EXISTS reviews       CASCADE;
+DROP TABLE IF EXISTS bookings      CASCADE;
+DROP TABLE IF EXISTS inquiries     CASCADE;
+DROP TABLE IF EXISTS basket_items  CASCADE;
+DROP TABLE IF EXISTS couples       CASCADE;
+DROP TABLE IF EXISTS vendors       CASCADE;
+
+-- ===========================================================
 -- TABLE: vendors
 -- ===========================================================
 -- Stores every vendor on the marketplace.
@@ -172,17 +186,17 @@ COMMENT ON COLUMN event_teams.vendor_ids IS 'Denormalised array of vendor IDs fo
 -- ===========================================================
 -- Community feed: wedding stories, tips, testimonials.
 CREATE TABLE IF NOT EXISTS posts (
-    id          bigint      PRIMARY KEY,
-    author      text,
-    content     text,
-    hashtags    text[],
-    likes_count bigint      NOT NULL DEFAULT 0,
+    id          uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
+    vendor_id   int         REFERENCES vendors (id) ON DELETE SET NULL,
+    couple_id   uuid        REFERENCES couples (id) ON DELETE SET NULL,
+    content     text        NOT NULL,
+    media_url   text,
+    tags        text[],
+    likes_count int         NOT NULL DEFAULT 0,
     flagged     bool        NOT NULL DEFAULT false,
-    -- created_at stored as Unix epoch milliseconds for feed sorting
-    created_at  bigint
+    created_at  timestamptz NOT NULL DEFAULT now()
 );
 
-COMMENT ON COLUMN posts.created_at IS 'Unix epoch milliseconds. Stored as bigint for compatibility with the mobile feed cursor.';
 COMMENT ON COLUMN posts.flagged IS 'Set to true by trust-and-safety when post is under review. Flagged posts are hidden from public feed.';
 
 -- ===========================================================
