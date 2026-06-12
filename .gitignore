@@ -1,7 +1,7 @@
 node_modules/
 dist/
+src/frontend/dist/
 .dfx/
 .env
-*.local
 *.local
 .env*
