@@ -5,8 +5,8 @@ import { Category } from "../backend";
 
 const CATEGORY_FALLBACK: Record<string, { gradient: string; icon: string }> = {
   [Category.BTS_LIVE]: {
-    gradient: "from-violet-600/60 via-purple-600/50 to-indigo-700/60",
-    icon: "🎤",
+    gradient: "from-rose-500/60 via-pink-500/50 to-red-600/60",
+    icon: "💍",
   },
   [Category.BTS_SONGS]: {
     gradient: "from-purple-600/60 via-fuchsia-600/50 to-violet-700/60",

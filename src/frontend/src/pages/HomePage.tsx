@@ -495,7 +495,7 @@ export default function HomePage() {
                       </p>
                       <div className="flex items-center gap-3">
                         <span className="text-xs text-muted-foreground">
-                          💜 {formatCount(post.likesCount)} likes
+                          ❤️ {formatCount(post.likesCount)} likes
                         </span>
                         {post.hashtags.slice(0, 3).map((tag) => (
                           <span key={tag} className="text-xs text-primary/70">

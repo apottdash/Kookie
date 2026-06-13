@@ -95,7 +95,7 @@ interface PostCardProps {
 
 function PostCard({ post, index }: PostCardProps) {
   const { isLoggedIn } = useAuth();
-  const username = sampleUsernames[post.author.toText()] ?? "ARMY Member";
+  const username = sampleUsernames[post.author.toText()] ?? "WedBridge Member";
   const initials = username.slice(0, 2).toUpperCase();
   const [likes, setLikes] = useState(Number(post.likesCount));
   const [liked, setLiked] = useState(false);
@@ -103,7 +103,7 @@ function PostCard({ post, index }: PostCardProps) {
   const handleLike = () => {
     setLiked((prev) => !prev);
     setLikes((prev) => (liked ? prev - 1 : prev + 1));
-    if (!liked) toast.success("You purple-hearted this post! 💜");
+    if (!liked) toast.success("You liked this post!");
   };
 
   const handleFlag = () => {
@@ -169,7 +169,7 @@ function PostCard({ post, index }: PostCardProps) {
           <div className="flex items-center gap-3">
             <ActionButton
               isLoggedIn={isLoggedIn}
-              disabledTooltip="Sign in to like 💜"
+              disabledTooltip="Sign in to like"
               onClick={handleLike}
               ocid={`feed.like_button.${index + 1}`}
               className={`flex items-center gap-1.5 text-xs font-medium transition-smooth ${
@@ -193,7 +193,7 @@ function PostCard({ post, index }: PostCardProps) {
 
             <ActionButton
               isLoggedIn={isLoggedIn}
-              disabledTooltip="Sign in to report 💜"
+              disabledTooltip="Sign in to report"
               onClick={handleFlag}
               ocid={`feed.flag_button.${index + 1}`}
               className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-destructive transition-smooth ml-auto"
@@ -214,7 +214,7 @@ export default function FeedPage() {
 
   const handlePost = () => {
     if (!newPost.trim()) return;
-    toast.success("Post shared with the ARMY! 💜");
+    toast.success("Post shared with the community!");
     setNewPost("");
   };
 
@@ -228,10 +228,10 @@ export default function FeedPage() {
         <div className="container mx-auto px-4">
           <h1 className="font-display font-bold text-3xl text-foreground flex items-center gap-2 mb-1">
             <Hash className="w-6 h-6 text-primary" />
-            ARMY Feed
+            WedBridge Community
           </h1>
           <p className="text-muted-foreground text-sm">
-            Share your love for BTS with the community 💜
+            Share your wedding journey with the WedBridge community
           </p>
         </div>
       </div>
@@ -248,11 +248,11 @@ export default function FeedPage() {
                 <div className="flex items-center gap-2 mb-1">
                   <PenLine className="w-4 h-4 text-primary" />
                   <span className="text-sm font-semibold text-foreground">
-                    Share with ARMY
+                    Share with Community
                   </span>
                 </div>
                 <Textarea
-                  placeholder="What's on your ARMY heart today? 💜"
+                  placeholder="Share your wedding planning journey..."
                   value={newPost}
                   onChange={(e) => setNewPost(e.target.value)}
                   className="resize-none min-h-[90px] bg-muted/30 border-border text-sm"
@@ -269,7 +269,7 @@ export default function FeedPage() {
                     className="bg-primary text-primary-foreground rounded-full gap-1.5"
                     data-ocid="feed.submit_post_button"
                   >
-                    Post 💜
+                    Post
                   </Button>
                 </div>
               </CardContent>
@@ -291,10 +291,10 @@ export default function FeedPage() {
                   </div>
                   <div className="text-center sm:text-left flex-1">
                     <p className="font-semibold text-foreground text-sm leading-snug">
-                      Join the conversation, ARMY! 💜
+                      Join the conversation!
                     </p>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      Sign in to post, like, and reply — your fandom awaits
+                      Sign in to post, like, and reply — your community awaits
                     </p>
                   </div>
                   <Button
@@ -303,7 +303,7 @@ export default function FeedPage() {
                     className="bg-primary text-primary-foreground rounded-full shrink-0 gap-1.5"
                     data-ocid="feed.signin_button"
                   >
-                    Sign in to join 💜
+                    Sign in to join
                   </Button>
                 </div>
               </div>

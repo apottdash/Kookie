@@ -28,20 +28,20 @@ import { useAuth } from "../hooks/useAuth";
 const sampleComments = [
   {
     id: 1,
-    author: "JiminsButterfly",
-    content: "I cried so much watching this 😭💜 BTS forever!",
+    author: "JaipurBride2025",
+    content: "Just booked our photographer from this vendor — absolutely amazing experience! 🌸",
     time: "2h ago",
   },
   {
     id: 2,
-    author: "YoongisGenius",
-    content: "Purple you ARMY! This is everything 💜✨",
+    author: "DelhiCouple",
+    content: "WedBridge made vendor shortlisting so much easier. Highly recommend!",
     time: "5h ago",
   },
   {
     id: 3,
-    author: "KookiesAndCream",
-    content: "Can't stop watching! JK's performance was insane 🔥",
+    author: "MumbaiWedding",
+    content: "The transparency here is unreal — no hidden costs, no pressure. Love it! 🎉",
     time: "1d ago",
   },
 ];
@@ -110,13 +110,13 @@ export default function PostDetailPage() {
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(Number(post.likesCount));
 
-  const username = sampleUsernames[post.author.toText()] ?? "ARMY Member";
+  const username = sampleUsernames[post.author.toText()] ?? "WedBridge Member";
   const initials = username.slice(0, 2).toUpperCase();
 
   const handleLike = () => {
     setLiked((p) => !p);
     setLikes((p) => (liked ? p - 1 : p + 1));
-    if (!liked) toast.success("💜 You purple-hearted this!");
+    if (!liked) toast.success("You liked this post!");
   };
 
   const handleFlag = () => {
@@ -125,7 +125,7 @@ export default function PostDetailPage() {
 
   const handleComment = () => {
     if (!comment.trim()) return;
-    toast.success("Comment posted! 💜");
+    toast.success("Comment posted!");
     setComment("");
   };
 
@@ -183,7 +183,7 @@ export default function PostDetailPage() {
                 <div>
                   <p className="font-semibold text-foreground">{username}</p>
                   <p className="text-xs text-muted-foreground">
-                    BTS ARMY Member
+                    WedBridge Member
                   </p>
                 </div>
               </div>
@@ -210,7 +210,7 @@ export default function PostDetailPage() {
                 {/* Like — disabled with tooltip for guests */}
                 <GatedButton
                   isLoggedIn={isLoggedIn}
-                  tooltip="Sign in to like 💜"
+                  tooltip="Sign in to like"
                   onClick={handleLike}
                   ocid="post_detail.like_button"
                   className={`flex items-center gap-2 text-sm font-medium transition-smooth ${liked ? "text-primary" : "text-muted-foreground hover:text-primary"}`}
@@ -228,7 +228,7 @@ export default function PostDetailPage() {
                 {/* Flag — disabled with tooltip for guests */}
                 <GatedButton
                   isLoggedIn={isLoggedIn}
-                  tooltip="Sign in to report 💜"
+                  tooltip="Sign in to report"
                   onClick={handleFlag}
                   ocid="post_detail.flag_button"
                   className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-destructive transition-smooth ml-auto"
@@ -289,7 +289,7 @@ export default function PostDetailPage() {
               <Card className="border-border bg-card">
                 <CardContent className="p-5 flex flex-col gap-3">
                   <Textarea
-                    placeholder="Leave a comment for ARMY 💜"
+                    placeholder="Leave a comment..."
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                     className="resize-none min-h-[80px] bg-muted/30 border-border text-sm"
@@ -325,10 +325,10 @@ export default function PostDetailPage() {
                     </div>
                     <div className="text-center sm:text-left flex-1">
                       <p className="font-semibold text-foreground text-sm">
-                        Have something to say? 💜
+                        Have something to say?
                       </p>
                       <p className="text-xs text-muted-foreground mt-0.5">
-                        Sign in to leave a comment and connect with ARMY
+                        Sign in to leave a comment and connect with the community
                       </p>
                     </div>
                     <Button
@@ -337,7 +337,7 @@ export default function PostDetailPage() {
                       className="bg-primary text-primary-foreground rounded-full shrink-0"
                       data-ocid="post_detail.signin_to_comment_button"
                     >
-                      Sign in to comment 💜
+                      Sign in to comment
                     </Button>
                   </div>
                 </div>

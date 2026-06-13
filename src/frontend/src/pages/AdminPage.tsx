@@ -50,15 +50,15 @@ const emptyForm: NewLinkForm = {
   description: "",
   url: "",
   platform: "YouTube",
-  category: "BTS_LIVE",
+  category: "K_DRAMA",
   coverPhotoUrl: "",
   mediaUrl: "",
 };
 
 function getCategoryEmoji(cat: Category): string {
-  if (cat === Category.BTS_LIVE) return "🎤";
   if (cat === Category.K_DRAMA) return "🎬";
-  return "📚";
+  if (cat === Category.MANHWA) return "📚";
+  return "💍";
 }
 
 /** Returns true if the string looks like a valid HTTP/S URL */
@@ -108,8 +108,8 @@ export default function AdminPage() {
           Admin Dashboard
         </h1>
         <p className="text-muted-foreground text-sm max-w-sm">
-          Connect your Internet Identity to access admin tools for managing ARMY
-          Hub content.
+          Connect your Internet Identity to access admin tools for managing
+          WedBridge platform content.
         </p>
         <Button
           onClick={login}
@@ -173,7 +173,7 @@ export default function AdminPage() {
           : l,
       ),
     );
-    toast.success(`Link "${editForm.title}" updated! 💜`);
+    toast.success(`Link "${editForm.title}" updated!`);
     cancelEdit();
   };
 
@@ -182,7 +182,7 @@ export default function AdminPage() {
       toast.error("Title and URL are required.");
       return;
     }
-    toast.success(`Link "${form.title}" added! 💜 All users can now see it.`);
+    toast.success(`Link "${form.title}" added! All users can now see it.`);
     setForm(emptyForm);
   };
 
@@ -205,8 +205,8 @@ export default function AdminPage() {
       color: "text-accent",
     },
     {
-      label: "BTS Lives",
-      value: links.filter((l) => l.category === Category.BTS_LIVE).length,
+      label: "Vendor Listings",
+      value: links.filter((l) => l.category === Category.K_DRAMA).length,
       icon: TrendingUp,
       color: "text-secondary",
     },
@@ -233,7 +233,7 @@ export default function AdminPage() {
               Admin Dashboard
             </h1>
             <p className="text-sm text-muted-foreground">
-              Manage ARMY Hub content and community
+              Manage WedBridge platform content and community
             </p>
           </div>
         </div>
@@ -507,20 +507,20 @@ export default function AdminPage() {
                                   <SelectValue />
                                 </SelectTrigger>
                                 <SelectContent>
-                                  <SelectItem value="BTS_LIVE">
-                                    🎤 BTS Live
-                                  </SelectItem>
-                                  <SelectItem value="BTS_SONGS">
-                                    🎵 BTS Songs
-                                  </SelectItem>
                                   <SelectItem value="K_DRAMA">
-                                    🎬 K-Drama
+                                    🎬 Wedding Videos
                                   </SelectItem>
                                   <SelectItem value="MANHWA">
-                                    📚 Manhwa
+                                    📚 Wedding Tips
+                                  </SelectItem>
+                                  <SelectItem value="BTS_LIVE">
+                                    💍 Real Weddings
+                                  </SelectItem>
+                                  <SelectItem value="BTS_SONGS">
+                                    🎵 Wedding Music
                                   </SelectItem>
                                   <SelectItem value="FANFICTION">
-                                    📝 Fan Fiction
+                                    📝 Vendor Spotlights
                                   </SelectItem>
                                 </SelectContent>
                               </Select>
@@ -571,7 +571,7 @@ export default function AdminPage() {
                               data-ocid={`admin.edit_media_url_input.${i + 1}`}
                             />
                             <p className="text-xs text-muted-foreground mt-1">
-                              For BTS Lives and Songs: enter YouTube video ID
+                              For wedding videos: enter YouTube video ID
                               for embedded playback
                             </p>
                           </div>
@@ -648,7 +648,7 @@ export default function AdminPage() {
                       onChange={(e) =>
                         handleFormChange("description", e.target.value)
                       }
-                      placeholder="Brief description for ARMY"
+                      placeholder="Brief description for this link"
                       className="resize-none min-h-[70px] bg-muted/30"
                       data-ocid="admin.link_description_input"
                     />
@@ -712,15 +712,11 @@ export default function AdminPage() {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="BTS_LIVE">🎤 BTS Live</SelectItem>
-                          <SelectItem value="BTS_SONGS">
-                            🎵 BTS Songs
-                          </SelectItem>
-                          <SelectItem value="K_DRAMA">🎬 K-Drama</SelectItem>
-                          <SelectItem value="MANHWA">📚 Manhwa</SelectItem>
-                          <SelectItem value="FANFICTION">
-                            📝 Fan Fiction
-                          </SelectItem>
+                          <SelectItem value="K_DRAMA">🎬 Wedding Videos</SelectItem>
+                          <SelectItem value="MANHWA">📚 Wedding Tips</SelectItem>
+                          <SelectItem value="BTS_LIVE">💍 Real Weddings</SelectItem>
+                          <SelectItem value="BTS_SONGS">🎵 Wedding Music</SelectItem>
+                          <SelectItem value="FANFICTION">📝 Vendor Spotlights</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -771,7 +767,7 @@ export default function AdminPage() {
                       data-ocid="admin.link_media_url_input"
                     />
                     <p className="text-xs text-muted-foreground mt-1.5">
-                      For BTS Lives and Songs: enter YouTube video ID for
+                      For wedding videos: enter YouTube video ID for
                       embedded playback
                     </p>
                   </div>
@@ -803,7 +799,7 @@ export default function AdminPage() {
                         {post.content}
                       </p>
                       <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground">
-                        <span>💜 {Number(post.likesCount)}</span>
+                        <span>❤️ {Number(post.likesCount)}</span>
                         {post.flagged && (
                           <Badge variant="destructive" className="text-xs py-0">
                             Flagged

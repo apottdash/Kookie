@@ -100,4 +100,6 @@ export interface NavItem {
   emoji: string;
 }
 
-export type FandomType = "Couple" | "Vendor" | "Planner" | "Other";
+export type UserRoleType = "Couple" | "Vendor" | "Planner" | "Other";
+/** @deprecated use UserRoleType */
+export type FandomType = UserRoleType;

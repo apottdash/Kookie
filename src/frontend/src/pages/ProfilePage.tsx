@@ -19,11 +19,11 @@ export default function ProfilePage() {
   const { isLoggedIn, principalText } = useAuth();
   const isOwnProfile = isLoggedIn && principalText === params.principal;
 
-  const username = sampleUsernames["army1-principal"] ?? "ARMYMember";
+  const username = sampleUsernames[params.principal ?? ""] ?? "WedBridge Member";
   const [editing, setEditing] = useState(false);
   const [displayName, setDisplayName] = useState(username);
   const [bio, setBio] = useState(
-    "BTS ARMY since 2013 💜 Hobi's #1 fan | Spreading purple love worldwide 🌏",
+    "Planning the perfect wedding with WedBridge 💍 | India's trusted vendor marketplace",
   );
   const [tempName, setTempName] = useState(displayName);
   const [tempBio, setTempBio] = useState(bio);
@@ -39,7 +39,7 @@ export default function ProfilePage() {
     setDisplayName(tempName);
     setBio(tempBio);
     setEditing(false);
-    toast.success("Profile updated! 💜");
+    toast.success("Profile updated!");
   };
 
   const handleCancel = () => {
@@ -72,7 +72,7 @@ export default function ProfilePage() {
                   {displayName}
                 </h1>
                 <Badge className="bg-primary/15 text-primary border-primary/20 text-xs">
-                  ARMY 💜
+                  WedBridge Member
                 </Badge>
               </div>
               <p className="text-sm text-muted-foreground mt-1 max-w-md leading-relaxed">
@@ -127,7 +127,7 @@ export default function ProfilePage() {
                     <Input
                       value={tempName}
                       onChange={(e) => setTempName(e.target.value)}
-                      placeholder="Your ARMY name"
+                      placeholder="Your display name"
                       className="bg-muted/30"
                       data-ocid="profile.username_input"
                     />
@@ -139,7 +139,7 @@ export default function ProfilePage() {
                     <Textarea
                       value={tempBio}
                       onChange={(e) => setTempBio(e.target.value)}
-                      placeholder="Tell ARMY about yourself 💜"
+                      placeholder="Tell the community about yourself"
                       className="resize-none min-h-[80px] bg-muted/30"
                       data-ocid="profile.bio_input"
                     />
@@ -202,7 +202,7 @@ export default function ProfilePage() {
                           ))}
                         </div>
                         <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                          <span>💜 {Number(post.likesCount)}</span>
+                          <span>❤️ {Number(post.likesCount)}</span>
                           <ExternalLink className="w-3 h-3 text-primary" />
                         </div>
                       </div>
