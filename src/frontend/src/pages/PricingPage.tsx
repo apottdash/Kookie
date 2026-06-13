@@ -84,7 +84,7 @@ const plans = [
   },
   {
     id: "agent",
-    name: "Agent Managed",
+    name: "Concierge",
     price: 2000,
     tagline: "WedBridge runs it all for you",
     color: "border-purple-400/50 bg-purple-50/30 dark:bg-purple-950/10",
@@ -187,7 +187,7 @@ const features: PlanFeature[] = [
     agentManaged: "3 cities",
   },
   {
-    label: "Dedicated WedBridge agent",
+    label: "Dedicated WedBridge advisor",
     free: false,
     standard: false,
     premium: false,
@@ -211,7 +211,7 @@ const features: PlanFeature[] = [
     agentManaged: "4 posts/month",
   },
   {
-    label: "Lead follow-up by agent",
+    label: "Lead follow-up by advisor",
     free: false,
     standard: false,
     premium: false,
@@ -240,7 +240,7 @@ const features: PlanFeature[] = [
     standard: "Email + Chat",
     premium: "Priority chat",
     destinationHub: "Priority chat",
-    agentManaged: "Dedicated agent",
+    agentManaged: "Dedicated advisor",
   },
 ];
 
@@ -258,7 +258,7 @@ const planColorMap: Record<string, string> = {
   Standard: "bg-secondary/15 text-secondary border-secondary/30",
   Premium: "bg-primary/15 text-primary border-primary/30",
   "Destination Hub": "bg-accent/15 text-accent border-accent/30",
-  "Agent Managed":
+  "Concierge":
     "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/20 dark:text-purple-300",
 };
 
@@ -406,7 +406,7 @@ export default function PricingPage() {
                     "Standard",
                     "Premium",
                     "Destination Hub",
-                    "Agent Managed",
+                    "Concierge",
                   ].map((name) => (
                     <th
                       key={name}
@@ -455,7 +455,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Agent Managed spotlight */}
+      {/* Concierge spotlight */}
       <section className="py-10 bg-gradient-to-r from-purple-50/60 to-primary/5 dark:from-purple-950/20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
@@ -464,12 +464,12 @@ export default function PricingPage() {
                 <div className="flex items-center gap-3 mb-2">
                   <Bot className="w-6 h-6" />
                   <h2 className="font-display font-bold text-xl">
-                    Agent Managed — for offline vendors
+                    Concierge — for offline vendors
                   </h2>
                 </div>
                 <p className="text-white/80 text-sm">
                   Not comfortable with social media or digital marketing?
-                  WedBridge assigns a dedicated agent who handles everything —
+                  WedBridge assigns a dedicated advisor who handles everything —
                   so you focus on your craft.
                 </p>
               </div>
@@ -477,8 +477,8 @@ export default function PricingPage() {
                 {[
                   {
                     icon: Headphones,
-                    title: "Dedicated account agent",
-                    desc: "One person manages your profile, responds to inquiries, and coordinates with couples — all via WhatsApp.",
+                    title: "Dedicated account advisor",
+                    desc: "One WedBridge advisor manages your profile, responds to inquiries, and coordinates with couples — all via WhatsApp.",
                   },
                   {
                     icon: BarChart2,

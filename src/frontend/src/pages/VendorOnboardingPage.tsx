@@ -70,11 +70,11 @@ const PLANS = [
     features: ["Destination filter", "1.5% commission", "Multi-day events", "NRI couple targeting"],
   },
   {
-    id: "Agent Managed",
+    id: "Concierge",
     price: "₹2,000/mo",
     color: "bg-purple-500/5 border-purple-500/30",
     badge: "For Offline Vendors",
-    features: ["WedBridge agent manages listing", "1% commission", "No smartphone needed", "Agent handles inquiries"],
+    features: ["WedBridge advisor manages your listing", "1% commission", "No smartphone needed", "Advisor handles inquiries for you"],
   },
 ];
 

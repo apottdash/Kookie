@@ -103,12 +103,12 @@ INSERT INTO vendors (name, category, city, is_destination_ready, plan, cover_pho
  'Wedding films with drone aerials and creative reels for social media. Fast turnaround — highlights ready in 7 days.',
  ARRAY['drone','reels','fast-delivery','social-media'], ARRAY['Hindi','English'], false, true, false),
 
-('Maa Sheetal Caterers', 'Caterer', 'Jaipur', false, 'Agent Managed',
+('Maa Sheetal Caterers', 'Caterer', 'Jaipur', false, 'Concierge',
  'https://picsum.photos/seed/jaipur-cat2/600/400', 4.5, 88, 650,
  'Home-style Rajasthani and Punjabi catering. Family-run kitchen. WedBridge agent assists with digital bookings on their behalf.',
  ARRAY['home-style','rajasthani','punjabi','agent-managed'], ARRAY['Hindi','Rajasthani'], false, false, false),
 
-('Suresh Wedding Clicks', 'Photographer', 'Jaipur', false, 'Agent Managed',
+('Suresh Wedding Clicks', 'Photographer', 'Jaipur', false, 'Concierge',
  'https://picsum.photos/seed/jaipur-ph3/600/400', 4.3, 56, 18000,
  'Local photographer with 12 years experience. Covers religious ceremonies with sensitivity. WedBridge agent handles all inquiries.',
  ARRAY['local','traditional','religious','agent-managed'], ARRAY['Hindi','Rajasthani'], false, false, false),
@@ -597,9 +597,9 @@ INSERT INTO posts (vendor_id, couple_id, content, media_url, tags) VALUES
  ARRAY['interfaith','mumbai','pandit','intercultural']),
 
 (NULL, NULL,
- 'The WedBridge Agent Managed plan is perfect for vendors like my Uncle who has been doing dhol for 25 years but doesn''t use smartphones. The WedBridge agent listed him and now he gets bookings through the platform without any confusion!',
+ 'The WedBridge Concierge plan is perfect for vendors like my Uncle who has been doing dhol for 25 years but doesn''t use smartphones. The WedBridge advisor listed him and now he gets bookings through the platform without any confusion!',
  'https://picsum.photos/seed/post10/600/400',
- ARRAY['agent-managed','dhol','small-vendor','chandigarh']),
+ ARRAY['concierge','dhol','small-vendor','chandigarh']),
 
 (NULL, NULL,
  'Kolkata brides — Durga Bridal Studio is exceptional. Traditional Bengali bridal look, fresh sandalwood paste, gorgeous draping. No heavy filters needed because the real look was already perfect.',

@@ -1,28 +1,28 @@
 {
-  "overview": "ARMY Hub is a BTS fan platform where ARMYs discover and enjoy BTS live shows, songs, K-dramas, manhwas, and fan fiction — all in one place. Features include embedded playback for lives and songs, cover photo cards, multilingual content, a personal watchlist, community feed, and an admin panel for managing content.",
+  "overview": "WedBridge is India's trusted wedding vendor marketplace. Couples discover and shortlist verified photographers, decorators, caterers, mehendi artists, venues, and more across 10+ Indian cities. Features include city and category filtering, a private Vendor Basket for shortlisting, destination wedding support, a community feed, vendor self-registration, and subscription plans including a Concierge tier where WedBridge advisors manage the vendor's entire digital presence.",
   "features": [
-    "Cover photo thumbnails on all content cards",
-    "Embedded YouTube player for BTS live shows",
-    "Embedded Spotify, YouTube, and SoundCloud players for BTS songs",
-    "Multilingual manhwas (English, French, Hindi, Korean, Spanish)",
-    "Genre and language filters on all content pages",
-    "Personal watchlist to save and manage links",
-    "Community feed — public browsing, login to post/like/comment",
-    "Onboarding modal collecting country, fandom, language, and subtitle preferences",
-    "Admin panel to add, edit, and delete content",
-    "Fan fiction page with Wattpad and YouTube aggregation"
+    "Browse verified wedding vendors by city and category",
+    "Vendor Basket — private shortlist with notes, invisible to vendors",
+    "Destination wedding section for NRI and travel couples",
+    "Community feed — share wedding journeys, tips, and experiences",
+    "Vendor self-registration with 3-step onboarding flow",
+    "Five subscription plans: Free, Standard, Premium, Destination Hub, Concierge",
+    "Concierge plan — dedicated WedBridge advisor handles profile, leads, and social media for the vendor",
+    "Admin panel for managing platform content and community posts",
+    "Onboarding modal for new users (city, role, language preferences)",
+    "Supabase backend with fallback to local sample data"
   ],
-  "category": "entertainment",
+  "category": "marketplace",
   "tags": [
-    "bts",
-    "kpop",
-    "army",
-    "fan-platform",
-    "k-drama",
-    "manhwa",
-    "fan-fiction",
-    "music",
+    "weddings",
+    "india",
+    "vendors",
+    "marketplace",
+    "wedding-planning",
+    "bride",
+    "groom",
+    "destination-wedding",
     "community"
   ],
-  "last_updated": "2026-04-23T06:55:19.524Z"
+  "last_updated": "2026-06-13T08:00:00.000Z"
 }

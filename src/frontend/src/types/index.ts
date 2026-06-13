@@ -57,7 +57,7 @@ export type VendorPlan =
   | "Standard"
   | "Premium"
   | "Destination Hub"
-  | "Agent Managed";
+  | "Concierge";
 
 export interface Vendor {
   id: number;

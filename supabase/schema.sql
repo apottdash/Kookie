@@ -34,7 +34,7 @@ DROP TABLE IF EXISTS vendors       CASCADE;
 -- TABLE: vendors
 -- ===========================================================
 -- Stores every vendor on the marketplace.
--- plan controls feature access: Free < Standard < Premium < Destination Hub < Agent Managed
+-- plan controls feature access: Free < Standard < Premium < Destination Hub < Concierge
 CREATE TABLE IF NOT EXISTS vendors (
     id                  serial          PRIMARY KEY,
     name                text            NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS vendors (
     is_destination_ready bool           NOT NULL DEFAULT false,
     -- plan: subscription tier that controls listing visibility and features
     plan                text            NOT NULL DEFAULT 'Free'
-                            CHECK (plan IN ('Free','Standard','Premium','Destination Hub','Agent Managed')),
+                            CHECK (plan IN ('Free','Standard','Premium','Destination Hub','Concierge')),
     cover_photo         text,
     rating              numeric(2,1)    CHECK (rating >= 0 AND rating <= 5),
     review_count        int             NOT NULL DEFAULT 0,
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS vendors (
     created_at          timestamptz     NOT NULL DEFAULT now()
 );
 
-COMMENT ON COLUMN vendors.plan IS 'Subscription tier: Free | Standard | Premium | Destination Hub | Agent Managed. Controls listing rank and feature access.';
+COMMENT ON COLUMN vendors.plan IS 'Subscription tier: Free | Standard | Premium | Destination Hub | Concierge. Controls listing rank and feature access.';
 COMMENT ON COLUMN vendors.is_destination_ready IS 'True when the vendor is willing and logistically equipped to travel for destination weddings outside their home city.';
 COMMENT ON COLUMN vendors.starting_price IS 'Base INR price. For Caterer this is per-plate price; for all other categories it is the per-event starting price.';
 COMMENT ON COLUMN vendors.whatsapp_active IS 'When true the couple can initiate a WhatsApp chat directly from the listing without a formal inquiry.';

@@ -6,7 +6,7 @@ WedBridge is a trust-first wedding vendor marketplace targeting the Indian marke
 ## Tone & Differentiation
 Warm, confident, culturally rooted. Celebrates the grandeur of Indian weddings without feeling overwhelming. Empowers couples to plan with clarity and vendors to showcase with pride. The purple brand identity evokes royalty, love, and the Rajasthani palace aesthetic — a natural fit for Jaipur.
 
-## Color Palette (unchanged from ARMY Hub — perfect match to WedBridge brand)
+## Color Palette
 | Role | Light | Dark |
 | --- | --- | --- |
 | Primary (WedBridge Purple) | L 0.48 C 0.22 H 290 | L 0.70 C 0.25 H 290 |
