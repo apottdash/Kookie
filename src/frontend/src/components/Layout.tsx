@@ -128,7 +128,7 @@ export default function Layout({ children, onSearch }: LayoutProps) {
               <ul className="space-y-1">
                 {[
                   ["Vendor Plans & Pricing", "/pricing"],
-                  ["List Your Services", "/vendors"],
+                  ["List Your Services", "/vendor-register"],
                   ["Community", "/feed"],
                   ["Sign In", "#"],
                 ].map(([label, href]) => (
