@@ -290,7 +290,7 @@ CREATE POLICY inquiries_couple_update
 -- Vendors query this view instead of the raw inquiries table.
 -- When couple_contact_released = false, couple_id is returned as NULL,
 -- preventing vendors from identifying the couple before contact is released.
-CREATE OR REPLACE VIEW vendor_inquiry_view AS
+CREATE OR REPLACE VIEW vendor_inquiry_view WITH (security_invoker = true) AS
 SELECT
     id,
     vendor_id,
