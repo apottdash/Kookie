@@ -19,11 +19,11 @@ export default function ProfilePage() {
   const { isLoggedIn, principalText } = useAuth();
   const isOwnProfile = isLoggedIn && principalText === params.principal;
 
-  const username = sampleUsernames[params.principal ?? ""] ?? "WedBridge Member";
+  const username = sampleUsernames[params.principal ?? ""] ?? "VowVoyage Member";
   const [editing, setEditing] = useState(false);
   const [displayName, setDisplayName] = useState(username);
   const [bio, setBio] = useState(
-    "Planning the perfect wedding with WedBridge 💍 | India's trusted vendor marketplace",
+    "Planning the perfect wedding with VowVoyage 💍 | India's trusted vendor marketplace",
   );
   const [tempName, setTempName] = useState(displayName);
   const [tempBio, setTempBio] = useState(bio);
@@ -72,7 +72,7 @@ export default function ProfilePage() {
                   {displayName}
                 </h1>
                 <Badge className="bg-primary/15 text-primary border-primary/20 text-xs">
-                  WedBridge Member
+                  VowVoyage Member
                 </Badge>
               </div>
               <p className="text-sm text-muted-foreground mt-1 max-w-md leading-relaxed">

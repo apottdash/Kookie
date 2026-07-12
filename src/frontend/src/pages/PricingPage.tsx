@@ -1,4 +1,4 @@
-// PricingPage — WedBridge vendor subscription plans
+// PricingPage — VowVoyage vendor subscription plans
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -86,7 +86,7 @@ const plans = [
     id: "agent",
     name: "Concierge",
     price: 2000,
-    tagline: "WedBridge runs it all for you",
+    tagline: "VowVoyage runs it all for you",
     color: "border-purple-400/50 bg-purple-50/30 dark:bg-purple-950/10",
     badge: "For Offline Vendors",
     buttonVariant: "default" as const,
@@ -187,7 +187,7 @@ const features: PlanFeature[] = [
     agentManaged: "3 cities",
   },
   {
-    label: "Dedicated WedBridge advisor",
+    label: "Dedicated VowVoyage advisor",
     free: false,
     standard: false,
     premium: false,
@@ -227,7 +227,7 @@ const features: PlanFeature[] = [
     agentManaged: true,
   },
   {
-    label: "WedBridge commission",
+    label: "VowVoyage commission",
     free: "3%",
     standard: "2%",
     premium: "2%",
@@ -282,7 +282,7 @@ export default function PricingPage() {
               Choose the plan that grows with your business
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              All plans include WedBridge trust infrastructure: verified
+              All plans include VowVoyage trust infrastructure: verified
               profiles, contact protection, and exclusive inquiry routing.
               Prices are per month, billed monthly.
             </p>
@@ -469,7 +469,7 @@ export default function PricingPage() {
                 </div>
                 <p className="text-white/80 text-sm">
                   Not comfortable with social media or digital marketing?
-                  WedBridge assigns a dedicated advisor who handles everything —
+                  VowVoyage assigns a dedicated advisor who handles everything —
                   so you focus on your craft.
                 </p>
               </div>
@@ -478,7 +478,7 @@ export default function PricingPage() {
                   {
                     icon: Headphones,
                     title: "Dedicated account advisor",
-                    desc: "One WedBridge advisor manages your profile, responds to inquiries, and coordinates with couples — all via WhatsApp.",
+                    desc: "One VowVoyage advisor manages your profile, responds to inquiries, and coordinates with couples — all via WhatsApp.",
                   },
                   {
                     icon: BarChart2,
@@ -493,7 +493,7 @@ export default function PricingPage() {
                   {
                     icon: MapPin,
                     title: "Annual business shoot",
-                    desc: "A WedBridge photographer visits to capture fresh portfolio photos for your listing.",
+                    desc: "A VowVoyage photographer visits to capture fresh portfolio photos for your listing.",
                   },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-3">
@@ -525,17 +525,17 @@ export default function PricingPage() {
                 <div className="flex items-center gap-2">
                   <Shield className="w-5 h-5 text-primary" />
                   <h3 className="font-display font-semibold text-foreground">
-                    WedBridge Platform Terms
+                    VowVoyage Platform Terms
                   </h3>
                 </div>
                 <Separator />
                 <ul className="flex flex-col gap-2">
                   {[
-                    "All vendor plans include contact protection — couple's phone and personal details are never shared until a deal is confirmed through WedBridge.",
-                    "Vendors may not contact couples outside WedBridge before the booking is confirmed on the platform.",
-                    "By registering, vendors agree to WedBridge's commission structure. If a couple introduced via WedBridge settles payment outside the platform, WedBridge reserves the right to claim the applicable commission and take legal action under applicable Indian contract law.",
+                    "All vendor plans include contact protection — couple's phone and personal details are never shared until a deal is confirmed through VowVoyage.",
+                    "Vendors may not contact couples outside VowVoyage before the booking is confirmed on the platform.",
+                    "By registering, vendors agree to VowVoyage's commission structure. If a couple introduced via VowVoyage settles payment outside the platform, VowVoyage reserves the right to claim the applicable commission and take legal action under applicable Indian contract law.",
                     "Vendors on all plans see only their own leads. Shortlists and comparison activity by couples are private and never disclosed to vendors.",
-                    "After a booking is confirmed, WedBridge facilitates optional Event Team coordination — allowing confirmed vendors for the same wedding to communicate through the platform.",
+                    "After a booking is confirmed, VowVoyage facilitates optional Event Team coordination — allowing confirmed vendors for the same wedding to communicate through the platform.",
                   ].map((point) => (
                     <li
                       key={point}
@@ -556,7 +556,7 @@ export default function PricingPage() {
                   Not sure which plan is right?
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  WhatsApp us and a WedBridge advisor will recommend the best
+                  WhatsApp us and a VowVoyage advisor will recommend the best
                   fit for your business type and city.
                 </p>
                 <Button className="bg-primary text-primary-foreground mx-auto gap-2">

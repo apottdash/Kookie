@@ -112,7 +112,7 @@ export default function OnboardingModal({
             id="onboarding-title"
             className="text-2xl font-display font-bold text-primary-foreground mb-1"
           >
-            Welcome to WedBridge
+            Welcome to VowVoyage
           </h2>
           <p className="text-primary-foreground/80 text-sm">
             Tell us a little about yourself so we can personalise your

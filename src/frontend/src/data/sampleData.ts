@@ -1,7 +1,7 @@
 import type { Link, PostView } from "../types";
 import type { Vendor } from "../types";
 
-// ── WedBridge mock vendors — 100 vendors across 10 cities ───────────────────
+// ── VowVoyage mock vendors — 100 vendors across 10 cities ───────────────────
 // Cities: Jaipur (20), Delhi NCR (15), Mumbai (10), Goa (8), Udaipur (7)
 //         Chandigarh (8), Pune (8), Hyderabad (8), Bengaluru (8), Kolkata (8)
 
@@ -378,7 +378,7 @@ export const sampleVendors: Vendor[] = [
     reviewCount: 38,
     startingPrice: 600,
     description:
-      "Family-run catering with 20 years of Marwari wedding food expertise. Managed on WedBridge by a dedicated WedBridge agent.",
+      "Family-run catering with 20 years of Marwari wedding food expertise. Managed on VowVoyage by a dedicated VowVoyage agent.",
     tags: ["Marwari Cuisine", "Home Style", "Pure Veg", "Traditional"],
     languages: ["Hindi", "Marwari"],
     verified: true,
@@ -397,7 +397,7 @@ export const sampleVendors: Vendor[] = [
     reviewCount: 22,
     startingPrice: 22000,
     description:
-      "10 years of wedding photography. Not on social media — WedBridge agent handles all inquiries and booking coordination on Suresh's behalf.",
+      "10 years of wedding photography. Not on social media — VowVoyage agent handles all inquiries and booking coordination on Suresh's behalf.",
     tags: ["Traditional", "Family Photos", "Candid", "Budget"],
     languages: ["Hindi", "Rajasthani"],
     verified: true,
@@ -730,7 +730,7 @@ export const sampleVendors: Vendor[] = [
     reviewCount: 19,
     startingPrice: 35000,
     description:
-      "Third-generation bridal wear shop in Chandni Chowk. Lehenga cholis, sarees and sherwanis. Custom stitching with 4-week delivery. WedBridge agent manages online presence.",
+      "Third-generation bridal wear shop in Chandni Chowk. Lehenga cholis, sarees and sherwanis. Custom stitching with 4-week delivery. VowVoyage agent manages online presence.",
     tags: [
       "Lehenga",
       "Custom Stitching",
@@ -2062,9 +2062,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(1),
     author: { toText: () => "couple1", isAnonymous: () => false } as never,
     content:
-      "We found our wedding photographer through WedBridge and couldn't be happier! The Vendor Basket made it so easy to compare 5 photographers side by side before reaching out. Jaipur palace wedding dreams came true 💜 #JaipurWedding",
+      "We found our wedding photographer through VowVoyage and couldn't be happier! The Vendor Basket made it so easy to compare 5 photographers side by side before reaching out. Jaipur palace wedding dreams came true 💜 #JaipurWedding",
     likesCount: BigInt(47),
-    hashtags: ["JaipurWedding", "WedBridge", "WeddingPhotography"],
+    hashtags: ["JaipurWedding", "VowVoyage", "WeddingPhotography"],
     createdAt: BigInt(1697000000),
     flagged: false,
   },
@@ -2072,9 +2072,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(2),
     author: { toText: () => "couple2", isAnonymous: () => false } as never,
     content:
-      "Destination wedding at Samode Haveli booked entirely through WedBridge! We're Delhi-based and needed vendors who could handle a palace event. The destination toggle found us exactly who we needed 🏰 Best shaadi planning experience.",
+      "Destination wedding at Samode Haveli booked entirely through VowVoyage! We're Delhi-based and needed vendors who could handle a palace event. The destination toggle found us exactly who we needed 🏰 Best shaadi planning experience.",
     likesCount: BigInt(93),
-    hashtags: ["SamodeHaveli", "DestinationWedding", "WedBridge"],
+    hashtags: ["SamodeHaveli", "DestinationWedding", "VowVoyage"],
     createdAt: BigInt(1697001000),
     flagged: false,
   },
@@ -2082,9 +2082,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(3),
     author: { toText: () => "vendor1", isAnonymous: () => false } as never,
     content:
-      "Joined WedBridge as a photographer last month. Already got 6 exclusive leads — real couples, real wedding dates. No more competing with 10 other photographers on the same inquiry! 📸",
+      "Joined VowVoyage as a photographer last month. Already got 6 exclusive leads — real couples, real wedding dates. No more competing with 10 other photographers on the same inquiry! 📸",
     likesCount: BigInt(62),
-    hashtags: ["VendorStory", "WedBridge", "JaipurPhotographer"],
+    hashtags: ["VendorStory", "VowVoyage", "JaipurPhotographer"],
     createdAt: BigInt(1697002000),
     flagged: false,
   },
@@ -2092,9 +2092,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(4),
     author: { toText: () => "couple3", isAnonymous: () => false } as never,
     content:
-      "Shehnaaz's bridal mehendi design was absolutely stunning. Booked her through WedBridge and she confirmed via WhatsApp within 10 minutes! 🌸 The verified badge gave us confidence.",
+      "Shehnaaz's bridal mehendi design was absolutely stunning. Booked her through VowVoyage and she confirmed via WhatsApp within 10 minutes! 🌸 The verified badge gave us confidence.",
     likesCount: BigInt(81),
-    hashtags: ["BridalMehendi", "Jaipur", "WedBridge"],
+    hashtags: ["BridalMehendi", "Jaipur", "VowVoyage"],
     createdAt: BigInt(1697003000),
     flagged: false,
   },
@@ -2102,9 +2102,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(5),
     author: { toText: () => "couple4", isAnonymous: () => false } as never,
     content:
-      "Planning our wedding from London was a nightmare until we found WedBridge. Everything in one place — venue, catering, mehendi, dhol! Shaadi sorted 🇬🇧❤️🇮🇳 #NRIWedding",
+      "Planning our wedding from London was a nightmare until we found VowVoyage. Everything in one place — venue, catering, mehendi, dhol! Shaadi sorted 🇬🇧❤️🇮🇳 #NRIWedding",
     likesCount: BigInt(134),
-    hashtags: ["NRIWedding", "JaipurWedding", "WedBridge", "ShaadiPlanning"],
+    hashtags: ["NRIWedding", "JaipurWedding", "VowVoyage", "ShaadiPlanning"],
     createdAt: BigInt(1697004000),
     flagged: false,
   },
@@ -2112,9 +2112,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(6),
     author: { toText: () => "couple5", isAnonymous: () => false } as never,
     content:
-      "Just booked our Goa beach wedding through WedBridge! Shoreline Frames for photography, Tropical Bloom for decor, Zuri White Sands as the venue. Took us 2 days what used to take months 🌊",
+      "Just booked our Goa beach wedding through VowVoyage! Shoreline Frames for photography, Tropical Bloom for decor, Zuri White Sands as the venue. Took us 2 days what used to take months 🌊",
     likesCount: BigInt(167),
-    hashtags: ["GoaWedding", "BeachWedding", "WedBridge", "DestinationWedding"],
+    hashtags: ["GoaWedding", "BeachWedding", "VowVoyage", "DestinationWedding"],
     createdAt: BigInt(1697005000),
     flagged: false,
   },
@@ -2122,9 +2122,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(7),
     author: { toText: () => "vendor2", isAnonymous: () => false } as never,
     content:
-      "As a decorator in Delhi, WedBridge changed everything. Before I was getting 30 inquiries from 30 different people asking the same thing. Now each lead is exclusive — real couples, real budgets. My closing rate went from 10% to 65% 🌸",
+      "As a decorator in Delhi, VowVoyage changed everything. Before I was getting 30 inquiries from 30 different people asking the same thing. Now each lead is exclusive — real couples, real budgets. My closing rate went from 10% to 65% 🌸",
     likesCount: BigInt(88),
-    hashtags: ["VendorLife", "WedBridge", "DelhiWedding", "WeddingDecor"],
+    hashtags: ["VendorLife", "VowVoyage", "DelhiWedding", "WeddingDecor"],
     createdAt: BigInt(1697006000),
     flagged: false,
   },
@@ -2132,9 +2132,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(8),
     author: { toText: () => "couple6", isAnonymous: () => false } as never,
     content:
-      "We're NRIs from Canada planning a Udaipur lake palace wedding. Found The Oberoi Udaivilas AND Lake City Clicks through WedBridge. Their destination filter is a lifesaver when you're planning from abroad 🙏",
+      "We're NRIs from Canada planning a Udaipur lake palace wedding. Found The Oberoi Udaivilas AND Lake City Clicks through VowVoyage. Their destination filter is a lifesaver when you're planning from abroad 🙏",
     likesCount: BigInt(201),
-    hashtags: ["UdaipurWedding", "LakePalace", "NRIWedding", "WedBridge"],
+    hashtags: ["UdaipurWedding", "LakePalace", "NRIWedding", "VowVoyage"],
     createdAt: BigInt(1697007000),
     flagged: false,
   },
@@ -2142,9 +2142,9 @@ export const samplePosts: PostView[] = [
     id: BigInt(9),
     author: { toText: () => "vendor3", isAnonymous: () => false } as never,
     content:
-      "I am not on Instagram or Facebook. My nephew heard about the WedBridge Concierge plan and signed me up. Within a week they set up my profile, took photos of my work, and I got my first inquiry. I have been doing catering for 20 years but never had this kind of reach 🙏 — Maa Sheetal Caterers, Jaipur",
+      "I am not on Instagram or Facebook. My nephew heard about the VowVoyage Concierge plan and signed me up. Within a week they set up my profile, took photos of my work, and I got my first inquiry. I have been doing catering for 20 years but never had this kind of reach 🙏 — Maa Sheetal Caterers, Jaipur",
     likesCount: BigInt(312),
-    hashtags: ["Concierge", "WedBridge", "OfflineVendor", "JaipurCatering"],
+    hashtags: ["Concierge", "VowVoyage", "OfflineVendor", "JaipurCatering"],
     createdAt: BigInt(1697008000),
     flagged: false,
   },
@@ -2154,7 +2154,7 @@ export const samplePosts: PostView[] = [
     content:
       "The Vendor Basket feature is genuinely brilliant. I saved 4 photographers, wrote notes on each, compared prices side by side. Only THEN I sent one inquiry. Felt so in control for the first time during this whole wedding planning process 💪",
     likesCount: BigInt(145),
-    hashtags: ["VendorBasket", "WedBridge", "WeddingPlanning", "SmartPlanning"],
+    hashtags: ["VendorBasket", "VowVoyage", "WeddingPlanning", "SmartPlanning"],
     createdAt: BigInt(1697009000),
     flagged: false,
   },

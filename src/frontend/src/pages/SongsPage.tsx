@@ -1,4 +1,4 @@
-// DestinationPage — repurposed from SongsPage for WedBridge
+// DestinationPage — repurposed from SongsPage for VowVoyage
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -99,7 +99,7 @@ export default function DestinationPage() {
               Destination Wedding Hubs
             </h1>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              WedBridge connects you with travel-ready vendors in India's most
+              VowVoyage connects you with travel-ready vendors in India's most
               iconic wedding destinations. Average destination spend: ₹58 Lakh.
             </p>
           </motion.div>

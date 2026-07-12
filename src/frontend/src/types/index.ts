@@ -33,7 +33,7 @@ export { Category as CategoryEnum } from "../backend";
 export { ContentLanguage as ContentLanguageEnum } from "../backend";
 export { Genre as GenreEnum } from "../backend";
 
-// ── WedBridge vendor types ───────────────────────────────────────────────────
+// ── VowVoyage vendor types ───────────────────────────────────────────────────
 
 export type VendorCategory =
   | "Photographer"

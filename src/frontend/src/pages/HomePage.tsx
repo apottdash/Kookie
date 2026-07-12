@@ -256,7 +256,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How WedBridge Works */}
+      {/* How VowVoyage Works */}
       <section
         className="py-14 bg-background"
         data-ocid="home.how_it_works_section"
@@ -264,7 +264,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="font-display font-bold text-3xl text-foreground mb-2">
-              How WedBridge Works
+              How VowVoyage Works
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
               Built to give couples negotiating power without removing fairness
@@ -390,7 +390,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WedBridge Fair by Design section */}
+      {/* VowVoyage Fair by Design section */}
       <section className="py-14 bg-muted/30" data-ocid="home.fair_section">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
@@ -398,7 +398,7 @@ export default function HomePage() {
               Fair by Design
             </h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              WedBridge is built on the belief that both couples and vendors
+              VowVoyage is built on the belief that both couples and vendors
               deserve a fair deal. Couples get competitive quotes. Vendors get
               qualified, exclusive leads — not 15 people asking the same price
               on a group inquiry.
@@ -487,7 +487,7 @@ export default function HomePage() {
                         </div>
                         <span className="text-sm font-semibold text-foreground">
                           {sampleUsernames[post.author.toText()] ??
-                            "WedBridge User"}
+                            "VowVoyage User"}
                         </span>
                       </div>
                       <p className="text-sm text-foreground leading-relaxed line-clamp-2">

@@ -95,7 +95,7 @@ interface PostCardProps {
 
 function PostCard({ post, index }: PostCardProps) {
   const { isLoggedIn } = useAuth();
-  const username = sampleUsernames[post.author.toText()] ?? "WedBridge Member";
+  const username = sampleUsernames[post.author.toText()] ?? "VowVoyage Member";
   const initials = username.slice(0, 2).toUpperCase();
   const [likes, setLikes] = useState(Number(post.likesCount));
   const [liked, setLiked] = useState(false);
@@ -228,10 +228,10 @@ export default function FeedPage() {
         <div className="container mx-auto px-4">
           <h1 className="font-display font-bold text-3xl text-foreground flex items-center gap-2 mb-1">
             <Hash className="w-6 h-6 text-primary" />
-            WedBridge Community
+            VowVoyage Community
           </h1>
           <p className="text-muted-foreground text-sm">
-            Share your wedding journey with the WedBridge community
+            Share your wedding journey with the VowVoyage community
           </p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-// VendorProfilePage — repurposed from FanFictionPage for WedBridge
+// VendorProfilePage — repurposed from FanFictionPage for VowVoyage
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -271,7 +271,7 @@ export default function VendorProfilePage() {
                       Your phone number and personal details are{" "}
                       <strong className="text-foreground">not shared</strong>{" "}
                       with this vendor until a deal is confirmed through
-                      WedBridge.
+                      VowVoyage.
                     </span>
                   </div>
 
@@ -285,7 +285,7 @@ export default function VendorProfilePage() {
                       data-ocid="vendor_profile.terms_checkbox"
                     />
                     <span className="text-xs text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
-                      I agree to WedBridge{" "}
+                      I agree to VowVoyage{" "}
                       <a
                         href="/pricing"
                         className="text-primary hover:underline"
@@ -293,7 +293,7 @@ export default function VendorProfilePage() {
                         Terms & Conditions
                       </a>
                       . I understand that if I arrange payment outside
-                      WedBridge, the 2% platform commission remains due.
+                      VowVoyage, the 2% platform commission remains due.
                     </span>
                   </label>
 
