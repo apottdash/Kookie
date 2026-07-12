@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
-import { useBackend } from "../hooks/useBackend";
+import { supabase } from "../lib/supabase";
+import AuthModal from "./AuthModal";
 import Header from "./Header";
 import OnboardingModal from "./OnboardingModal";
+import WeddingPlannerBot from "./WeddingPlannerBot";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,8 +12,7 @@ interface LayoutProps {
 }
 
 export default function Layout({ children, onSearch }: LayoutProps) {
-  const { isLoggedIn, principal } = useAuth();
-  const { actor } = useBackend();
+  const { isLoggedIn, user, authModalOpen } = useAuth();
   const [showOnboarding, setShowOnboarding] = useState(false);
   const year = new Date().getFullYear();
   const hostname =
@@ -19,13 +20,16 @@ export default function Layout({ children, onSearch }: LayoutProps) {
   const caffeineUrl = `https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(hostname)}`;
 
   useEffect(() => {
-    if (!isLoggedIn || !actor || !principal) return;
+    if (!isLoggedIn || !user || !supabase) return;
     let cancelled = false;
-    actor
-      .getProfile(principal)
-      .then((profile) => {
+    supabase
+      .from("couples")
+      .select("display_name")
+      .eq("principal", user.id)
+      .maybeSingle()
+      .then(({ data }) => {
         if (cancelled) return;
-        if (profile && !profile.profileCompleted) {
+        if (!data || !data.display_name) {
           setShowOnboarding(true);
         }
       })
@@ -35,7 +39,7 @@ export default function Layout({ children, onSearch }: LayoutProps) {
     return () => {
       cancelled = true;
     };
-  }, [isLoggedIn, actor, principal]);
+  }, [isLoggedIn, user]);
 
   const handleOnboardingComplete = () => setShowOnboarding(false);
   const handleOnboardingSkip = () => setShowOnboarding(false);
@@ -169,6 +173,10 @@ export default function Layout({ children, onSearch }: LayoutProps) {
           onSkip={handleOnboardingSkip}
         />
       )}
+
+      {authModalOpen && <AuthModal />}
+
+      <WeddingPlannerBot />
     </div>
   );
 }

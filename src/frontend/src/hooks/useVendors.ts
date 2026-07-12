@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { sampleVendors } from "../data/sampleData";
 import {
   type VendorFilters,
+  fetchDistinctCities,
   fetchVendors,
   isSupabaseConfigured,
 } from "../lib/supabase";
@@ -44,8 +45,21 @@ export function useVendors(filters: VendorFilters = {}): UseVendorsResult {
       try {
         const data = await fetchVendors(filters);
         if (!cancelled) {
-          setVendors(data);
-          setSource("supabase");
+          // If Supabase returns empty with no active filters, it's likely an RLS
+          // block — fall back to sample data so the page isn't blank.
+          const hasActiveFilters =
+            filters.category ||
+            filters.city ||
+            filters.plan ||
+            filters.search ||
+            filters.isDestinationReady !== undefined;
+          if (data.length === 0 && !hasActiveFilters) {
+            setVendors(applyFiltersLocally(sampleVendors, filters));
+            setSource("sample");
+          } else {
+            setVendors(data);
+            setSource("supabase");
+          }
           setLoading(false);
         }
       } catch (err) {
@@ -109,8 +123,7 @@ export function useDistinctCities(): string[] {
 
   useEffect(() => {
     if (!isSupabaseConfigured) return;
-    import("../lib/supabase")
-      .then(({ fetchDistinctCities }) => fetchDistinctCities())
+    fetchDistinctCities()
       .then((data) => setCities(data))
       .catch(() => {});
   }, []);

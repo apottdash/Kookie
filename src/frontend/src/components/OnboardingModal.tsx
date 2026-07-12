@@ -3,26 +3,16 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Heart, X } from "lucide-react";
 import { useState } from "react";
-import { ContentLanguage } from "../backend";
-import { useBackend } from "../hooks/useBackend";
-import type { FandomType } from "../types";
+import { useAuth } from "../hooks/useAuth";
+import { supabase } from "../lib/supabase";
 
 interface OnboardingModalProps {
   onComplete: () => void;
   onSkip: () => void;
 }
 
-const USER_TYPE_OPTIONS: FandomType[] = [
-  "Couple",
-  "Vendor",
-  "Planner",
-  "Other",
-];
-
-const LANGUAGE_OPTIONS: { label: string; value: ContentLanguage }[] = [
-  { label: "Hindi", value: ContentLanguage.Hindi },
-  { label: "English", value: ContentLanguage.English },
-];
+const USER_TYPE_OPTIONS = ["Couple", "Vendor", "Planner", "Other"] as const;
+type UserType = (typeof USER_TYPE_OPTIONS)[number];
 
 const CITY_OPTIONS = [
   "Jaipur",
@@ -45,12 +35,10 @@ export default function OnboardingModal({
   onComplete,
   onSkip,
 }: OnboardingModalProps) {
-  const { actor } = useBackend();
+  const { user } = useAuth();
   const [city, setCity] = useState("");
-  const [userType, setUserType] = useState<FandomType>("Couple");
-  const [preferredLanguage, setPreferredLanguage] = useState<ContentLanguage>(
-    ContentLanguage.Hindi,
-  );
+  const [userType, setUserType] = useState<UserType>("Couple");
+  const [preferredLanguage, setPreferredLanguage] = useState("Hindi");
   const [wantsNotifications, setWantsNotifications] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -60,14 +48,20 @@ export default function OnboardingModal({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!actor) return;
+    if (!user || !supabase) {
+      onComplete();
+      return;
+    }
     setIsSubmitting(true);
     try {
-      await actor.setOnboarding(
-        city || null,
-        userType || null,
-        preferredLanguage,
-        wantsNotifications,
+      await supabase.from("couples").upsert(
+        {
+          principal: user.id,
+          display_name: user.user_metadata?.display_name || user.email?.split("@")[0] || userType,
+          city: city || null,
+          preferred_languages: [preferredLanguage],
+        },
+        { onConflict: "principal" },
       );
       onComplete();
     } catch {
@@ -176,17 +170,12 @@ export default function OnboardingModal({
             <select
               id="language"
               value={preferredLanguage}
-              onChange={(e) =>
-                setPreferredLanguage(e.target.value as ContentLanguage)
-              }
+              onChange={(e) => setPreferredLanguage(e.target.value)}
               className="onboarding-input"
               data-ocid="onboarding.language_select"
             >
-              {LANGUAGE_OPTIONS.map(({ label, value }) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              ))}
+              <option value="Hindi">Hindi</option>
+              <option value="English">English</option>
             </select>
           </div>
 
