@@ -15,11 +15,17 @@ import {
   X,
 } from "lucide-react";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import VendorCard from "../components/VendorCard";
 import { sampleVendors } from "../data/sampleData";
 import { useBasket } from "../hooks/useBasket";
+import {
+  fetchVendorById,
+  fetchVendors,
+  isSupabaseConfigured,
+} from "../lib/supabase";
+import type { Vendor } from "../types";
 
 const categoryEmoji: Record<string, string> = {
   Photographer: "📸",
@@ -52,7 +58,7 @@ const planColors: Record<string, string> = {
   Standard: "bg-secondary/15 text-secondary border-secondary/30",
   Premium: "bg-primary/15 text-primary border-primary/30",
   "Destination Hub": "bg-accent/15 text-accent border-accent/30",
-  "Concierge":
+  Concierge:
     "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300",
 };
 
@@ -60,8 +66,77 @@ export default function VendorProfilePage() {
   const { vendorId } = useParams({ from: "/vendors/$vendorId" });
   const { addToBasket, removeFromBasket, isInBasket } = useBasket();
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [vendor, setVendor] = useState<Vendor | null>(null);
+  const [relatedVendors, setRelatedVendors] = useState<Vendor[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const vendor = sampleVendors.find((v) => v.id === Number(vendorId));
+  useEffect(() => {
+    let cancelled = false;
+    const id = Number(vendorId);
+
+    async function load() {
+      setLoading(true);
+
+      if (!isSupabaseConfigured) {
+        const v = sampleVendors.find((v) => v.id === id) ?? null;
+        if (!cancelled) {
+          setVendor(v);
+          if (v) {
+            setRelatedVendors(
+              sampleVendors
+                .filter((x) => x.category === v.category && x.id !== id)
+                .slice(0, 3),
+            );
+          }
+          setLoading(false);
+        }
+        return;
+      }
+
+      try {
+        const v = await fetchVendorById(id);
+        if (cancelled) return;
+        setVendor(v);
+        if (v) {
+          const related = await fetchVendors({
+            category: v.category,
+            limit: 4,
+          });
+          if (!cancelled) {
+            setRelatedVendors(related.filter((x) => x.id !== id).slice(0, 3));
+          }
+        }
+      } catch {
+        const v = sampleVendors.find((x) => x.id === id) ?? null;
+        if (!cancelled) {
+          setVendor(v);
+          if (v) {
+            setRelatedVendors(
+              sampleVendors
+                .filter((x) => x.category === v.category && x.id !== id)
+                .slice(0, 3),
+            );
+          }
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [vendorId]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-24 text-center">
+        <div className="w-16 h-16 rounded-full bg-primary/10 animate-pulse mx-auto mb-4" />
+        <p className="text-muted-foreground text-sm">Loading vendor…</p>
+      </div>
+    );
+  }
 
   if (!vendor) {
     return (
@@ -83,9 +158,6 @@ export default function VendorProfilePage() {
   }
 
   const inBasket = isInBasket(vendor.id);
-  const relatedVendors = sampleVendors
-    .filter((v) => v.category === vendor.category && v.id !== vendor.id)
-    .slice(0, 3);
 
   const handleBasket = () => {
     if (inBasket) {

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Plane, Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import VendorCard from "../components/VendorCard";
 import { useDistinctCities, useVendors } from "../hooks/useVendors";
 import type { VendorCategory } from "../types";
@@ -21,24 +21,26 @@ const ALL_CATEGORIES: VendorCategory[] = [
   "Pundit",
   "Choreographer",
   "Invitation Designer",
+  "Bridal Wear",
   "Dhol Player",
+  "Baraat",
+  "Cake",
 ];
 
 export default function BrowseVendorsPage() {
-  const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState<VendorCategory | "ALL">(
-    "ALL",
-  );
-  const [activeCity, setActiveCity] = useState<string | "ALL">("ALL");
-  const [destinationOnly, setDestinationOnly] = useState(false);
-
-  // Read initial category from URL query param
-  useMemo(() => {
-    if (typeof window === "undefined") return;
+  const [search, setSearch] = useState(() => {
+    if (typeof window === "undefined") return "";
+    return new URLSearchParams(window.location.search).get("search") ?? "";
+  });
+  // Initialise from ?cat= URL param on first render
+  const [activeCategory, setActiveCategory] = useState<VendorCategory | "ALL">(() => {
+    if (typeof window === "undefined") return "ALL";
     const params = new URLSearchParams(window.location.search);
     const cat = params.get("cat") as VendorCategory | null;
-    if (cat && ALL_CATEGORIES.includes(cat)) setActiveCategory(cat);
-  }, []);
+    return cat && ALL_CATEGORIES.includes(cat) ? cat : "ALL";
+  });
+  const [activeCity, setActiveCity] = useState<string | "ALL">("ALL");
+  const [destinationOnly, setDestinationOnly] = useState(false);
 
   const { vendors, loading } = useVendors({
     category: activeCategory !== "ALL" ? activeCategory : undefined,

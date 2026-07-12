@@ -8,6 +8,7 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { Suspense, lazy } from "react";
+import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./components/Layout";
 
 // Lazy-loaded pages
@@ -135,5 +136,9 @@ declare module "@tanstack/react-router" {
 }
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }

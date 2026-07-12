@@ -28,7 +28,11 @@ export default function Header({ onSearch }: HeaderProps) {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    onSearch?.(searchQuery);
+    if (onSearch) {
+      onSearch(searchQuery);
+    } else if (searchQuery.trim()) {
+      window.location.href = `/vendors?search=${encodeURIComponent(searchQuery.trim())}`;
+    }
   };
 
   const avatarInitials = principalText
@@ -214,7 +218,7 @@ export default function Header({ onSearch }: HeaderProps) {
                     data-ocid="header.mobile_login_button"
                   >
                     <LogIn className="w-4 h-4" />
-                    Sign In with Internet Identity
+                    Sign In
                   </Button>
                 )}
               </div>

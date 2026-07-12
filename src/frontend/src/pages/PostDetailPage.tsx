@@ -102,7 +102,13 @@ function GatedButton({
 
 export default function PostDetailPage() {
   const params = useParams({ strict: false }) as { postId?: string };
-  const postId = params.postId ? BigInt(params.postId) : null;
+  const postId = (() => {
+    try {
+      return params.postId ? BigInt(params.postId) : null;
+    } catch {
+      return null;
+    }
+  })();
   const post = samplePosts.find((p) => p.id === postId) ?? samplePosts[0];
 
   const { isLoggedIn, login } = useAuth();

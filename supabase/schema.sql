@@ -67,6 +67,11 @@ COMMENT ON COLUMN vendors.whatsapp_active IS 'When true the couple can initiate 
 COMMENT ON COLUMN vendors.multi_day_support IS 'Vendor can cover multi-day events: Haldi, Mehendi, Sangeet, and Pheras across multiple days.';
 COMMENT ON COLUMN vendors.verified IS 'VowVoyage team has verified the vendor''s identity, licences, and portfolio samples.';
 
+-- RLS: vendors are publicly readable; only admins may write
+ALTER TABLE vendors ENABLE ROW LEVEL SECURITY;
+GRANT SELECT ON vendors TO anon, authenticated;
+CREATE POLICY vendors_public_select ON vendors FOR SELECT USING (true);
+
 -- ===========================================================
 -- TABLE: couples
 -- ===========================================================
