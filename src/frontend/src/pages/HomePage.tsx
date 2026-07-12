@@ -466,12 +466,12 @@ export default function HomePage() {
               See all <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
-          <div className="flex flex-col gap-4 max-w-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {samplePosts.slice(0, 3).map((post, i) => (
               <motion.div
                 key={post.id.toString()}
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
