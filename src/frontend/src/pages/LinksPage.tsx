@@ -1,4 +1,4 @@
-// BrowseVendorsPage — repurposed from LinksPage for WedBridge
+// BrowseVendorsPage — repurposed from LinksPage for VowVoyage
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
