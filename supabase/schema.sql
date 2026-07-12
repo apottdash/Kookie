@@ -85,8 +85,20 @@ CREATE TABLE IF NOT EXISTS couples (
     budget_min              int,
     budget_max              int,
     wedding_date            date,
+    -- guest_count: approximate number of wedding guests
+    guest_count             int,
+    -- wedding_style: overall vibe chosen by the couple
+    wedding_style           text,
+    -- events_needed: which ceremony days they need vendors for
+    events_needed           text[],
+    -- social profiles for persona & community
+    instagram_handle        text,
+    pinterest_url           text,
+    facebook_url            text,
+    wedding_hashtag         text,
     preferred_categories    text[],
     preferred_languages     text[],
+    wants_whatsapp_updates  bool        NOT NULL DEFAULT true,
     created_at              timestamptz NOT NULL DEFAULT now()
 );
 
