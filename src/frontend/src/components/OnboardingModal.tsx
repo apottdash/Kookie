@@ -16,9 +16,21 @@ const USER_TYPE_OPTIONS = ["Couple", "Vendor", "Planner", "Other"] as const;
 type UserType = (typeof USER_TYPE_OPTIONS)[number];
 
 const CITY_OPTIONS = [
-  "Jaipur", "Delhi / NCR", "Mumbai", "Pune", "Chandigarh",
-  "Lucknow", "Surat", "Ahmedabad", "Hyderabad", "Bengaluru",
-  "Chennai", "Kolkata", "Goa", "Udaipur", "Outside India", "Other",
+  // North India
+  "Delhi / NCR", "Jaipur", "Chandigarh", "Lucknow", "Amritsar", "Ludhiana",
+  "Varanasi", "Agra", "Dehradun", "Jodhpur", "Udaipur", "Meerut", "Jammu",
+  // East India
+  "Siliguri", "Kolkata", "Patna", "Ranchi", "Bhubaneswar", "Guwahati",
+  "Jamshedpur", "Durgapur",
+  // West India
+  "Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Surat", "Ahmedabad",
+  "Vadodara", "Rajkot", "Indore", "Bhopal", "Raipur",
+  // South India
+  "Hyderabad", "Bengaluru", "Chennai", "Kochi", "Coimbatore", "Mysuru",
+  "Visakhapatnam", "Madurai",
+  // Destination / Special
+  "Goa", "Rishikesh", "Mussoorie",
+  "Outside India", "Other",
 ];
 
 const GUEST_RANGES = ["Under 50", "50–150", "150–300", "300–500", "500+"] as const;

@@ -68,34 +68,14 @@ const trustStats = [
 ];
 
 const destinationHubs = [
-  {
-    name: "Jaipur",
-    desc: "Palace weddings & royal decor",
-    emoji: "🏰",
-    active: true,
-    badge: "Live Now",
-  },
-  {
-    name: "Goa",
-    desc: "Beach & resort weddings",
-    emoji: "🌊",
-    active: false,
-    badge: "Coming Soon",
-  },
-  {
-    name: "Udaipur",
-    desc: "Lake palace & heritage venues",
-    emoji: "💎",
-    active: false,
-    badge: "Coming Soon",
-  },
-  {
-    name: "Rishikesh",
-    desc: "Riverside & spiritual ceremonies",
-    emoji: "🌿",
-    active: false,
-    badge: "Coming Soon",
-  },
+  { name: "Jaipur",    desc: "Palace weddings & royal décor",          emoji: "🏰", active: true,  badge: "Live Now"     },
+  { name: "Siliguri",  desc: "Hill weddings & North Bengal charm",      emoji: "🏔️", active: true,  badge: "Live Now"     },
+  { name: "Amritsar",  desc: "Heritage & Punjabi grand weddings",       emoji: "🪔", active: true,  badge: "Live Now"     },
+  { name: "Indore",    desc: "Central India's rising wedding hub",      emoji: "🌆", active: true,  badge: "Live Now"     },
+  { name: "Goa",       desc: "Beach & resort weddings",                 emoji: "🌊", active: false, badge: "Coming Soon"  },
+  { name: "Udaipur",   desc: "Lake palace & heritage venues",           emoji: "💎", active: false, badge: "Coming Soon"  },
+  { name: "Varanasi",  desc: "Spiritual riverside ceremonies",          emoji: "🕊️", active: false, badge: "Coming Soon"  },
+  { name: "Rishikesh", desc: "Riverside & yoga-inspired ceremonies",    emoji: "🌿", active: false, badge: "Coming Soon"  },
 ];
 
 const heroPetals = [
@@ -150,7 +130,7 @@ export default function HomePage() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Badge className="bg-primary/15 text-primary border-primary/25 px-5 py-1.5 text-xs font-semibold rounded-full inline-flex items-center gap-2">
               <MapPin className="w-3 h-3" />
-              Now live in Jaipur — India's #1 destination wedding city
+              Now live across India — Jaipur, Siliguri, Amritsar & more
             </Badge>
           </motion.div>
 
@@ -192,7 +172,7 @@ export default function HomePage() {
               <div className="flex items-center gap-3 bg-card/95 backdrop-blur-sm border border-border rounded-full px-5 py-3.5 shadow-elevated hover:shadow-hover transition-smooth cursor-pointer group">
                 <Search className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth shrink-0" />
                 <span className="text-muted-foreground text-sm flex-1 text-left truncate">
-                  Search photographers, venues, caterers in Jaipur…
+                  Search photographers, venues, caterers near you…
                 </span>
                 <div className="gradient-purple text-primary-foreground rounded-full px-5 py-2 text-sm font-semibold shrink-0 shadow-sm">
                   Search
@@ -349,7 +329,7 @@ export default function HomePage() {
             <div>
               <h2 className="font-display font-bold text-3xl text-foreground flex items-center gap-2">
                 <TrendingUp className="w-6 h-6 text-primary" />
-                Top Vendors in Jaipur
+                Top Vendors Across India
               </h2>
               <p className="text-muted-foreground text-sm mt-1">
                 Premium and destination-ready vendors
