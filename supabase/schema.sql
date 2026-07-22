@@ -1,5 +1,5 @@
 -- =============================================================
--- VowVoyage Wedding Marketplace — PostgreSQL Schema
+-- Wediva Wedding Marketplace — PostgreSQL Schema
 -- Indian wedding vendor marketplace
 -- =============================================================
 -- Privacy model overview:
@@ -65,7 +65,7 @@ COMMENT ON COLUMN vendors.is_destination_ready IS 'True when the vendor is willi
 COMMENT ON COLUMN vendors.starting_price IS 'Base INR price. For Caterer this is per-plate price; for all other categories it is the per-event starting price.';
 COMMENT ON COLUMN vendors.whatsapp_active IS 'When true the couple can initiate a WhatsApp chat directly from the listing without a formal inquiry.';
 COMMENT ON COLUMN vendors.multi_day_support IS 'Vendor can cover multi-day events: Haldi, Mehendi, Sangeet, and Pheras across multiple days.';
-COMMENT ON COLUMN vendors.verified IS 'VowVoyage team has verified the vendor''s identity, licences, and portfolio samples.';
+COMMENT ON COLUMN vendors.verified IS 'Wediva team has verified the vendor''s identity, licences, and portfolio samples.';
 
 -- RLS: vendors are publicly readable; only admins may write
 ALTER TABLE vendors ENABLE ROW LEVEL SECURITY;
@@ -156,16 +156,16 @@ CREATE TABLE IF NOT EXISTS bookings (
     confirmed_price     int,        -- final agreed INR amount
     event_date          date,
     commission_percent  numeric(4,2),
-    commission_amount   int,        -- computed INR commission due to VowVoyage
+    commission_amount   int,        -- computed INR commission due to Wediva
     commission_paid     bool        NOT NULL DEFAULT false,
     -- bypassed_platform: flagged when parties arranged the booking off-platform
     bypassed_platform   bool        NOT NULL DEFAULT false,
     created_at          timestamptz NOT NULL DEFAULT now()
 );
 
-COMMENT ON COLUMN bookings.commission_percent IS 'VowVoyage platform commission rate agreed at time of booking (e.g. 10.00 = 10%).';
+COMMENT ON COLUMN bookings.commission_percent IS 'Wediva platform commission rate agreed at time of booking (e.g. 10.00 = 10%).';
 COMMENT ON COLUMN bookings.commission_amount IS 'Absolute INR commission = confirmed_price * commission_percent / 100. Stored denormalised for billing queries.';
-COMMENT ON COLUMN bookings.bypassed_platform IS 'True when a vendor or couple is detected to have finalised the booking outside VowVoyage. Used for trust-and-safety reporting.';
+COMMENT ON COLUMN bookings.bypassed_platform IS 'True when a vendor or couple is detected to have finalised the booking outside Wediva. Used for trust-and-safety reporting.';
 
 -- ===========================================================
 -- TABLE: reviews
@@ -322,4 +322,4 @@ SELECT
     END AS couple_id
 FROM inquiries;
 
-COMMENT ON VIEW vendor_inquiry_view IS 'Safe vendor-facing view of inquiries. couple_id is NULL until the couple sets couple_contact_released = true, implementing VowVoyage privacy-first contact model.';
+COMMENT ON VIEW vendor_inquiry_view IS 'Safe vendor-facing view of inquiries. couple_id is NULL until the couple sets couple_contact_released = true, implementing Wediva privacy-first contact model.';

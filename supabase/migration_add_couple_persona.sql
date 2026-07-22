@@ -1,5 +1,5 @@
 -- =============================================================
--- VowVoyage — Add couple persona & social profile columns
+-- Wediva — Add couple persona & social profile columns
 -- Run this in Supabase SQL Editor (safe to run multiple times)
 -- =============================================================
 

@@ -109,7 +109,7 @@ export default function AdminPage() {
         </h1>
         <p className="text-muted-foreground text-sm max-w-sm">
           Connect your Internet Identity to access admin tools for managing
-          VowVoyage platform content.
+          Wediva platform content.
         </p>
         <Button
           onClick={login}
@@ -233,7 +233,7 @@ export default function AdminPage() {
               Admin Dashboard
             </h1>
             <p className="text-sm text-muted-foreground">
-              Manage VowVoyage platform content and community
+              Manage Wediva platform content and community
             </p>
           </div>
         </div>

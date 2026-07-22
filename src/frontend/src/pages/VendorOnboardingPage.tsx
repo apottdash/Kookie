@@ -1,4 +1,4 @@
-// VendorOnboardingPage — real vendor registration for VowVoyage
+// VendorOnboardingPage — real vendor registration for Wediva
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -74,7 +74,7 @@ const PLANS = [
     price: "₹2,000/mo",
     color: "bg-purple-500/5 border-purple-500/30",
     badge: "For Offline Vendors",
-    features: ["VowVoyage advisor manages your listing", "1% commission", "No smartphone needed", "Advisor handles inquiries for you"],
+    features: ["Wediva advisor manages your listing", "1% commission", "No smartphone needed", "Advisor handles inquiries for you"],
   },
 ];
 
@@ -169,7 +169,7 @@ export default function VendorOnboardingPage() {
       }
       setSubmitted(true);
     } catch (err) {
-      toast.error("Something went wrong. Please try again or contact VowVoyage support.");
+      toast.error("Something went wrong. Please try again or contact Wediva support.");
       console.error(err);
     } finally {
       setSubmitting(false);
@@ -184,16 +184,16 @@ export default function VendorOnboardingPage() {
             <CheckCircle className="w-10 h-10 text-primary-foreground" />
           </div>
           <h1 className="font-display font-bold text-2xl text-foreground">
-            You're on VowVoyage!
+            You're on Wediva!
           </h1>
           <p className="text-muted-foreground leading-relaxed">
-            Your listing has been submitted. The VowVoyage team will review and
+            Your listing has been submitted. The Wediva team will review and
             verify your profile within <strong>24–48 hours</strong>. Once
             verified, couples across India will start discovering you.
           </p>
           <div className="bg-primary/5 rounded-xl p-4 text-sm text-muted-foreground text-left w-full space-y-2">
             <p className="font-semibold text-foreground">What happens next:</p>
-            <p>✅ VowVoyage team reviews your listing</p>
+            <p>✅ Wediva team reviews your listing</p>
             <p>✅ We may WhatsApp you for verification</p>
             <p>✅ Profile goes live after approval</p>
             <p>✅ Couples can find and inquire with you</p>
@@ -220,7 +220,7 @@ export default function VendorOnboardingPage() {
             </span>
           </div>
           <h1 className="font-display font-bold text-3xl text-foreground mb-2">
-            List Your Business on VowVoyage
+            List Your Business on Wediva
           </h1>
           <p className="text-muted-foreground text-sm">
             Join India's most trusted wedding marketplace. Reach verified
@@ -421,7 +421,7 @@ export default function VendorOnboardingPage() {
                     data-ocid="vendor_reg.phone_input"
                   />
                   <p className="text-xs text-muted-foreground">
-                    Only shared with couples after deal is confirmed through VowVoyage
+                    Only shared with couples after deal is confirmed through Wediva
                   </p>
                 </div>
 
@@ -489,7 +489,7 @@ export default function VendorOnboardingPage() {
                     Choose your plan
                   </h2>
                   <p className="text-sm text-muted-foreground">
-                    You can upgrade anytime. Start with Free and see how VowVoyage works for you.
+                    You can upgrade anytime. Start with Free and see how Wediva works for you.
                   </p>
 
                   <div className="flex flex-col gap-3">
@@ -565,9 +565,9 @@ export default function VendorOnboardingPage() {
                   <div className="flex items-start gap-2 text-xs text-muted-foreground bg-muted/30 rounded-xl p-3">
                     <Shield className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                     <span>
-                      <strong className="text-foreground">VowVoyage T&C:</strong>{" "}
+                      <strong className="text-foreground">Wediva T&C:</strong>{" "}
                       Your contact details are never shared with couples until a deal is confirmed. A{" "}
-                      <strong className="text-foreground">2% commission</strong> is due on all bookings originated through VowVoyage, including those settled outside the platform. Bypassing VowVoyage after an introduction may result in legal action.
+                      <strong className="text-foreground">2% commission</strong> is due on all bookings originated through Wediva, including those settled outside the platform. Bypassing Wediva after an introduction may result in legal action.
                     </span>
                   </div>
 
@@ -580,7 +580,7 @@ export default function VendorOnboardingPage() {
                       data-ocid="vendor_reg.agree_terms"
                     />
                     <span>
-                      I agree to the VowVoyage Terms & Conditions, including the commission and contact-release policy.
+                      I agree to the Wediva Terms & Conditions, including the commission and contact-release policy.
                     </span>
                   </label>
 
