@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { BasketItem, Vendor } from "../types";
 
-const STORAGE_KEY = "wediva_basket";
+const STORAGE_KEY = "wedvow_basket";
 
 function loadBasket(): BasketItem[] {
   try {

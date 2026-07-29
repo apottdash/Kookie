@@ -1,5 +1,5 @@
 -- =============================================================
--- Wediva — Seed Data
+-- WedVow — Seed Data
 -- 100 vendors across 10 Indian cities + 15 community posts
 -- =============================================================
 
@@ -105,12 +105,12 @@ INSERT INTO vendors (name, category, city, is_destination_ready, plan, cover_pho
 
 ('Maa Sheetal Caterers', 'Caterer', 'Jaipur', false, 'Concierge',
  'https://picsum.photos/seed/jaipur-cat2/600/400', 4.5, 88, 650,
- 'Home-style Rajasthani and Punjabi catering. Family-run kitchen. Wediva agent assists with digital bookings on their behalf.',
+ 'Home-style Rajasthani and Punjabi catering. Family-run kitchen. WedVow agent assists with digital bookings on their behalf.',
  ARRAY['home-style','rajasthani','punjabi','agent-managed'], ARRAY['Hindi','Rajasthani'], false, false, false),
 
 ('Suresh Wedding Clicks', 'Photographer', 'Jaipur', false, 'Concierge',
  'https://picsum.photos/seed/jaipur-ph3/600/400', 4.3, 56, 18000,
- 'Local photographer with 12 years experience. Covers religious ceremonies with sensitivity. Wediva agent handles all inquiries.',
+ 'Local photographer with 12 years experience. Covers religious ceremonies with sensitivity. WedVow agent handles all inquiries.',
  ARRAY['local','traditional','religious','agent-managed'], ARRAY['Hindi','Rajasthani'], false, false, false),
 
 ('Haveli Lights & Decor', 'Decorator', 'Jaipur', true, 'Destination Hub',
@@ -552,12 +552,12 @@ INSERT INTO vendors (name, category, city, is_destination_ready, plan, cover_pho
 INSERT INTO posts (vendor_id, couple_id, content, media_url, tags) VALUES
 
 (NULL, NULL,
- 'Just booked Shekhawati Decorators for our Jaipur palace wedding! The floral installation mock-up they sent is absolutely breathtaking. Loving the Wediva experience — all the vendors are clearly verified and professional.',
+ 'Just booked Shekhawati Decorators for our Jaipur palace wedding! The floral installation mock-up they sent is absolutely breathtaking. Loving the WedVow experience — all the vendors are clearly verified and professional.',
  'https://picsum.photos/seed/post1/600/400',
  ARRAY['jaipur','decor','palace-wedding']),
 
 (NULL, NULL,
- 'NRI couple here — planning our destination wedding from Toronto to Udaipur. Wediva has been a lifesaver! Found Palace Blooms and Lake City Shutters through the platform. The pandit speaks English too which is such a relief.',
+ 'NRI couple here — planning our destination wedding from Toronto to Udaipur. WedVow has been a lifesaver! Found Palace Blooms and Lake City Shutters through the platform. The pandit speaks English too which is such a relief.',
  'https://picsum.photos/seed/post2/600/400',
  ARRAY['nri','udaipur','destination-wedding']),
 
@@ -567,37 +567,37 @@ INSERT INTO posts (vendor_id, couple_id, content, media_url, tags) VALUES
  ARRAY['tip','photography','jaipur']),
 
 (NULL, NULL,
- 'Maa Sheetal Caterers in Jaipur were AMAZING. The Wediva agent helped us communicate with them since they don''t use apps much. The food was unbelievably authentic — guests are still talking about the dal baati churma!',
+ 'Maa Sheetal Caterers in Jaipur were AMAZING. The WedVow agent helped us communicate with them since they don''t use apps much. The food was unbelievably authentic — guests are still talking about the dal baati churma!',
  'https://picsum.photos/seed/post4/600/400',
  ARRAY['caterer','jaipur','agent-managed','authentic']),
 
 (NULL, NULL,
- 'Goa beach wedding goals achieved! Coastal Blooms set up the most stunning driftwood arch and the DJ Tropics kept the dance floor going till sunrise. Highly recommend Wediva for destination weddings.',
+ 'Goa beach wedding goals achieved! Coastal Blooms set up the most stunning driftwood arch and the DJ Tropics kept the dance floor going till sunrise. Highly recommend WedVow for destination weddings.',
  'https://picsum.photos/seed/post5/600/400',
  ARRAY['goa','beach-wedding','dj','decor']),
 
 (NULL, NULL,
- 'Quick reminder: Wediva does NOT share your phone number or personal details with vendors until the deal is confirmed. I felt so much safer booking through here vs direct WhatsApp approach. Total peace of mind.',
+ 'Quick reminder: WedVow does NOT share your phone number or personal details with vendors until the deal is confirmed. I felt so much safer booking through here vs direct WhatsApp approach. Total peace of mind.',
  'https://picsum.photos/seed/post6/600/400',
  ARRAY['privacy','safety','tip']),
 
 (NULL, NULL,
- 'Our Wediva Event Team feature post-booking was INCREDIBLE. The photographer, decorator and caterer had a group call coordinated by Wediva — no confusion on the day at all. Every vendor knew exactly where to be.',
+ 'Our WedVow Event Team feature post-booking was INCREDIBLE. The photographer, decorator and caterer had a group call coordinated by WedVow — no confusion on the day at all. Every vendor knew exactly where to be.',
  'https://picsum.photos/seed/post7/600/400',
  ARRAY['event-team','coordination','tip','success']),
 
 (NULL, NULL,
- 'Mehendi Magic by Priya in Delhi is worth every rupee. Her team of 4 artists did the full family in 3 hours! She''s on Wediva Premium so you can trust the quality. Already referred her to 3 friends.',
+ 'Mehendi Magic by Priya in Delhi is worth every rupee. Her team of 4 artists did the full family in 3 hours! She''s on WedVow Premium so you can trust the quality. Already referred her to 3 friends.',
  'https://picsum.photos/seed/post8/600/400',
  ARRAY['delhi','mehendi','premium','referral']),
 
 (NULL, NULL,
- 'Planning an intercultural wedding (Hindu + Christian) in Mumbai. Found Vedic Vivah Pundit through Wediva — he''s done dozens of interfaith ceremonies and put us completely at ease. Platform makes finding niche vendors so easy.',
+ 'Planning an intercultural wedding (Hindu + Christian) in Mumbai. Found Vedic Vivah Pundit through WedVow — he''s done dozens of interfaith ceremonies and put us completely at ease. Platform makes finding niche vendors so easy.',
  'https://picsum.photos/seed/post9/600/400',
  ARRAY['interfaith','mumbai','pandit','intercultural']),
 
 (NULL, NULL,
- 'The Wediva Concierge plan is perfect for vendors like my Uncle who has been doing dhol for 25 years but doesn''t use smartphones. The Wediva advisor listed him and now he gets bookings through the platform without any confusion!',
+ 'The WedVow Concierge plan is perfect for vendors like my Uncle who has been doing dhol for 25 years but doesn''t use smartphones. The WedVow advisor listed him and now he gets bookings through the platform without any confusion!',
  'https://picsum.photos/seed/post10/600/400',
  ARRAY['concierge','dhol','small-vendor','chandigarh']),
 
@@ -607,21 +607,21 @@ INSERT INTO posts (vendor_id, couple_id, content, media_url, tags) VALUES
  ARRAY['kolkata','bridal-makeup','bengali','traditional']),
 
 (NULL, NULL,
- 'Hyderabad wedding inspo: Falaknuma-style banquet + Golconda Decors pearl motif setup + Dum Biryani Caterers authentic haleem. Found all three through Wediva in one afternoon. The search filters are genuinely useful.',
+ 'Hyderabad wedding inspo: Falaknuma-style banquet + Golconda Decors pearl motif setup + Dum Biryani Caterers authentic haleem. Found all three through WedVow in one afternoon. The search filters are genuinely useful.',
  'https://picsum.photos/seed/post12/600/400',
  ARRAY['hyderabad','venue','decor','biryani']),
 
 (NULL, NULL,
- 'For Bengaluru couples — Lalbagh Garden Weddings is stunning for an outdoor ceremony. The pergola is Instagram gold. Used Wediva''s city filter to shortlist Bengaluru venues in minutes. Highly recommend the platform.',
+ 'For Bengaluru couples — Lalbagh Garden Weddings is stunning for an outdoor ceremony. The pergola is Instagram gold. Used WedVow''s city filter to shortlist Bengaluru venues in minutes. Highly recommend the platform.',
  'https://picsum.photos/seed/post13/600/400',
  ARRAY['bengaluru','venue','outdoor','garden']),
 
 (NULL, NULL,
- 'Wediva reminder: the 2% commission keeps this platform alive and pays for the verification, privacy protection and Event Team coordination. Always complete deals through Wediva — it protects YOU as a couple too.',
+ 'WedVow reminder: the 2% commission keeps this platform alive and pays for the verification, privacy protection and Event Team coordination. Always complete deals through WedVow — it protects YOU as a couple too.',
  'https://picsum.photos/seed/post14/600/400',
  ARRAY['platform','commission','tip','transparency']),
 
 (NULL, NULL,
- 'Just had our sangeet in Chandigarh — Bass Culture DJ had the whole crowd going crazy with the bhangra set. Used Wediva basket to compare 3 DJs before picking them. Best decision ever. Our parents were dancing!',
+ 'Just had our sangeet in Chandigarh — Bass Culture DJ had the whole crowd going crazy with the bhangra set. Used WedVow basket to compare 3 DJs before picking them. Best decision ever. Our parents were dancing!',
  'https://picsum.photos/seed/post15/600/400',
  ARRAY['chandigarh','dj','sangeet','bhangra']);

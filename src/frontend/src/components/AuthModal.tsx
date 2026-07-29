@@ -162,7 +162,7 @@ export default function AuthModal() {
           <Heart className="w-7 h-7 text-primary-foreground/90 mx-auto mb-2" />
           <h2 className="text-xl font-display font-bold text-primary-foreground">
             {tab === "signin" && "Welcome back"}
-            {tab === "signup" && "Join Wediva"}
+            {tab === "signup" && "Join WedVow"}
             {tab === "forgot" && "Reset password"}
             {tab === "magic" && "Email link sign-in"}
           </h2>

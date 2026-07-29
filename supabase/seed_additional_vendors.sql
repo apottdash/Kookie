@@ -1,5 +1,5 @@
 -- =============================================================
--- Wediva — Additional Vendors (run after seed.sql)
+-- WedVow — Additional Vendors (run after seed.sql)
 -- Adds 47 more vendors across 10 cities to reach 147 total
 -- Does NOT truncate — safe to run on top of existing data
 -- =============================================================

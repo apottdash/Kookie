@@ -1,4 +1,4 @@
-# Wediva
+# WedVow
 
 India's trust-first wedding vendor marketplace. Connects engaged couples with verified vendors through the **Vendor Basket** shortlisting tool and exclusive inquiry leads. Launching in Jaipur — India's #1 destination wedding city.
 
@@ -47,7 +47,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Supabase Setup (Production Data)
 
-Wediva uses Supabase (PostgreSQL) for vendor listings, basket items, inquiries, and bookings.
+WedVow uses Supabase (PostgreSQL) for vendor listings, basket items, inquiries, and bookings.
 
 ### 1. Create a Supabase project
 
@@ -204,7 +204,7 @@ Kookie/
 | Standard | Enhanced visibility, inquiry access |
 | Premium | Priority listing, analytics |
 | Destination Hub | Travel-ready vendors, destination badge |
-| Concierge | Dedicated Wediva advisor manages the listing — for vendors who prefer hands-off onboarding |
+| Concierge | Dedicated WedVow advisor manages the listing — for vendors who prefer hands-off onboarding |
 
 ---
 

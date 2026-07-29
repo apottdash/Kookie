@@ -13,7 +13,7 @@ interface Message {
 const GREETING: Message = {
   role: "assistant",
   content:
-    "Namaste! 💍 I'm WediGuide, your AI wedding planning assistant from Wediva. I'm here to help you plan your dream Indian wedding — from vendor budgets to ceremony timelines.\n\nTell me — what stage of planning are you at? Or ask me anything about venues, photographers, mehendi, catering, or destination weddings! 🌸",
+    "Namaste! 💍 I'm WedVow AI, your AI wedding planning assistant from WedVow. I'm here to help you plan your dream Indian wedding — from vendor budgets to ceremony timelines.\n\nTell me — what stage of planning are you at? Or ask me anything about venues, photographers, mehendi, catering, or destination weddings! 🌸",
 };
 
 export default function WeddingPlannerBot() {
@@ -116,10 +116,10 @@ export default function WeddingPlannerBot() {
                 </div>
                 <div>
                   <p className="text-primary-foreground font-semibold text-sm leading-tight">
-                    WediGuide
+                    WedVow AI
                   </p>
                   <p className="text-primary-foreground/70 text-[10px]">
-                    AI Wedding Planner · Wediva
+                    AI Wedding Planner · WedVow
                   </p>
                 </div>
               </div>
@@ -211,7 +211,7 @@ export default function WeddingPlannerBot() {
                 </Button>
               </div>
               <p className="text-[10px] text-muted-foreground text-center mt-1.5">
-                Powered by Claude AI · Wediva
+                Powered by Claude AI · WedVow
               </p>
             </div>
           </motion.div>

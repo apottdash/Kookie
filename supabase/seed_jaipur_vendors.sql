@@ -1,5 +1,5 @@
 -- =============================================================
--- Wediva — Real Jaipur Wedding Vendor Seed Data
+-- WedVow — Real Jaipur Wedding Vendor Seed Data
 -- Run this in Supabase SQL Editor AFTER schema.sql
 -- =============================================================
 -- Sources: publicly listed vendors from JustDial, WedMeGood, WeddingWire India,

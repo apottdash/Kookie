@@ -52,7 +52,7 @@ export default function Header({ onSearch }: HeaderProps) {
             W
           </div>
           <span className="font-display font-bold text-lg text-foreground tracking-tight hidden sm:block">
-            Wedi<span className="text-primary">va</span>
+            Wed<span className="text-primary">Vow</span>
           </span>
         </a>
 
@@ -159,7 +159,7 @@ export default function Header({ onSearch }: HeaderProps) {
                   W
                 </div>
                 <span className="font-display font-bold text-lg">
-                  Wedi<span className="text-primary">va</span>
+                  Wed<span className="text-primary">Vow</span>
                 </span>
               </div>
 

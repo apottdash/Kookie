@@ -1,4 +1,4 @@
-// VendorProfilePage — repurposed from FanFictionPage for Wediva
+// VendorProfilePage — repurposed from FanFictionPage for WedVow
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -343,7 +343,7 @@ export default function VendorProfilePage() {
                       Your phone number and personal details are{" "}
                       <strong className="text-foreground">not shared</strong>{" "}
                       with this vendor until a deal is confirmed through
-                      Wediva.
+                      WedVow.
                     </span>
                   </div>
 
@@ -357,7 +357,7 @@ export default function VendorProfilePage() {
                       data-ocid="vendor_profile.terms_checkbox"
                     />
                     <span className="text-xs text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
-                      I agree to Wediva{" "}
+                      I agree to WedVow{" "}
                       <a
                         href="/pricing"
                         className="text-primary hover:underline"
@@ -365,7 +365,7 @@ export default function VendorProfilePage() {
                         Terms & Conditions
                       </a>
                       . I understand that if I arrange payment outside
-                      Wediva, the 2% platform commission remains due.
+                      WedVow, the 2% platform commission remains due.
                     </span>
                   </label>
 
