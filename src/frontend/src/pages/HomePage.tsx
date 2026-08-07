@@ -68,34 +68,14 @@ const trustStats = [
 ];
 
 const destinationHubs = [
-  {
-    name: "Jaipur",
-    desc: "Palace weddings & royal decor",
-    emoji: "🏰",
-    active: true,
-    badge: "Live Now",
-  },
-  {
-    name: "Goa",
-    desc: "Beach & resort weddings",
-    emoji: "🌊",
-    active: false,
-    badge: "Coming Soon",
-  },
-  {
-    name: "Udaipur",
-    desc: "Lake palace & heritage venues",
-    emoji: "💎",
-    active: false,
-    badge: "Coming Soon",
-  },
-  {
-    name: "Rishikesh",
-    desc: "Riverside & spiritual ceremonies",
-    emoji: "🌿",
-    active: false,
-    badge: "Coming Soon",
-  },
+  { name: "Jaipur",    desc: "Palace weddings & royal décor",          emoji: "🏰", active: true,  badge: "Live Now"     },
+  { name: "Siliguri",  desc: "Hill weddings & North Bengal charm",      emoji: "🏔️", active: true,  badge: "Live Now"     },
+  { name: "Amritsar",  desc: "Heritage & Punjabi grand weddings",       emoji: "🪔", active: true,  badge: "Live Now"     },
+  { name: "Indore",    desc: "Central India's rising wedding hub",      emoji: "🌆", active: true,  badge: "Live Now"     },
+  { name: "Goa",       desc: "Beach & resort weddings",                 emoji: "🌊", active: false, badge: "Coming Soon"  },
+  { name: "Udaipur",   desc: "Lake palace & heritage venues",           emoji: "💎", active: false, badge: "Coming Soon"  },
+  { name: "Varanasi",  desc: "Spiritual riverside ceremonies",          emoji: "🕊️", active: false, badge: "Coming Soon"  },
+  { name: "Rishikesh", desc: "Riverside & yoga-inspired ceremonies",    emoji: "🌿", active: false, badge: "Coming Soon"  },
 ];
 
 const heroPetals = [
@@ -150,7 +130,7 @@ export default function HomePage() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Badge className="bg-primary/15 text-primary border-primary/25 px-5 py-1.5 text-xs font-semibold rounded-full inline-flex items-center gap-2">
               <MapPin className="w-3 h-3" />
-              Now live in Jaipur — India's #1 destination wedding city
+              Now live across India — Jaipur, Siliguri, Amritsar & more
             </Badge>
           </motion.div>
 
@@ -161,11 +141,11 @@ export default function HomePage() {
             transition={{ delay: 0.15, duration: 0.75 }}
             className="font-display font-bold text-5xl sm:text-6xl md:text-7xl text-foreground leading-[1.08] max-w-4xl mx-auto"
           >
-            Find your perfect{" "}
-            <span className="text-primary">wedding</span>
+            India's wedding market,{" "}
             <br />
-            team,{" "}
-            <span className="text-accent italic">beautifully</span>
+            <span className="text-primary">beautifully</span>{" "}
+            organised{" "}
+            <span className="text-accent italic">by Wediva</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -175,10 +155,10 @@ export default function HomePage() {
             transition={{ delay: 0.38, duration: 0.6 }}
             className="text-muted-foreground text-lg sm:text-xl max-w-xl mx-auto leading-relaxed"
           >
-            Browse India's finest photographers, decorators, caterers and more.
-            Shortlist in your{" "}
-            <strong className="text-foreground">Vendor Basket</strong> and
-            reach out with exclusive one-to-one leads.
+            Wediva connects couples with India's finest photographers, decorators,
+            caterers and more — with a{" "}
+            <strong className="text-foreground">Vendor Basket</strong> to compare
+            and exclusive one-to-one leads that are fair for everyone.
           </motion.p>
 
           {/* Hero search pill */}
@@ -192,7 +172,7 @@ export default function HomePage() {
               <div className="flex items-center gap-3 bg-card/95 backdrop-blur-sm border border-border rounded-full px-5 py-3.5 shadow-elevated hover:shadow-hover transition-smooth cursor-pointer group">
                 <Search className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth shrink-0" />
                 <span className="text-muted-foreground text-sm flex-1 text-left truncate">
-                  Search photographers, venues, caterers in Jaipur…
+                  Search photographers, venues, caterers near you…
                 </span>
                 <div className="gradient-purple text-primary-foreground rounded-full px-5 py-2 text-sm font-semibold shrink-0 shadow-sm">
                   Search
@@ -300,7 +280,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <h2 className="font-display font-bold text-3xl text-foreground mb-3">
-              How VowVoyage Works
+              How Wediva Works
             </h2>
             <p className="text-muted-foreground text-sm max-w-md mx-auto">
               Fair for couples. Fair for vendors. Built for the Indian wedding.
@@ -342,6 +322,104 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── FOR EVERY ROLE ────────────────────────────────────── */}
+      <section className="py-20 bg-background" data-ocid="home.for_everyone_section">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <h2 className="font-display font-bold text-3xl text-foreground mb-3">
+              Wediva is for everyone in an Indian wedding
+            </h2>
+            <p className="text-muted-foreground text-sm max-w-lg mx-auto leading-relaxed">
+              Whether you're planning your big day, running a wedding business, coordinating a family event, or celebrating — Wediva has a place for you.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {[
+              {
+                emoji: "💍",
+                role: "Couples",
+                headline: "Discover your dream team",
+                points: [
+                  "Browse 200+ verified vendors across 50+ cities",
+                  "Shortlist favourites in your free Vendor Basket",
+                  "Send exclusive inquiries — no spam, no bidding wars",
+                  "Plan ceremonies: Mehendi, Haldi, Sangeet, Pheras & more",
+                ],
+                bg: "from-primary/10 to-background",
+                accent: "text-primary",
+              },
+              {
+                emoji: "📸",
+                role: "Vendors",
+                headline: "Grow your wedding business",
+                points: [
+                  "Get qualified, exclusive leads from serious couples",
+                  "Showcase your portfolio with premium profile pages",
+                  "List across multiple cities and event types",
+                  "Build trust with verified reviews and GST confirmation",
+                ],
+                bg: "from-accent/10 to-background",
+                accent: "text-accent",
+              },
+              {
+                emoji: "📋",
+                role: "Wedding Planners",
+                headline: "Organise every detail",
+                points: [
+                  "Manage vendor shortlists across multiple client weddings",
+                  "Access a curated network of destination-ready vendors",
+                  "Filter by budget, city, availability and category",
+                  "Coordinate outstation vendors for destination weddings",
+                ],
+                bg: "from-secondary/15 to-background",
+                accent: "text-secondary-foreground",
+              },
+              {
+                emoji: "🌸",
+                role: "Community",
+                headline: "Celebrate and inspire",
+                points: [
+                  "Share your wedding moments with real Indian families",
+                  "Get inspired by real Bengali, Punjabi, Marwari & South Indian weddings",
+                  "Post questions and get advice from couples who've been there",
+                  "Follow vendors and get early access to new listings",
+                ],
+                bg: "from-muted/50 to-background",
+                accent: "text-muted-foreground",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.role}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12 }}
+              >
+                <Card className={`border-border bg-gradient-to-br ${item.bg} h-full`}>
+                  <CardContent className="p-6 flex flex-col gap-4 h-full">
+                    <div className="flex items-center gap-3">
+                      <span className="text-3xl">{item.emoji}</span>
+                      <div>
+                        <p className={`text-xs font-bold uppercase tracking-wide ${item.accent}`}>{item.role}</p>
+                        <h3 className="font-display font-bold text-foreground text-base leading-snug">{item.headline}</h3>
+                      </div>
+                    </div>
+                    <ul className="space-y-2 flex-1">
+                      {item.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                          <span className="leading-snug">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FEATURED VENDORS ──────────────────────────────────── */}
       <section className="py-14 bg-background" data-ocid="home.featured_vendors_section">
         <div className="container mx-auto px-4">
@@ -349,7 +427,7 @@ export default function HomePage() {
             <div>
               <h2 className="font-display font-bold text-3xl text-foreground flex items-center gap-2">
                 <TrendingUp className="w-6 h-6 text-primary" />
-                Top Vendors in Jaipur
+                Top Vendors Across India
               </h2>
               <p className="text-muted-foreground text-sm mt-1">
                 Premium and destination-ready vendors
@@ -517,7 +595,7 @@ export default function HomePage() {
                 Real Stories from Couples & Vendors
               </h2>
               <p className="text-muted-foreground text-sm mt-1">
-                Moments that matter, shared by real VowVoyage families
+                Moments that matter, shared by real Wediva families
               </p>
             </div>
             <a
@@ -555,7 +633,7 @@ export default function HomePage() {
                         </div>
                         <div>
                           <span className="text-sm font-semibold text-foreground block">
-                            {sampleUsernames[post.author.toText()] ?? "VowVoyage Member"}
+                            {sampleUsernames[post.author.toText()] ?? "Wediva Member"}
                           </span>
                           <span className="text-xs text-muted-foreground">
                             Verified couple
@@ -611,7 +689,7 @@ export default function HomePage() {
             </h2>
             <p className="text-muted-foreground max-w-md mx-auto mb-10 text-sm leading-relaxed">
               Join couples across India planning their perfect wedding with
-              VowVoyage. Browse, compare, and book the vendors you love.
+              Wediva. Browse, compare, and book the vendors you love.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="/vendors">

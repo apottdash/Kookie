@@ -93,10 +93,10 @@ export default function Layout({ children, onSearch }: LayoutProps) {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display font-bold text-sm">
-                  V
+                  W
                 </div>
                 <span className="font-display font-bold text-base text-foreground">
-                  Vow<span className="text-primary">Voyage</span>
+                  Wedi<span className="text-primary">va</span>
                 </span>
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -150,7 +150,7 @@ export default function Layout({ children, onSearch }: LayoutProps) {
           </div>
           <div className="border-t border-border pt-4 flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-xs text-muted-foreground">
-              © {year} VowVoyage — Fair. Transparent. Trusted.
+              © {year} Wediva — Fair. Transparent. Trusted.
             </p>
             <p className="text-xs text-muted-foreground">
               Built with{" "}

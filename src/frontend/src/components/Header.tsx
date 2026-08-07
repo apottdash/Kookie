@@ -49,10 +49,10 @@ export default function Header({ onSearch }: HeaderProps) {
           data-ocid="header.logo_link"
         >
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shadow-sm group-hover:shadow-md transition-smooth text-primary-foreground font-display font-bold text-sm">
-            V
+            W
           </div>
           <span className="font-display font-bold text-lg text-foreground tracking-tight hidden sm:block">
-            Vow<span className="text-primary">Voyage</span>
+            Wedi<span className="text-primary">va</span>
           </span>
         </a>
 
@@ -156,10 +156,10 @@ export default function Header({ onSearch }: HeaderProps) {
             <div className="flex flex-col h-full">
               <div className="flex items-center gap-2 p-4 border-b border-border">
                 <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display font-bold text-sm">
-                  V
+                  W
                 </div>
                 <span className="font-display font-bold text-lg">
-                  Vow<span className="text-primary">Voyage</span>
+                  Wedi<span className="text-primary">va</span>
                 </span>
               </div>
 
