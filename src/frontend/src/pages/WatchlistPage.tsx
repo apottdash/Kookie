@@ -1,4 +1,4 @@
-// VendorBasketPage — repurposed from WatchlistPage for WedVow
+// VendorBasketPage — repurposed from WatchlistPage for Wediva
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -320,11 +320,11 @@ export default function VendorBasketPage() {
                   <div className="bg-muted/30 rounded-xl p-3 text-xs text-muted-foreground leading-relaxed">
                     💡{" "}
                     <strong className="text-foreground">
-                      WedVow guarantee:
+                      Wediva guarantee:
                     </strong>{" "}
                     Each inquiry goes exclusively to one vendor — no
                     mass-broadcast. Your contact details are protected until the
-                    deal is confirmed through WedVow.
+                    deal is confirmed through Wediva.
                   </div>
 
                   {/* Event team teaser */}
@@ -334,7 +334,7 @@ export default function VendorBasketPage() {
                       <strong className="text-foreground">
                         After booking —
                       </strong>{" "}
-                      once all deals are confirmed, WedVow can introduce your
+                      once all deals are confirmed, Wediva can introduce your
                       vendors to each other for event-day coordination.
                     </span>
                   </div>

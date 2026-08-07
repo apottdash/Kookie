@@ -145,7 +145,7 @@ export default function HomePage() {
             <br />
             <span className="text-primary">beautifully</span>{" "}
             organised{" "}
-            <span className="text-accent italic">by WedVow</span>
+            <span className="text-accent italic">by Wediva</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -155,7 +155,7 @@ export default function HomePage() {
             transition={{ delay: 0.38, duration: 0.6 }}
             className="text-muted-foreground text-lg sm:text-xl max-w-xl mx-auto leading-relaxed"
           >
-            WedVow connects couples with India's finest photographers, decorators,
+            Wediva connects couples with India's finest photographers, decorators,
             caterers and more — with a{" "}
             <strong className="text-foreground">Vendor Basket</strong> to compare
             and exclusive one-to-one leads that are fair for everyone.
@@ -280,7 +280,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <h2 className="font-display font-bold text-3xl text-foreground mb-3">
-              How WedVow Works
+              How Wediva Works
             </h2>
             <p className="text-muted-foreground text-sm max-w-md mx-auto">
               Fair for couples. Fair for vendors. Built for the Indian wedding.
@@ -327,10 +327,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <h2 className="font-display font-bold text-3xl text-foreground mb-3">
-              WedVow is for everyone in an Indian wedding
+              Wediva is for everyone in an Indian wedding
             </h2>
             <p className="text-muted-foreground text-sm max-w-lg mx-auto leading-relaxed">
-              Whether you're planning your big day, running a wedding business, coordinating a family event, or celebrating — WedVow has a place for you.
+              Whether you're planning your big day, running a wedding business, coordinating a family event, or celebrating — Wediva has a place for you.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
@@ -595,7 +595,7 @@ export default function HomePage() {
                 Real Stories from Couples & Vendors
               </h2>
               <p className="text-muted-foreground text-sm mt-1">
-                Moments that matter, shared by real WedVow families
+                Moments that matter, shared by real Wediva families
               </p>
             </div>
             <a
@@ -633,7 +633,7 @@ export default function HomePage() {
                         </div>
                         <div>
                           <span className="text-sm font-semibold text-foreground block">
-                            {sampleUsernames[post.author.toText()] ?? "WedVow Member"}
+                            {sampleUsernames[post.author.toText()] ?? "Wediva Member"}
                           </span>
                           <span className="text-xs text-muted-foreground">
                             Verified couple
@@ -689,7 +689,7 @@ export default function HomePage() {
             </h2>
             <p className="text-muted-foreground max-w-md mx-auto mb-10 text-sm leading-relaxed">
               Join couples across India planning their perfect wedding with
-              WedVow. Browse, compare, and book the vendors you love.
+              Wediva. Browse, compare, and book the vendors you love.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="/vendors">

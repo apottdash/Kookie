@@ -1,4 +1,4 @@
-// PricingPage — WedVow vendor subscription plans
+// PricingPage — Wediva vendor subscription plans
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -86,7 +86,7 @@ const plans = [
     id: "agent",
     name: "Concierge",
     price: 2000,
-    tagline: "WedVow runs it all for you",
+    tagline: "Wediva runs it all for you",
     color: "border-purple-400/50 bg-purple-50/30 dark:bg-purple-950/10",
     badge: "For Offline Vendors",
     buttonVariant: "default" as const,
@@ -187,7 +187,7 @@ const features: PlanFeature[] = [
     agentManaged: "3 cities",
   },
   {
-    label: "Dedicated WedVow advisor",
+    label: "Dedicated Wediva advisor",
     free: false,
     standard: false,
     premium: false,
@@ -227,7 +227,7 @@ const features: PlanFeature[] = [
     agentManaged: true,
   },
   {
-    label: "WedVow commission",
+    label: "Wediva commission",
     free: "3%",
     standard: "2%",
     premium: "2%",
@@ -282,7 +282,7 @@ export default function PricingPage() {
               Choose the plan that grows with your business
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              All plans include WedVow trust infrastructure: verified
+              All plans include Wediva trust infrastructure: verified
               profiles, contact protection, and exclusive inquiry routing.
               Prices are per month, billed monthly.
             </p>
@@ -469,7 +469,7 @@ export default function PricingPage() {
                 </div>
                 <p className="text-white/80 text-sm">
                   Not comfortable with social media or digital marketing?
-                  WedVow assigns a dedicated advisor who handles everything —
+                  Wediva assigns a dedicated advisor who handles everything —
                   so you focus on your craft.
                 </p>
               </div>
@@ -478,7 +478,7 @@ export default function PricingPage() {
                   {
                     icon: Headphones,
                     title: "Dedicated account advisor",
-                    desc: "One WedVow advisor manages your profile, responds to inquiries, and coordinates with couples — all via WhatsApp.",
+                    desc: "One Wediva advisor manages your profile, responds to inquiries, and coordinates with couples — all via WhatsApp.",
                   },
                   {
                     icon: BarChart2,
@@ -493,7 +493,7 @@ export default function PricingPage() {
                   {
                     icon: MapPin,
                     title: "Annual business shoot",
-                    desc: "A WedVow photographer visits to capture fresh portfolio photos for your listing.",
+                    desc: "A Wediva photographer visits to capture fresh portfolio photos for your listing.",
                   },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-3">
@@ -525,17 +525,17 @@ export default function PricingPage() {
                 <div className="flex items-center gap-2">
                   <Shield className="w-5 h-5 text-primary" />
                   <h3 className="font-display font-semibold text-foreground">
-                    WedVow Platform Terms
+                    Wediva Platform Terms
                   </h3>
                 </div>
                 <Separator />
                 <ul className="flex flex-col gap-2">
                   {[
-                    "All vendor plans include contact protection — couple's phone and personal details are never shared until a deal is confirmed through WedVow.",
-                    "Vendors may not contact couples outside WedVow before the booking is confirmed on the platform.",
-                    "By registering, vendors agree to WedVow's commission structure. If a couple introduced via WedVow settles payment outside the platform, WedVow reserves the right to claim the applicable commission and take legal action under applicable Indian contract law.",
+                    "All vendor plans include contact protection — couple's phone and personal details are never shared until a deal is confirmed through Wediva.",
+                    "Vendors may not contact couples outside Wediva before the booking is confirmed on the platform.",
+                    "By registering, vendors agree to Wediva's commission structure. If a couple introduced via Wediva settles payment outside the platform, Wediva reserves the right to claim the applicable commission and take legal action under applicable Indian contract law.",
                     "Vendors on all plans see only their own leads. Shortlists and comparison activity by couples are private and never disclosed to vendors.",
-                    "After a booking is confirmed, WedVow facilitates optional Event Team coordination — allowing confirmed vendors for the same wedding to communicate through the platform.",
+                    "After a booking is confirmed, Wediva facilitates optional Event Team coordination — allowing confirmed vendors for the same wedding to communicate through the platform.",
                   ].map((point) => (
                     <li
                       key={point}
@@ -556,7 +556,7 @@ export default function PricingPage() {
                   Not sure which plan is right?
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  WhatsApp us and a WedVow advisor will recommend the best
+                  WhatsApp us and a Wediva advisor will recommend the best
                   fit for your business type and city.
                 </p>
                 <Button className="bg-primary text-primary-foreground mx-auto gap-2">

@@ -1,5 +1,5 @@
 {
-  "overview": "WedVow is India's trusted wedding vendor marketplace. Couples discover and shortlist verified photographers, decorators, caterers, mehendi artists, venues, and more across 10+ Indian cities. Features include city and category filtering, a private Vendor Basket for shortlisting, destination wedding support, a community feed, vendor self-registration, and subscription plans including a Concierge tier where WedVow advisors manage the vendor's entire digital presence.",
+  "overview": "Wediva is India's trusted wedding vendor marketplace. Couples discover and shortlist verified photographers, decorators, caterers, mehendi artists, venues, and more across 10+ Indian cities. Features include city and category filtering, a private Vendor Basket for shortlisting, destination wedding support, a community feed, vendor self-registration, and subscription plans including a Concierge tier where Wediva advisors manage the vendor's entire digital presence.",
   "features": [
     "Browse verified wedding vendors by city and category",
     "Vendor Basket — private shortlist with notes, invisible to vendors",
@@ -7,7 +7,7 @@
     "Community feed — share wedding journeys, tips, and experiences",
     "Vendor self-registration with 3-step onboarding flow",
     "Five subscription plans: Free, Standard, Premium, Destination Hub, Concierge",
-    "Concierge plan — dedicated WedVow advisor handles profile, leads, and social media for the vendor",
+    "Concierge plan — dedicated Wediva advisor handles profile, leads, and social media for the vendor",
     "Admin panel for managing platform content and community posts",
     "Onboarding modal for new users (city, role, language preferences)",
     "Supabase backend with fallback to local sample data"

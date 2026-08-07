@@ -69,7 +69,7 @@ const sampleLinks: Link[] = [
   {
     id: BigInt(6),
     title: "Vendor Spotlight: Ravi Photography — Jaipur",
-    description: "Meet WedVow verified photographer Ravi Sharma — portfolio highlights & packages",
+    description: "Meet Wediva verified photographer Ravi Sharma — portfolio highlights & packages",
     url: "https://www.youtube.com",
     platform: { __kind__: "YouTube", YouTube: null },
     category: "FANFICTION" as unknown as Category,
@@ -111,8 +111,8 @@ const sampleLinks: Link[] = [
 const samplePosts: PostView[] = [
   {
     id: BigInt(0),
-    content: "Just finalised our photographer for our Jaipur wedding and couldn't be happier! Found them through WedVow and the whole process was so smooth. Highly recommend! 🌸 #WedVow #JaipurWedding",
-    hashtags: ["WedVow", "JaipurWedding"],
+    content: "Just finalised our photographer for our Jaipur wedding and couldn't be happier! Found them through Wediva and the whole process was so smooth. Highly recommend! 🌸 #Wediva #JaipurWedding",
+    hashtags: ["Wediva", "JaipurWedding"],
     createdAt: now,
     author: samplePrincipal,
     likesCount: BigInt(142),
@@ -120,7 +120,7 @@ const samplePosts: PostView[] = [
   },
   {
     id: BigInt(1),
-    content: "Destination wedding at Udaipur Lake Pichola is now officially on our list! Any vendor recommendations? The WedVow vendor basket is making shortlisting so much easier 💍 #UdaipurWedding #DestinationWedding",
+    content: "Destination wedding at Udaipur Lake Pichola is now officially on our list! Any vendor recommendations? The Wediva vendor basket is making shortlisting so much easier 💍 #UdaipurWedding #DestinationWedding",
     hashtags: ["UdaipurWedding", "DestinationWedding"],
     createdAt: now - BigInt(3600_000_000_000),
     author: samplePrincipal,
@@ -129,8 +129,8 @@ const samplePosts: PostView[] = [
   },
   {
     id: BigInt(2),
-    content: "Pro tip for couples: always compare at least 3 vendors before confirming! WedVow's vendor basket lets you do exactly that — side-by-side pricing, no pressure. 🙌 #WeddingTips #WedVow",
-    hashtags: ["WeddingTips", "WedVow"],
+    content: "Pro tip for couples: always compare at least 3 vendors before confirming! Wediva's vendor basket lets you do exactly that — side-by-side pricing, no pressure. 🙌 #WeddingTips #Wediva",
+    hashtags: ["WeddingTips", "Wediva"],
     createdAt: now - BigInt(7200_000_000_000),
     author: samplePrincipal,
     likesCount: BigInt(56),
@@ -193,9 +193,9 @@ export const mockBackend: backendInterface = {
   },
   getPost: async (id) => samplePosts.find(p => p.id === id) ?? null,
   getProfile: async () => ({
-    bio: "Planning our dream wedding with WedVow 💍",
+    bio: "Planning our dream wedding with Wediva 💍",
     principal: samplePrincipal,
-    username: "WedVowMember",
+    username: "WedivaMember",
     joinedAt: now - BigInt(86400_000_000_000 * 30),
     subtitlePreference: false,
     profileCompleted: true,

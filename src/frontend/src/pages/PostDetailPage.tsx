@@ -35,7 +35,7 @@ const sampleComments = [
   {
     id: 2,
     author: "DelhiCouple",
-    content: "WedVow made vendor shortlisting so much easier. Highly recommend!",
+    content: "Wediva made vendor shortlisting so much easier. Highly recommend!",
     time: "5h ago",
   },
   {
@@ -116,7 +116,7 @@ export default function PostDetailPage() {
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(Number(post.likesCount));
 
-  const username = sampleUsernames[post.author.toText()] ?? "WedVow Member";
+  const username = sampleUsernames[post.author.toText()] ?? "Wediva Member";
   const initials = username.slice(0, 2).toUpperCase();
 
   const handleLike = () => {
@@ -189,7 +189,7 @@ export default function PostDetailPage() {
                 <div>
                   <p className="font-semibold text-foreground">{username}</p>
                   <p className="text-xs text-muted-foreground">
-                    WedVow Member
+                    Wediva Member
                   </p>
                 </div>
               </div>

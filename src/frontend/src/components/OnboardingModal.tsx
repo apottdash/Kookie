@@ -157,7 +157,7 @@ export default function OnboardingModal({ onComplete, onSkip }: OnboardingModalP
           </button>
           <Heart className="w-7 h-7 text-primary-foreground/90 mx-auto mb-1.5" />
           <h2 id="onboarding-title" className="text-xl font-display font-bold text-primary-foreground mb-1">
-            Welcome to WedVow
+            Welcome to Wediva
           </h2>
           {/* Step indicator */}
           <div className="flex items-center justify-center gap-2 mt-2">

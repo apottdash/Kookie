@@ -1,4 +1,4 @@
-// DestinationPage — repurposed from SongsPage for WedVow
+// DestinationPage — repurposed from SongsPage for Wediva
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -99,7 +99,7 @@ export default function DestinationPage() {
               Destination Wedding Hubs
             </h1>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              WedVow connects you with travel-ready vendors in India's most
+              Wediva connects you with travel-ready vendors in India's most
               iconic wedding destinations. Average destination spend: ₹58 Lakh.
             </p>
           </motion.div>

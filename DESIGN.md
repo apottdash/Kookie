@@ -1,7 +1,7 @@
-# Design Brief: WedVow — India Wedding Vendor Marketplace
+# Design Brief: Wediva — India Wedding Vendor Marketplace
 
 ## Concept
-WedVow is a trust-first wedding vendor marketplace targeting the Indian market. It eliminates chaos between couples and vendors through transparent discovery, the Vendor Basket shortlisting tool, and exclusive leads. Launched in Jaipur — India's #1 destination wedding city — with India-first features: UPI pricing, WhatsApp integration, multi-day event support, and regional language readiness.
+Wediva is a trust-first wedding vendor marketplace targeting the Indian market. It eliminates chaos between couples and vendors through transparent discovery, the Vendor Basket shortlisting tool, and exclusive leads. Launched in Jaipur — India's #1 destination wedding city — with India-first features: UPI pricing, WhatsApp integration, multi-day event support, and regional language readiness.
 
 ## Tone & Differentiation
 Warm, confident, culturally rooted. Celebrates the grandeur of Indian weddings without feeling overwhelming. Empowers couples to plan with clarity and vendors to showcase with pride. The purple brand identity evokes royalty, love, and the Rajasthani palace aesthetic — a natural fit for Jaipur.
@@ -9,7 +9,7 @@ Warm, confident, culturally rooted. Celebrates the grandeur of Indian weddings w
 ## Color Palette
 | Role | Light | Dark |
 | --- | --- | --- |
-| Primary (WedVow Purple) | L 0.48 C 0.22 H 290 | L 0.70 C 0.25 H 290 |
+| Primary (Wediva Purple) | L 0.48 C 0.22 H 290 | L 0.70 C 0.25 H 290 |
 | Secondary (Lavender) | L 0.70 C 0.18 H 290 | L 0.55 C 0.22 H 290 |
 | Accent (Vibrant Lavender) | L 0.65 C 0.24 H 290 | L 0.75 C 0.28 H 290 |
 | Muted (Soft Purple) | L 0.88 C 0.02 H 290 | L 0.26 C 0.02 H 290 |
@@ -39,14 +39,14 @@ Warm, confident, culturally rooted. Celebrates the grandeur of Indian weddings w
 | `VendorCard` | Vendor listing card with basket toggle, rating, price, trust signals |
 | `VendorCard (basket)` | Same card used in browse, homepage, and destination hub |
 | `Navigation` | Basket item count badge on nav + mobile bottom nav |
-| `Header` | WedVow logo, search, basket icon with count, auth |
+| `Header` | Wediva logo, search, basket icon with count, auth |
 | `Layout` | Footer with couple/vendor links, sticky bottom mobile nav |
 | `OnboardingModal` | City, user type (Couple/Vendor/Planner), language, WhatsApp notifications |
 
 ## Structural Zones
 | Zone | Treatment |
 | --- | --- |
-| Header | Sticky, bg-card with border-b; WedVow logo (W icon + wordmark); search; basket count badge; auth |
+| Header | Sticky, bg-card with border-b; Wediva logo (W icon + wordmark); search; basket count badge; auth |
 | Hero (Homepage) | Gradient bg-primary/10 → background; centered headline + CTAs + trust stats |
 | Filter Bar (Browse) | Sticky top-16; category pill filters + destination toggle + search |
 | Vendor Cards | Cover image (h-44) + category badge + plan badge + travel-ready badge + rating + price + basket button |
