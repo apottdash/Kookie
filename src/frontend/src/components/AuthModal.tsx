@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Heart, Loader2, Mail, X } from "lucide-react";
+import { Heart, Loader2, Mail, Shield, X } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useAuth } from "../contexts/AuthContext";
@@ -18,6 +18,7 @@ export default function AuthModal() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [magicSent, setMagicSent] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const clearError = () => setError(null);
 
@@ -235,12 +236,30 @@ export default function AuthModal() {
                 <Input type="text" placeholder="Your name (or couple names)" value={name} onChange={(e) => setName(e.target.value)} autoFocus />
                 <Input type="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <Input type="password" placeholder="Create a password (min 6 chars)" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
-                <Button type="submit" className="w-full gradient-purple text-primary-foreground" disabled={loading}>
+                {/* T&C consent — must tick before account creation */}
+                <div className="flex items-start gap-2 bg-primary/5 rounded-xl p-3 border border-primary/15">
+                  <Shield className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                  <label className="flex items-start gap-2 cursor-pointer text-xs text-muted-foreground leading-relaxed">
+                    <input
+                      type="checkbox"
+                      checked={agreedToTerms}
+                      onChange={(e) => setAgreedToTerms(e.target.checked)}
+                      className="mt-0.5 accent-primary shrink-0"
+                      data-ocid="signup.terms_checkbox"
+                    />
+                    <span>
+                      I agree to Wediva's{" "}
+                      <a href="/terms" className="text-primary hover:underline font-medium" target="_blank">
+                        Terms & Conditions
+                      </a>
+                      . I understand that all dealings with vendors discovered through Wediva must be conducted through the platform.{" "}
+                      <strong className="text-foreground">Arranging off-platform deals is a breach of these terms and is subject to a penalty fee.</strong>
+                    </span>
+                  </label>
+                </div>
+                <Button type="submit" className="w-full gradient-purple text-primary-foreground" disabled={loading || !agreedToTerms}>
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Create Account 💍"}
                 </Button>
-                <p className="text-[10px] text-muted-foreground text-center">
-                  By creating an account you agree to our Terms & Privacy Policy
-                </p>
               </form>
             </>
           )}

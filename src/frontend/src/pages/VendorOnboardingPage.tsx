@@ -565,9 +565,11 @@ export default function VendorOnboardingPage() {
                   <div className="flex items-start gap-2 text-xs text-muted-foreground bg-muted/30 rounded-xl p-3">
                     <Shield className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                     <span>
-                      <strong className="text-foreground">Wediva T&C:</strong>{" "}
-                      Your contact details are never shared with couples until a deal is confirmed. A{" "}
-                      <strong className="text-foreground">2% commission</strong> is due on all bookings originated through Wediva, including those settled outside the platform. Bypassing Wediva after an introduction may result in legal action.
+                      <strong className="text-foreground">Wediva Vendor Agreement:</strong>{" "}
+                      Your contact details are never shared with couples until a deal is confirmed through Wediva. A{" "}
+                      <strong className="text-foreground">2% platform commission</strong> is due on all bookings that originate through Wediva.{" "}
+                      <strong className="text-foreground">Completing any deal outside Wediva with a couple introduced through the platform is a breach of contract and will be subject to a penalty fine</strong>{" "}
+                      in addition to the full commission owed. Repeated violations may result in removal from the platform and legal action.
                     </span>
                   </div>
 
@@ -580,7 +582,11 @@ export default function VendorOnboardingPage() {
                       data-ocid="vendor_reg.agree_terms"
                     />
                     <span>
-                      I agree to the Wediva Terms & Conditions, including the commission and contact-release policy.
+                      I agree to Wediva's{" "}
+                      <a href="/terms" className="text-primary hover:underline" target="_blank">
+                        Vendor Terms & Conditions
+                      </a>
+                      . I confirm I will not conduct any business, negotiate, or accept payment from couples introduced to me through Wediva outside the platform. I understand that any breach is subject to a penalty fine and removal from the platform.
                     </span>
                   </label>
 

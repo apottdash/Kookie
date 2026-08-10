@@ -2,7 +2,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MapPin, Plane, Search, X } from "lucide-react";
+import { MapPin, Plane, Search, SlidersHorizontal, Star, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import VendorCard from "../components/VendorCard";
@@ -41,13 +41,34 @@ export default function BrowseVendorsPage() {
   });
   const [activeCity, setActiveCity] = useState<string | "ALL">("ALL");
   const [destinationOnly, setDestinationOnly] = useState(false);
+  const [maxBudget, setMaxBudget] = useState<number | null>(null);
+  const [minRating, setMinRating] = useState<number | null>(null);
+  const [sortBy, setSortBy] = useState<"default" | "price_asc" | "price_desc" | "rating">("default");
 
-  const { vendors, loading } = useVendors({
+  const budgetOptions = [
+    { label: "Any Budget", value: null },
+    { label: "Under ₹25K", value: 25000 },
+    { label: "Under ₹1L", value: 100000 },
+    { label: "Under ₹5L", value: 500000 },
+  ];
+
+  const { vendors: rawVendors, loading } = useVendors({
     category: activeCategory !== "ALL" ? activeCategory : undefined,
     city: activeCity !== "ALL" ? activeCity : undefined,
     isDestinationReady: destinationOnly ? true : undefined,
     search: search || undefined,
   });
+
+  // Client-side budget, rating and sort filters
+  const vendors = rawVendors
+    .filter((v) => maxBudget === null || v.startingPrice <= maxBudget)
+    .filter((v) => minRating === null || v.rating >= minRating)
+    .sort((a, b) => {
+      if (sortBy === "price_asc") return a.startingPrice - b.startingPrice;
+      if (sortBy === "price_desc") return b.startingPrice - a.startingPrice;
+      if (sortBy === "rating") return b.rating - a.rating;
+      return 0;
+    });
 
   const cities = useDistinctCities();
 
@@ -55,6 +76,9 @@ export default function BrowseVendorsPage() {
     activeCategory !== "ALL" ||
     activeCity !== "ALL" ||
     destinationOnly ||
+    maxBudget !== null ||
+    minRating !== null ||
+    sortBy !== "default" ||
     !!search;
 
   const clearAllFilters = () => {
@@ -62,6 +86,9 @@ export default function BrowseVendorsPage() {
     setActiveCategory("ALL");
     setActiveCity("ALL");
     setDestinationOnly(false);
+    setMaxBudget(null);
+    setMinRating(null);
+    setSortBy("default");
   };
 
   return (
@@ -154,6 +181,49 @@ export default function BrowseVendorsPage() {
               <Plane className="w-3 h-3" />
               Travel Ready
             </button>
+          </div>
+
+          {/* Budget & Rating & Sort */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
+            <SlidersHorizontal className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+            {budgetOptions.map((opt) => (
+              <button
+                key={String(opt.value)}
+                type="button"
+                onClick={() => setMaxBudget(opt.value)}
+                className={`filter-pill shrink-0 ${maxBudget === opt.value ? "filter-pill-active" : "filter-pill-inactive"}`}
+              >
+                {opt.label}
+              </button>
+            ))}
+            <div className="w-px h-5 bg-border shrink-0 mx-1" />
+            <Star className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+            {[{ label: "Any Rating", value: null }, { label: "4★+", value: 4 }, { label: "4.5★+", value: 4.5 }].map((opt) => (
+              <button
+                key={String(opt.value)}
+                type="button"
+                onClick={() => setMinRating(opt.value)}
+                className={`filter-pill shrink-0 ${minRating === opt.value ? "filter-pill-active" : "filter-pill-inactive"}`}
+              >
+                {opt.label}
+              </button>
+            ))}
+            <div className="w-px h-5 bg-border shrink-0 mx-1" />
+            {[
+              { label: "Sort: Default", value: "default" as const },
+              { label: "Price ↑", value: "price_asc" as const },
+              { label: "Price ↓", value: "price_desc" as const },
+              { label: "Top Rated", value: "rating" as const },
+            ].map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => setSortBy(opt.value)}
+                className={`filter-pill shrink-0 ${sortBy === opt.value ? "filter-pill-active" : "filter-pill-inactive"}`}
+              >
+                {opt.label}
+              </button>
+            ))}
           </div>
         </div>
       </section>

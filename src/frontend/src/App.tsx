@@ -23,6 +23,7 @@ const AdminPage = lazy(() => import("./pages/AdminPage"));
 const VendorBasketPage = lazy(() => import("./pages/WatchlistPage"));
 const PricingPage = lazy(() => import("./pages/PricingPage"));
 const VendorOnboardingPage = lazy(() => import("./pages/VendorOnboardingPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
 
 function PageSkeleton() {
   return (
@@ -113,6 +114,12 @@ const vendorOnboardingRoute = createRoute({
   component: VendorOnboardingPage,
 });
 
+const termsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/terms",
+  component: TermsPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   vendorsRoute,
@@ -125,6 +132,7 @@ const routeTree = rootRoute.addChildren([
   adminRoute,
   pricingRoute,
   vendorOnboardingRoute,
+  termsRoute,
 ]);
 
 const router = createRouter({ routeTree });

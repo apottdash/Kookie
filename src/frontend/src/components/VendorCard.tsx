@@ -157,10 +157,14 @@ export default function VendorCard({
               </span>
             )}
             {vendor.whatsappActive && (
-              <span className="flex items-center gap-1 text-[10px] text-green-600 font-medium">
+              <a
+                href={`/vendors/${vendor.id}`}
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-1 text-[10px] text-green-600 font-medium bg-green-50 dark:bg-green-950/30 px-2 py-0.5 rounded-full hover:bg-green-100 dark:hover:bg-green-900/40 transition-smooth"
+              >
                 <MessageCircle className="w-3 h-3" />
                 WhatsApp
-              </span>
+              </a>
             )}
           </div>
           {showBasketButton && (

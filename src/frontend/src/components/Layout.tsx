@@ -150,7 +150,8 @@ export default function Layout({ children, onSearch }: LayoutProps) {
           </div>
           <div className="border-t border-border pt-4 flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-xs text-muted-foreground">
-              © {year} Wediva — Fair. Transparent. Trusted.
+              © {year} Wediva — Fair. Transparent. Trusted. ·{" "}
+              <a href="/terms" className="hover:text-primary transition-smooth">Terms & Conditions</a>
             </p>
             <p className="text-xs text-muted-foreground">
               Built with{" "}

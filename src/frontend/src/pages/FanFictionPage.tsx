@@ -357,15 +357,13 @@ export default function VendorProfilePage() {
                       data-ocid="vendor_profile.terms_checkbox"
                     />
                     <span className="text-xs text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
-                      I agree to Wediva{" "}
-                      <a
-                        href="/pricing"
-                        className="text-primary hover:underline"
-                      >
+                      I agree to Wediva's{" "}
+                      <a href="/terms" className="text-primary hover:underline">
                         Terms & Conditions
                       </a>
-                      . I understand that if I arrange payment outside
-                      Wediva, the 2% platform commission remains due.
+                      .{" "}
+                      <strong className="text-foreground">I will not arrange any deal, payment, or service directly with this vendor outside Wediva.</strong>{" "}
+                      Off-platform transactions are a breach of terms and subject to a penalty fee.
                     </span>
                   </label>
 
