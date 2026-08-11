@@ -14,6 +14,7 @@ import {
   Users,
 } from "lucide-react";
 import { motion } from "motion/react";
+import RecommendedVendors from "../components/RecommendedVendors";
 import VendorCard from "../components/VendorCard";
 import {
   samplePosts,
@@ -459,6 +460,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── PERSONALISED RECOMMENDATIONS ──────────────────────── */}
+      <RecommendedVendors show={["forYou"]} limit={6} />
 
       {/* ── DESTINATION HUBS ──────────────────────────────────── */}
       <section className="py-14 bg-muted/30" data-ocid="home.destinations_section">

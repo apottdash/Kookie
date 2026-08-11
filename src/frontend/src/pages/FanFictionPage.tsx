@@ -17,12 +17,11 @@ import {
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import VendorCard from "../components/VendorCard";
+import RecommendedVendors from "../components/RecommendedVendors";
 import { sampleVendors } from "../data/sampleData";
 import { useBasket } from "../hooks/useBasket";
 import {
   fetchVendorById,
-  fetchVendors,
   isSupabaseConfigured,
 } from "../lib/supabase";
 import type { Vendor } from "../types";
@@ -67,7 +66,6 @@ export default function VendorProfilePage() {
   const { addToBasket, removeFromBasket, isInBasket } = useBasket();
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [vendor, setVendor] = useState<Vendor | null>(null);
-  const [relatedVendors, setRelatedVendors] = useState<Vendor[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -81,13 +79,6 @@ export default function VendorProfilePage() {
         const v = sampleVendors.find((v) => v.id === id) ?? null;
         if (!cancelled) {
           setVendor(v);
-          if (v) {
-            setRelatedVendors(
-              sampleVendors
-                .filter((x) => x.category === v.category && x.id !== id)
-                .slice(0, 3),
-            );
-          }
           setLoading(false);
         }
         return;
@@ -97,27 +88,9 @@ export default function VendorProfilePage() {
         const v = await fetchVendorById(id);
         if (cancelled) return;
         setVendor(v);
-        if (v) {
-          const related = await fetchVendors({
-            category: v.category,
-            limit: 4,
-          });
-          if (!cancelled) {
-            setRelatedVendors(related.filter((x) => x.id !== id).slice(0, 3));
-          }
-        }
       } catch {
         const v = sampleVendors.find((x) => x.id === id) ?? null;
-        if (!cancelled) {
-          setVendor(v);
-          if (v) {
-            setRelatedVendors(
-              sampleVendors
-                .filter((x) => x.category === v.category && x.id !== id)
-                .slice(0, 3),
-            );
-          }
-        }
+        if (!cancelled) setVendor(v);
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -406,22 +379,13 @@ export default function VendorProfilePage() {
         </div>
       </section>
 
-      {relatedVendors.length > 0 && (
-        <section className="py-10 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <h2 className="font-display font-bold text-xl text-foreground mb-5">
-              More {vendor.category}s in {vendor.city}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {relatedVendors.map((v) => (
-                <a key={v.id} href={`/vendors/${v.id}`}>
-                  <VendorCard vendor={v} />
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <RecommendedVendors
+        excludeId={vendor.id}
+        browsingCategory={vendor.category}
+        browsingCity={vendor.city}
+        show={["similar", "crossCategory"]}
+        limit={3}
+      />
     </div>
   );
 }
