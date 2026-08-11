@@ -10,10 +10,12 @@ import {
   Search,
   ShoppingBasket,
   Star,
+  Store,
   TrendingUp,
   Users,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useAuth } from "../contexts/AuthContext";
 import RecommendedVendors from "../components/RecommendedVendors";
 import VendorCard from "../components/VendorCard";
 import {
@@ -94,6 +96,8 @@ function formatCount(n: bigint): string {
 }
 
 export default function HomePage() {
+  const { isLoggedIn, login } = useAuth();
+
   return (
     <div className="pb-20 md:pb-0 overflow-x-hidden">
 
@@ -227,6 +231,129 @@ export default function HomePage() {
           <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary/30" />
         </div>
       </div>
+
+      {/* ── PORTAL CHOICE ─────────────────────────────────────── */}
+      <section className="py-16 bg-background" data-ocid="home.portal_section">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="font-display font-bold text-3xl text-foreground mb-2">
+              Two portals, one platform
+            </h2>
+            <p className="text-muted-foreground text-sm max-w-md mx-auto">
+              Planning a wedding or running a wedding business? Wediva is built for both.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Couples portal */}
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="border-primary/30 bg-gradient-to-br from-primary/12 to-background h-full ring-1 ring-primary/20">
+                <CardContent className="p-7 flex flex-col gap-5 h-full">
+                  <div className="flex items-center gap-3">
+                    <div className="w-14 h-14 rounded-2xl gradient-purple flex items-center justify-center shadow-elevated text-3xl shrink-0">
+                      💍
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-primary uppercase tracking-wide">For Couples</p>
+                      <h3 className="font-display font-bold text-foreground text-xl leading-tight">Planning your wedding?</h3>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Discover verified photographers, decorators, venues, caterers and more. Shortlist in your Vendor Basket and book with full confidence.
+                  </p>
+                  <ul className="space-y-2 flex-1">
+                    {[
+                      "Free to use — always",
+                      "Browse 200+ verified vendors",
+                      "Compare in your Vendor Basket",
+                      "Exclusive one-to-one inquiries",
+                    ].map((point) => (
+                      <li key={point} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col gap-2 pt-1">
+                    <a href="/vendors">
+                      <Button className="w-full bg-primary text-primary-foreground gap-2 rounded-full" data-ocid="home.portal_couple_browse">
+                        <Search className="w-4 h-4" />
+                        Browse Vendors
+                      </Button>
+                    </a>
+                    {!isLoggedIn && (
+                      <Button
+                        variant="outline"
+                        className="w-full border-primary/30 text-primary hover:bg-primary/8 rounded-full"
+                        onClick={login}
+                        data-ocid="home.portal_couple_signup"
+                      >
+                        Create Free Account
+                      </Button>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Vendors portal */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card className="border-accent/30 bg-gradient-to-br from-accent/10 to-background h-full ring-1 ring-accent/20">
+                <CardContent className="p-7 flex flex-col gap-5 h-full">
+                  <div className="flex items-center gap-3">
+                    <div className="w-14 h-14 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center shadow-sm text-3xl shrink-0">
+                      📸
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-accent uppercase tracking-wide">For Vendors</p>
+                      <h3 className="font-display font-bold text-foreground text-xl leading-tight">Running a wedding business?</h3>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Get exclusive, qualified leads from serious couples. No bid wars, no shared spam — one inquiry goes to one vendor. Fair and transparent.
+                  </p>
+                  <ul className="space-y-2 flex-1">
+                    {[
+                      "Exclusive leads — no shared blasts",
+                      "GST-verified profile & real reviews",
+                      "Plans from Free to Concierge",
+                      "2% commission only on confirmed bookings",
+                    ].map((point) => (
+                      <li key={point} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <CheckCircle className="w-3.5 h-3.5 text-accent shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col gap-2 pt-1">
+                    <a href="/vendor-register">
+                      <Button className="w-full gap-2 rounded-full bg-accent text-accent-foreground hover:bg-accent/90" data-ocid="home.portal_vendor_register">
+                        <Store className="w-4 h-4" />
+                        List My Services
+                      </Button>
+                    </a>
+                    <a href="/pricing">
+                      <Button variant="outline" className="w-full border-accent/30 text-accent hover:bg-accent/8 rounded-full" data-ocid="home.portal_vendor_plans">
+                        View Vendor Plans
+                      </Button>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* ── CATEGORIES ────────────────────────────────────────── */}
       <section className="py-16 bg-background" data-ocid="home.categories_section">

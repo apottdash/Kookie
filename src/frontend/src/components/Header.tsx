@@ -8,6 +8,7 @@ import {
   Menu,
   Search,
   ShoppingBasket,
+  Store,
   User,
   X,
 } from "lucide-react";
@@ -93,6 +94,18 @@ export default function Header({ onSearch }: HeaderProps) {
             </span>
           )}
         </a>
+
+        {/* For Vendors — desktop only, non-logged-in */}
+        {!isLoggedIn && (
+          <a
+            href="/vendor-register"
+            className="hidden md:flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-smooth shrink-0 whitespace-nowrap"
+            data-ocid="header.vendor_register_link"
+          >
+            <Store className="w-3.5 h-3.5" />
+            For Vendors
+          </a>
+        )}
 
         {/* Auth Button */}
         <div className="flex items-center gap-2 ml-auto md:ml-0 shrink-0">
@@ -188,6 +201,18 @@ export default function Header({ onSearch }: HeaderProps) {
                   onNavigate={() => setMobileMenuOpen(false)}
                 />
               </nav>
+
+              {/* Vendor CTA — mobile */}
+              {!isLoggedIn && (
+                <div className="px-4 pb-3">
+                  <a href="/vendor-register">
+                    <Button variant="outline" size="sm" className="w-full gap-2 border-accent/40 text-accent hover:bg-accent/8">
+                      <Store className="w-4 h-4" />
+                      List Your Wedding Business
+                    </Button>
+                  </a>
+                </div>
+              )}
 
               {/* Mobile Auth */}
               <div className="p-4 border-t border-border">
